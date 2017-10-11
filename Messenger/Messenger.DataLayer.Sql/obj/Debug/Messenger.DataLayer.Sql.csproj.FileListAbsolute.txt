@@ -1,0 +1,9 @@
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\obj\Debug\Messenger.DataLayer.Sql.csprojResolveAssemblyReference.cache
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.DataLayer.Sql.dll
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.DataLayer.Sql.pdb
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.DataLayer.dll
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.Model.dll
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.DataLayer.pdb
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\bin\Debug\Messenger.Model.pdb
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\obj\Debug\Messenger.DataLayer.Sql.dll
+c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.DataLayer.Sql\obj\Debug\Messenger.DataLayer.Sql.pdb
