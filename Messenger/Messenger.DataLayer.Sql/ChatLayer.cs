@@ -62,35 +62,7 @@ namespace Messenger.DataLayer.Sql
 
             }
         }
-        public Chat Get(Guid id)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandText = @"select top(1) id, nameOfChat from Chat where id = @id";
 
-                    command.Parameters.AddWithValue("@id", id);
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            throw new ArgumentException($"Чата с таким id {id} нет!");
-                        }
-
-                        return new Chat
-                        {
-                            Id = reader.GetGuid(reader.GetOrdinal("id")),
-                            NameOfChat = reader.GetString(reader.GetOrdinal("nameOfChat"))
-                        };
-
-                    }
-
-                }
-            }
-        }
         public void Delete(Guid id)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -132,7 +104,6 @@ namespace Messenger.DataLayer.Sql
                                 FirstName = reader.GetString(reader.GetOrdinal("firstName")),
                                 SecondName = reader.GetString(reader.GetOrdinal("secondName")),
                                 TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
-
                             };
                         }
                     }
@@ -141,6 +112,36 @@ namespace Messenger.DataLayer.Sql
             }
         }
 
+        public Chat Get(Guid id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"select top(1) id, nameOfChat from Chat where id = @id";
+
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            throw new ArgumentException($"Чата с таким id {id} нет!");
+                        }
+             
+                        return new Chat
+                        {
+                            Id = reader.GetGuid(reader.GetOrdinal("id")),
+                            NameOfChat = reader.GetString(reader.GetOrdinal("nameOfChat")),
+                            Members = GetChatMembers(reader.GetGuid(reader.GetOrdinal("id")))
+                        };
+
+                    }
+
+                }
+            }
+        }
 
         public IEnumerable<Chat> GetUserChats(Guid IdUser)
         {

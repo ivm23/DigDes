@@ -11,7 +11,7 @@ namespace Messenger.Model
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public byte[] Photo { get; set; } = new byte[50];
+        public byte[] Photo { get; set; }
         public string Password { get; set; }
         public DateTime TimeOfDelMes { get; set; }
     }

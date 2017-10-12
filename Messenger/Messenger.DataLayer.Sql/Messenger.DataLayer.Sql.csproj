@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatLayer.cs" />
+    <Compile Include="MessageLayer.cs" />
     <Compile Include="UserLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

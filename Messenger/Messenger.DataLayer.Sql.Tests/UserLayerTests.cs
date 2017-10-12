@@ -99,10 +99,10 @@ namespace Messenger.DataLayer.Sql.Tests
         public void Clean()
         {
             var userLayer = new UserLayer(ConnectionString);
-            var chatLayer = new ChatLayer(ConnectionString, userLayer);
+            //var chatLayer = new ChatLayer(ConnectionString, userLayer);
             foreach (var id in _tempUsers)
             {
-                chatLayer.Delete(id);
+                //chatLayer.Delete(id);
                 userLayer.Delete(id);
             }
         }

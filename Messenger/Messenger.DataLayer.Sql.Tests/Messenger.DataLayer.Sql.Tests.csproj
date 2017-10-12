@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ChatLayerTests.cs" />
+    <Compile Include="MessageLayerTest.cs" />
     <Compile Include="UserLayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

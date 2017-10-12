@@ -51,13 +51,11 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(user.SecondName, chatMembers.ElementAt(0).SecondName);
             Assert.AreEqual(user.Password, chatMembers.ElementAt(0).Password);
             Assert.AreEqual(user.TimeOfDelMes, chatMembers.ElementAt(0).TimeOfDelMes);
-
         }
 
         [TestMethod]
         public void ShouldGetChat()
         {
-
             var user = new User
             {
                 FirstName = "firstName",
@@ -83,13 +81,12 @@ namespace Messenger.DataLayer.Sql.Tests
 
             Assert.AreEqual(nameOfChat, chat.NameOfChat);
 
-            Assert.AreEqual(chatMembers.ElementAt(0).FirstName, user.FirstName);
-            Assert.AreEqual(chatMembers.ElementAt(0).Password, user.Password);
+            Assert.AreEqual(chat.Members.ElementAt(0).FirstName, user.FirstName);
+            Assert.AreEqual(chat.Members.ElementAt(0).FirstName, user.FirstName);
+            Assert.AreEqual(chat.Members.ElementAt(0).Password, user.Password);
 
-            Assert.AreEqual(chatMembers.ElementAt(0).SecondName, user.SecondName);
-            Assert.AreEqual(chatMembers.ElementAt(0).TimeOfDelMes, user.TimeOfDelMes);
-
-
+            Assert.AreEqual(chat.Members.ElementAt(0).SecondName, user.SecondName);
+            Assert.AreEqual(chat.Members.ElementAt(0).TimeOfDelMes, user.TimeOfDelMes);
         }
 
 
@@ -125,6 +122,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 Assert.AreEqual(e.Message, $"Чата с таким id {chat.Id} нет!");
             }
         }
+
         [TestCleanup]
         public void Clean()
         {
