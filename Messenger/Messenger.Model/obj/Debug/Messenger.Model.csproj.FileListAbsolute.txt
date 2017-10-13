@@ -1,5 +1,0 @@
-c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.Model\bin\Debug\Messenger.Model.dll
-c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.Model\bin\Debug\Messenger.Model.pdb
-c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.Model\obj\Debug\Messenger.Model.csprojResolveAssemblyReference.cache
-c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.Model\obj\Debug\Messenger.Model.dll
-c:\users\marina\documents\visual studio 2015\Projects\Messenger\Messenger.Model\obj\Debug\Messenger.Model.pdb
