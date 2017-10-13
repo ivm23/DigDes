@@ -16,6 +16,7 @@ namespace Messenger.DataLayer.Sql.Tests
                                                     Integrated Security = True";
 
         private readonly List<Guid> _tempUsers = new List<Guid>();
+        private readonly List<Guid> _tempChats = new List<Guid>();
 
         [TestMethod]
         public void ShouldStartChatWithUser()
@@ -38,6 +39,7 @@ namespace Messenger.DataLayer.Sql.Tests
 
             var chatLayer = new ChatLayer(ConnectionString, userLayer);
             var chat = chatLayer.Create(new[] { user.Id }, nameOfChat);
+            _tempChats.Add(chat.Id);
 
             var userChats = chatLayer.GetUserChats(user.Id);
             var chatMembers = chatLayer.GetChatMembers(chat.Id);
@@ -73,6 +75,7 @@ namespace Messenger.DataLayer.Sql.Tests
 
             var chatLayer = new ChatLayer(ConnectionString, userLayer);
             var chat = chatLayer.Create(new[] { user.Id }, nameOfChat);
+            _tempChats.Add(chat.Id);
 
             var chatMembers = chatLayer.GetChatMembers(chat.Id);
             chat = chatLayer.Get(chat.Id);
@@ -112,6 +115,7 @@ namespace Messenger.DataLayer.Sql.Tests
 
             var chatLayer = new ChatLayer(ConnectionString, userLayer);
             var chat = chatLayer.Create(new[] { user.Id }, nameOfChat);
+            _tempChats.Add(chat.Id);
             chatLayer.Delete(chat.Id);
             try
             {
@@ -126,12 +130,11 @@ namespace Messenger.DataLayer.Sql.Tests
         [TestCleanup]
         public void Clean()
         {
-            var userLayer = new UserLayer(ConnectionString);
-
             foreach (var id in _tempUsers)
-            {
-                userLayer.Delete(id);
-            }
+                new UserLayer(ConnectionString).Delete(id);
+
+            foreach (var id in _tempChats)
+                new ChatLayer(ConnectionString, new UserLayer(ConnectionString)).Delete(id);
         }
 
     }
