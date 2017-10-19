@@ -92,19 +92,48 @@ namespace Messenger.DataLayer.Sql.Tests
             }
         }
 
-       
+        [TestMethod]
+        private void ShouldUpdateUser()
+        {
+            var user = new User
+            {
+                FirstName = "firstName",
+                SecondName = "secondName",
+                Photo = Encoding.UTF8.GetBytes("photo"),
+                Password = "password",
+                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+            };
+
+            var layer = new UserLayer(ConnectionString);
+            layer.Create(user);
+
+            var resultAfterUpdate = layer.UpdateFirstName(user.Id, "fsdgdf");
+            resultAfterUpdate = layer.UpdateSecondName(user.Id, "bldgf");
+            resultAfterUpdate = layer.UpdatePassword(user.Id, "12345");
+            resultAfterUpdate = layer.UpdatePhoto(user.Id, Encoding.UTF8.GetBytes("dgfer"));
+        
+            _tempUsers.Add(resultAfterUpdate.Id);
+
+            var result = layer.Get(user.Id);
+
+            Assert.AreEqual(resultAfterUpdate.Photo, result.Photo);
+            Assert.AreEqual(resultAfterUpdate.FirstName, result.FirstName);
+            Assert.AreEqual(resultAfterUpdate.SecondName, result.SecondName);
+            Assert.AreEqual(resultAfterUpdate.Password, result.Password);
+            Assert.AreEqual(resultAfterUpdate.TimeOfDelMes, result.TimeOfDelMes);
+        }
+
+
 
 
         [TestCleanup]
         public void Clean()
         {
             var userLayer = new UserLayer(ConnectionString);
-            //var chatLayer = new ChatLayer(ConnectionString, userLayer);
-            foreach (var id in _tempUsers)
-            {
-                //chatLayer.Delete(id);
+
+            foreach (var id in _tempUsers)              
                 userLayer.Delete(id);
-            }
+      
         }
     }
 }

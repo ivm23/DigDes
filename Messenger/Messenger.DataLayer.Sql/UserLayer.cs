@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Messenger.DataLayer.Sql
 {
-    public class UserLayer: IUserLayer
+    public class UserLayer : IUserLayer
     {
         private readonly string _connectionString;
 
@@ -43,7 +43,7 @@ namespace Messenger.DataLayer.Sql
             }
         }
 
-        public void Delete (Guid id)
+        public void Delete(Guid id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -95,6 +95,45 @@ namespace Messenger.DataLayer.Sql
             }
         }
 
+        public void Update<T>(Guid id, T value, string columnName)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "update ListOfUsers set " + columnName + " = " + "@" + columnName + " where id = @id";
 
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@" + columnName, value);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public User UpdateFirstName(Guid id, string firstName)
+        {
+            Update(id, firstName, "firstName");
+            return Get(id);
+        }
+
+        public User UpdateSecondName(Guid id, string secondName)
+        {
+            Update(id, secondName, "secondName");
+            return Get(id);
+        }
+
+        public User UpdatePassword(Guid id, string password)
+        {
+            Update(id, password, "password");
+            return Get(id);
+        }
+
+        public User UpdatePhoto(Guid id, byte[] photo)
+        {
+            Update(id, photo, "photo");
+            return Get(id);
+        }
     }
 }
