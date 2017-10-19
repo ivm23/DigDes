@@ -127,6 +127,37 @@ namespace Messenger.DataLayer.Sql.Tests
             }
         }
 
+        [TestMethod]
+        public void ShouldUpdateName()
+        {
+            var user = new User
+            {
+                FirstName = "fName",
+                SecondName = "sName",
+                Photo = Encoding.UTF8.GetBytes("aphoto"),
+                Password = "apassword",
+                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+            };
+
+            const string nameOfChat = "chat";
+
+            var userLayer = new UserLayer(ConnectionString);
+            var result = userLayer.Create(user);
+
+            _tempUsers.Add(result.Id);
+
+            var chatLayer = new ChatLayer(ConnectionString, userLayer);
+            var chat = chatLayer.Create(new[] { user.Id }, nameOfChat);
+            _tempChats.Add(chat.Id);
+
+            var resultUpdate = chatLayer.UpdateName(chat.Id, "fdsgdfgfg");
+            chat = chatLayer.Get(chat.Id);
+
+
+            Assert.AreEqual(resultUpdate.NameOfChat, chat.NameOfChat);
+            Assert.AreEqual(resultUpdate.Id, chat.Id);
+        }
+
         [TestCleanup]
         public void Clean()
         {

@@ -172,5 +172,25 @@ namespace Messenger.DataLayer.Sql
                 }
             }
         }
+
+        public Chat UpdateName(Guid id, string nameChat)
+        {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "update Chat set nameOfChat = @nameChat where id = @id";
+
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@nameChat", nameChat);
+
+                        command.ExecuteNonQuery();
+                        return Get(id);
+                    }
+                }
+         
+        }
+
     }
 }
