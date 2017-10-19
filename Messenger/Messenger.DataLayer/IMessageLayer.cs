@@ -13,5 +13,8 @@ namespace Messenger.DataLayer
         Message Get(Guid idMes);
         List<byte[]> GetAttach(Guid idAttach);
         void SelfDestroy(Guid idMes);
+
+        Message UpdateText(Guid id, string text);
+        
     }
 }

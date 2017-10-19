@@ -97,21 +97,20 @@ namespace Messenger.DataLayer.Sql
 
         private void Update<T>(Guid id, T value, string columnName)
         {
-            if (value != null)
+            if (value != null) { 
+            using (var connection = new SqlConnection(_connectionString))
             {
-                using (var connection = new SqlConnection(_connectionString))
+                connection.Open();
+                using (var command = connection.CreateCommand())
                 {
-                    connection.Open();
-                    using (var command = connection.CreateCommand())
-                    {
-                        command.CommandText = "update ListOfUsers set " + columnName + " = " + "@" + columnName + " where id = @id";
+                    command.CommandText = "update ListOfUsers set " + columnName + " = " + "@" + columnName + " where id = @id";
 
-                        command.Parameters.AddWithValue("@id", id);
-                        command.Parameters.AddWithValue("@" + columnName, value);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@" + columnName, value);
 
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
+            }
             }
         }
 

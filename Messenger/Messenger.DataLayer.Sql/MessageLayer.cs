@@ -26,26 +26,46 @@ namespace Messenger.DataLayer.Sql
                 {
                     using (var command = connection.CreateCommand())
                     {
-                        foreach (var attach in message.Attach)
+                        if (message.Attach.Count != 0)
+                        {
+                            foreach (var attach in message.Attach)
+                            {
+                                message.Id = Guid.NewGuid();
+                                message.IdAttach = Guid.NewGuid();
+
+                                command.Transaction = transaction;
+                                command.CommandText = "insert into Attach (id, AttachedFile) values (@idAt, @AttachedFile)";
+                                command.Parameters.AddWithValue("@idAt", message.IdAttach);
+                                command.Parameters.AddWithValue("@AttachedFile", attach);
+
+                                command.ExecuteNonQuery();
+                                command.Transaction = transaction;
+                                command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, IdAttach, text) 
+                                                        values (@id, @idChat, @idUser, @timeCreate, @idAttach, @text)";
+
+                                command.Parameters.AddWithValue("@id", message.Id);
+                                command.Parameters.AddWithValue("@idChat", message.IdChat);
+                                command.Parameters.AddWithValue("@idUser", message.IdUser);
+                                command.Parameters.AddWithValue("@timeCreate", message.TimeCreate);
+                                command.Parameters.AddWithValue("@idAttach", message.IdAttach);
+                                command.Parameters.AddWithValue("@text", message.Text);
+
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                        else
                         {
                             message.Id = Guid.NewGuid();
                             message.IdAttach = Guid.NewGuid();
 
                             command.Transaction = transaction;
-                            command.CommandText = "insert into Attach (id, AttachedFile) values (@idAt, @AttachedFile)";
-                            command.Parameters.AddWithValue("@idAt", message.IdAttach);
-                            command.Parameters.AddWithValue("@AttachedFile", attach);
-
-                            command.ExecuteNonQuery();
-                            command.Transaction = transaction;
-                            command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, IdAttach, text) 
-                                                        values (@id, @idChat, @idUser, @timeCreate, @idAttach, @text)";
+                            command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, text) 
+                                                        values (@id, @idChat, @idUser, @timeCreate,  @text)";
 
                             command.Parameters.AddWithValue("@id", message.Id);
                             command.Parameters.AddWithValue("@idChat", message.IdChat);
                             command.Parameters.AddWithValue("@idUser", message.IdUser);
                             command.Parameters.AddWithValue("@timeCreate", message.TimeCreate);
-                            command.Parameters.AddWithValue("@idAttach", message.IdAttach);
                             command.Parameters.AddWithValue("@text", message.Text);
 
                             command.ExecuteNonQuery();
@@ -105,15 +125,28 @@ namespace Messenger.DataLayer.Sql
                             throw new ArgumentException($"Сообщения с таким id {id} нет!");
                         }
 
+                      
+                        if (!reader.IsDBNull(reader.GetOrdinal("IdAttach")))
+                        {
+                            return new Message
+                            {
+                                Id = reader.GetGuid(reader.GetOrdinal("id")),
+                                IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
+                                IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
+                                TimeCreate = reader.GetDateTime(reader.GetOrdinal("timeCreate")),
+                                Text = reader.GetString(reader.GetOrdinal("text")),
+                                IdAttach = reader.GetGuid(reader.GetOrdinal("IdAttach")),
+                                Attach = GetAttach(reader.GetGuid(reader.GetOrdinal("IdAttach")))
+
+                            };
+                        }
                         return new Message
                         {
                             Id = reader.GetGuid(reader.GetOrdinal("id")),
                             IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
                             IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
                             TimeCreate = reader.GetDateTime(reader.GetOrdinal("timeCreate")),
-                            Text = reader.GetString(reader.GetOrdinal("text")),
-                            IdAttach = reader.GetGuid(reader.GetOrdinal("IdAttach")),
-                            Attach = GetAttach(reader.GetGuid(reader.GetOrdinal("IdAttach")))
+                            Text = reader.GetString(reader.GetOrdinal("text"))
                         };
                     }
                 }
@@ -136,6 +169,27 @@ namespace Messenger.DataLayer.Sql
             }
         }
 
+        public Message UpdateText(Guid id, string text)
+        {
+            if (text != null)
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "update Message set Text = @Text where id = @id";
+
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@Text", text);
+
+                        command.ExecuteNonQuery();
+                        return Get(id);
+                    }
+                }
+            }
+            return Get(id);
+        }
 
     }
 }

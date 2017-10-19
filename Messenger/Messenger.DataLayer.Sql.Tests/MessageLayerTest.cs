@@ -143,6 +143,38 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(result.TimeCreate, message.TimeCreate);
         }
 
+        [TestMethod]
+        public void ShouldUpdateMessage()
+        {
+            byte[] data = Encoding.UTF8.GetBytes("ololol");
+            List<byte[]> attach = new List<byte[]>();
+            attach.Add(data);
+
+            var env = makeEnv();
+
+            var message = new Message
+            {
+                IdChat = env.Second.Id,
+                IdUser = env.First.Id,
+                Text = "bla-bla-bla",
+                Attach = attach,
+                TimeCreate = Convert.ToDateTime("09:24:45")
+            };
+
+            var layer = new MessageLayer(ConnectionString);
+            var result = layer.Create(message);
+
+            var resultUpdate = layer.UpdateText(message.Id, "dfsdsgdfgdfg");
+            result = layer.Get(message.Id);
+
+
+            Assert.AreEqual(result.Id, resultUpdate.Id);
+            Assert.AreEqual(result.IdChat, resultUpdate.IdChat);
+            Assert.AreEqual(result.IdUser, resultUpdate.IdUser);
+            Assert.AreEqual(result.Text, resultUpdate.Text);
+            Assert.AreEqual(result.IdAttach, resultUpdate.IdAttach);
+            Assert.AreEqual(result.TimeCreate, resultUpdate.TimeCreate);
+        }
 
         [TestCleanup]
         public void Clean()
