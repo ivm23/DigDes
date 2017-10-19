@@ -41,8 +41,25 @@ namespace Messenger.Api.Controllers
         public void Delete(Guid id)
         {
             _userLayer.Delete(id);
+        }
 
-            _userLayer.Get(id);
+        public struct newData
+        {
+            public string firstName { get; set;  }
+            public string secondName { get; set;  }
+            public string password { get; set; }
+            public byte[] photo { get; set; }
+        }
+
+        [HttpPut]
+        [Route("api/user/{id}")]
+        public User UpdateUser(Guid id, [FromBody]newData update) 
+        {
+           _userLayer.UpdateFirstName(id, update.firstName);
+           _userLayer.UpdateSecondName(id, update.secondName);
+           _userLayer.UpdatePassword(id, update.password);
+           _userLayer.UpdatePhoto(id, update.photo);
+            return _userLayer.Get(id);
         }
     }
 }
