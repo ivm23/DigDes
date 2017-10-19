@@ -39,6 +39,20 @@ namespace Messenger.Api.Controllers
             return _chatLayer.GetChatMembers(id);
         }
 
+        [HttpGet]
+        [Route("api/chat/{id}/members/{idMemb}")]
+        public User GetMember(Guid id, Guid idMemb)
+        {
+            var chatMembers = _chatLayer.GetChatMembers(id);
+            var user = _userLayer.Get(idMemb);
+            bool flag = false;
+            foreach (var member in chatMembers)
+            {
+                if (member.Id == user.Id) flag = true;
+            }
+            if (flag) return user; else return null;
+        }
+
 
         public struct CreateChatData
         {
@@ -53,11 +67,30 @@ namespace Messenger.Api.Controllers
             return _chatLayer.Create(chat.members, chat.nameChat);
         }
 
+        public struct NewUsers
+        {
+            public List<Guid> newUsers;
+        }
+
+        [HttpPost]
+        [Route("api/chat/{id}/members/add")]
+        public Chat AddUsers(Guid id, [FromBody]NewUsers users)
+        {
+            return _chatLayer.AddUser(id, users.newUsers);
+        }
+
         [HttpDelete]
         [Route("api/chat/{id}")]
         public void Delete(Guid id)
         {
             _chatLayer.Delete(id);
+        }
+
+        [HttpDelete]
+        [Route("api/chat/{id}/members/delete/{idMemb}")]
+        public void DeleteUser(Guid id, Guid idMemb)
+        {
+            _chatLayer.DeleteUser(id, idMemb);
         }
 
         public struct newName

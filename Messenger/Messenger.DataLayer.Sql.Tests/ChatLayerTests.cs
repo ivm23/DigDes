@@ -158,6 +158,67 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(resultUpdate.Id, chat.Id);
         }
 
+        [TestMethod]
+        public void ShouldAddAndDeleteUser()
+        {
+            var user = new User
+            {
+                FirstName = "fName1",
+                SecondName = "sName1",
+                Photo = Encoding.UTF8.GetBytes("aphoto"),
+                Password = "apassword1",
+                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+            };
+            var user2 = new User
+            {
+                FirstName = "fName21",
+                SecondName = "sNam2e1",
+                Photo = Encoding.UTF8.GetBytes("aphot2o"),
+                Password = "apasswo2rd1",
+                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+            };
+            const string nameOfChat = "chat";
+
+            var userLayer = new UserLayer(ConnectionString);
+            var result = userLayer.Create(user);
+            _tempUsers.Add(result.Id);
+            result = userLayer.Create(user2);
+            _tempUsers.Add(result.Id);
+
+            var chatLayer = new ChatLayer(ConnectionString, userLayer);
+            var chat = chatLayer.Create(new[] { user.Id }, nameOfChat);
+            _tempChats.Add(chat.Id);
+
+            List<Guid> members = new List<Guid> { user2.Id};
+            
+            chat = chatLayer.AddUser(chat.Id, members);
+
+            var userChats = chatLayer.GetUserChats(user2.Id);
+            var chatMembers = chatLayer.GetChatMembers(chat.Id);
+
+            Assert.AreEqual(nameOfChat, chat.NameOfChat);
+            Assert.AreEqual(user2.Id, chat.Members.ElementAt(1).Id); // Single() - будет исключение, если больше одного пользователя с таким Id
+            Assert.AreEqual(chat.Id, userChats.Single().Id);
+            Assert.AreEqual(chat.NameOfChat, userChats.Single().NameOfChat);
+
+            Assert.AreEqual(user2.FirstName, chatMembers.ElementAt(1).FirstName);
+            Assert.AreEqual(user2.SecondName, chatMembers.ElementAt(1).SecondName);
+            Assert.AreEqual(user2.Password, chatMembers.ElementAt(1).Password);
+            Assert.AreEqual(user2.TimeOfDelMes, chatMembers.ElementAt(1).TimeOfDelMes);
+
+            chatLayer.DeleteUser(chat.Id, members.ElementAt(0));
+            
+            chatMembers = chatLayer.GetChatMembers(chat.Id);
+            bool IsUser2Id = false;
+            foreach(var member in chatMembers)
+            {
+                if (member.Id == user2.Id) IsUser2Id = true;
+            }
+            Assert.AreEqual(false, IsUser2Id);
+        }
+
+
+
         [TestCleanup]
         public void Clean()
         {

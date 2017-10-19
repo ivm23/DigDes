@@ -56,7 +56,7 @@ namespace Messenger.DataLayer.Sql
                     }
                     transaction.Commit();
                     chat.Members = members.Select(x => _userLayer.Get(x));
-                    
+
                     return chat;
                 }
 
@@ -74,7 +74,7 @@ namespace Messenger.DataLayer.Sql
 
                     command.Parameters.AddWithValue("@id", id);
 
-                    command.ExecuteNonQuery();  
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace Messenger.DataLayer.Sql
                         {
                             throw new ArgumentException($"Чата с таким id {id} нет!");
                         }
-             
+
                         return new Chat
                         {
                             Id = reader.GetGuid(reader.GetOrdinal("id")),
@@ -175,22 +175,66 @@ namespace Messenger.DataLayer.Sql
 
         public Chat UpdateName(Guid id, string nameChat)
         {
-                using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
                 {
-                    connection.Open();
-                    using (var command = connection.CreateCommand())
-                    {
-                        command.CommandText = "update Chat set nameOfChat = @nameChat where id = @id";
+                    command.CommandText = "update Chat set nameOfChat = @nameChat where id = @id";
 
-                        command.Parameters.AddWithValue("@id", id);
-                        command.Parameters.AddWithValue("@nameChat", nameChat);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@nameChat", nameChat);
 
-                        command.ExecuteNonQuery();
-                        return Get(id);
-                    }
+                    command.ExecuteNonQuery();
+                    return Get(id);
                 }
-         
+            }
         }
+
+        public Chat AddUser(Guid idChat, List<Guid> members)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+               
+                    foreach (var IdUser in members)
+                    {
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.Transaction = transaction;
+                            command.CommandText = "insert into ChatMembers (IdChat, IdUser) values (@IdChat, @IdUser)";
+                            command.Parameters.AddWithValue("@IdChat", idChat);
+                            command.Parameters.AddWithValue("@IdUser", IdUser);
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    transaction.Commit();
+                    Get(idChat).Members = members.Select(x => _userLayer.Get(x));
+                    return Get(idChat);
+                }
+            }
+        }
+
+
+        public void DeleteUser(Guid idChat, Guid idUser)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "delete from ChatMembers where IdChat = @IdChat AND IdUser = @IdUser";
+
+                    command.Parameters.AddWithValue("@IdChat", idChat);
+                    command.Parameters.AddWithValue("@IdUser", idUser);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
 
     }
 }
