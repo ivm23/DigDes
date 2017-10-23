@@ -45,12 +45,7 @@ namespace Messenger.Api.Controllers
         {
             var chatMembers = _chatLayer.GetChatMembers(id);
             var user = _userLayer.Get(idMemb);
-            bool flag = false;
-            foreach (var member in chatMembers)
-            {
-                if (member.Id == user.Id) flag = true;
-            }
-            if (flag) return user; else return null;
+            return (chatMembers.Any(x => x.Id == user.Id) ? user : null);
         }
 
 
@@ -87,7 +82,7 @@ namespace Messenger.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("api/chat/{id}/members/delete/{idMemb}")]
+        [Route("api/chat/{id}/members/{idMemb}/delete")]
         public void DeleteUser(Guid id, Guid idMemb)
         {
             _chatLayer.DeleteUser(id, idMemb);
