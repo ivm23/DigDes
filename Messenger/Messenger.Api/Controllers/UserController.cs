@@ -13,6 +13,7 @@ namespace Messenger.Api.Controllers
 {
     public class UserController : ApiController
     {
+        
         private readonly IUserLayer _userLayer;
         private const string ConnectionString = @"Data Source = (local)\SQLEXPRESS;
                                                     Initial Catalog = Messenger.BD;
@@ -28,10 +29,18 @@ namespace Messenger.Api.Controllers
         public User Get(Guid id)
         {
             NLogger.Logger.Trace("Запрос на пользователя с ID:{0}", id);
-            var user = _userLayer.Get(id);
-            NLogger.Logger.Trace("Получен пользователь с ID:{0}", id);
+            try
+            {
+                var user = _userLayer.Get(id);
+                NLogger.Logger.Trace("Получен пользователь с ID:{0}", id);
 
-            return user;            
+                return user;
+            }
+            catch {
+                NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого пользователя не существует!"));
+            }
         }
 
         [HttpPost]
@@ -39,6 +48,14 @@ namespace Messenger.Api.Controllers
         public User Create([FromBody] User user)
         {
             NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}", user.FirstName, user.SecondName,  user.Password);
+            if (user.Password == null)
+            {
+                NLogger.Logger.Error(
+                    "Пользователь не ввел пароль! UserID: {0}", user.Id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.Unauthorized,
+                    "Не введен пароль!"));
+            }
+
             var newUser = _userLayer.Create(user);
             NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password);
             return newUser;
@@ -49,8 +66,19 @@ namespace Messenger.Api.Controllers
         public void Delete(Guid id)
         {
             NLogger.Logger.Trace("Запрос на удаление пользователя с Id:{0}", id);
-            _userLayer.Delete(id);
-            NLogger.Logger.Trace("Пользователь с Id:{0} удален", id);
+            try
+            {
+                _userLayer.Get(id);
+                _userLayer.Delete(id);
+                NLogger.Logger.Trace("Пользователь с Id:{0} удален", id);
+            }
+            catch
+            {
+                NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого пользователя не существует!"));
+            }
+            
         }
 
         public struct newData
@@ -66,13 +94,24 @@ namespace Messenger.Api.Controllers
         public User UpdateUser(Guid id, [FromBody]newData update) 
         {
             NLogger.Logger.Trace("Запрос на обновление пользователя с Id:{0}", id);
-            _userLayer.UpdateFirstName(id, update.firstName);
-           _userLayer.UpdateSecondName(id, update.secondName);
-           _userLayer.UpdatePassword(id, update.password);
-           _userLayer.UpdatePhoto(id, update.photo);
-            var user = _userLayer.Get(id);
-            NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}", user.Id, user.SecondName, user.FirstName, user.Password);
-            return user;
+            try
+            {
+                _userLayer.Get(id);
+                _userLayer.UpdateFirstName(id, update.firstName);
+                _userLayer.UpdateSecondName(id, update.secondName);
+                _userLayer.UpdatePassword(id, update.password);
+                _userLayer.UpdatePhoto(id, update.photo);
+                var user = _userLayer.Get(id);
+                NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}", user.Id, user.SecondName, user.FirstName, user.Password);
+                return user;
+            }
+            catch
+            {
+                NLogger.Logger.Error(
+                                   "Пользователя с таким UserID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого пользователя не существует!"));
+            }
         }
     }
 }

@@ -31,9 +31,18 @@ namespace Messenger.Api.Controllers
         public Chat Get(Guid id)
         {
             NLogger.Logger.Trace("Запрос на чат с ID:{0}", id);
-            var chat = _chatLayer.Get(id);
-            NLogger.Logger.Trace("Получен чат с ID:{0}", id);
-            return chat;
+            try
+            {
+                var chat = _chatLayer.Get(id);
+                NLogger.Logger.Trace("Получен чат с ID:{0}", id);
+                return chat;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
         }
 
         [HttpGet]
@@ -41,9 +50,19 @@ namespace Messenger.Api.Controllers
         public IEnumerable<User> GetMembers(Guid id)
         {
             NLogger.Logger.Trace("Запрос на пользователей чата с ID:", id);
-            var members = _chatLayer.GetChatMembers(id);
-            NLogger.Logger.Trace("Получены пользователи чата с ID:{0}", id);
-            return members;
+            try
+            {
+                _chatLayer.Get(id);
+                var members = _chatLayer.GetChatMembers(id);
+                NLogger.Logger.Trace("Получены пользователи чата с ID:{0}", id);
+                return members;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
         }
 
         [HttpGet]
@@ -51,11 +70,21 @@ namespace Messenger.Api.Controllers
         public User GetMember(Guid id, Guid idMemb)
         {
             NLogger.Logger.Trace("Запрос на пользователя с IdUser: {0} чата с ID:{1}", idMemb, id);
-            var chatMembers = _chatLayer.GetChatMembers(id);
-            var users = _userLayer.Get(idMemb);
-            var user = (chatMembers.Any(x => x.Id == users.Id) ? users : null); ;
-            NLogger.Logger.Trace("Получен пользователь с IdUser: {0} чата с ID:{1}", idMemb, id);
-            return user;
+            try
+            {
+                _chatLayer.Get(id);
+                var chatMembers = _chatLayer.GetChatMembers(id);
+                var users = _userLayer.Get(idMemb);
+                var user = (chatMembers.Any(x => x.Id == users.Id) ? users : null); ;
+                NLogger.Logger.Trace("Получен пользователь с IdUser: {0} чата с ID:{1}", idMemb, id);
+                return user;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
         }
 
 
@@ -96,8 +125,17 @@ namespace Messenger.Api.Controllers
         public void Delete(Guid id)
         {
             NLogger.Logger.Trace("Запрос на удаление чата IdChat:{0}", id);
-            _chatLayer.Delete(id);
-            NLogger.Logger.Trace("Чат IdChat:{0} удален", id);
+            try
+            {
+                _chatLayer.Delete(id);
+                NLogger.Logger.Trace("Чат IdChat:{0} удален", id);
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
         }
 
         [HttpDelete]
@@ -105,8 +143,19 @@ namespace Messenger.Api.Controllers
         public void DeleteUser(Guid id, Guid idMemb)
         {
             NLogger.Logger.Trace("Запрос на удаление пользователя IdUser: {0} из чата IdChat:{1}", idMemb, id);
-            _chatLayer.DeleteUser(id, idMemb);
-            NLogger.Logger.Trace("Пользователь IdUser:{0} удален из чата IdChat:{1}", idMemb,id);
+            try
+            {
+                _chatLayer.Get(id);
+                _chatLayer.DeleteUser(id, idMemb);
+                NLogger.Logger.Trace("Пользователь IdUser:{0} удален из чата IdChat:{1}", idMemb, id);
+            }
+            catch
+            {
+
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
             
         }
 
@@ -120,9 +169,19 @@ namespace Messenger.Api.Controllers
         public Chat UpdateChat(Guid id, [FromBody]newName update)
         {
             NLogger.Logger.Trace("Запрос на обновление чата с Id:{0}", id);
-            var chat = _chatLayer.UpdateName(id, update.name);
-            NLogger.Logger.Trace("Обновленный чат с id: {0}, nameOfChat: {1}", chat.Id, chat.NameOfChat);
-            return chat;
+            try
+            {
+                var chat = _chatLayer.UpdateName(id, update.name);
+                _chatLayer.Get(id);
+                NLogger.Logger.Trace("Обновленный чат с id: {0}, nameOfChat: {1}", chat.Id, chat.NameOfChat);
+                return chat;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    "Такого чата не существует!"));
+            }
         }
 
     }
