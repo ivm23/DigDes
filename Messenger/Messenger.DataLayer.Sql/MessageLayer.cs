@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Messenger.Model;
 using System.Data.SqlClient;
+using Messenger.Logger;
 
 namespace Messenger.DataLayer.Sql
 {
@@ -51,6 +52,8 @@ namespace Messenger.DataLayer.Sql
                                 command.Parameters.AddWithValue("@text", message.Text);
 
                                 command.ExecuteNonQuery();
+
+                                NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdMessage: {1}, IdChat:{2}, IdUser:{3}, TimeCreate: {4}, IdAttach: {5}, text: {6})", "[ListOfUsers]", message.Id, message.IdChat, message.IdUser, message.TimeCreate, message.IdAttach, message.Text);
                             }
                         }
                         else
@@ -69,6 +72,7 @@ namespace Messenger.DataLayer.Sql
                             command.Parameters.AddWithValue("@text", message.Text);
 
                             command.ExecuteNonQuery();
+                            NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdMessage: {1}, IdChat:{2}, IdUser:{3}, TimeCreate: {4}, IdAttach: {5}, text: {6})", "[Message]", message.Id, message.IdChat, message.IdUser, message.TimeCreate, message.IdAttach, message.Text);
                         }
                         transaction.Commit();
                         return message;
@@ -165,6 +169,7 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@id", id);
 
                     command.ExecuteNonQuery();
+                    NLogger.Logger.Trace("База данных:удалено из таблицы:{0}:где MessageID:{1}", "[Message]", id);
                 }
             }
         }
@@ -184,6 +189,8 @@ namespace Messenger.DataLayer.Sql
                         command.Parameters.AddWithValue("@Text", text);
 
                         command.ExecuteNonQuery();
+
+                        NLogger.Logger.Trace("База данных:обновлено text:{0}:где MessageID:{1}", "[Message]", id);
                         return Get(id);
                     }
                 }

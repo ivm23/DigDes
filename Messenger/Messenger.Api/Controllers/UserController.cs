@@ -7,6 +7,7 @@ using System.Web.Http;
 using Messenger.DataLayer;
 using Messenger.DataLayer.Sql;
 using Messenger.Model;
+using Messenger.Logger;
 
 namespace Messenger.Api.Controllers
 {
@@ -26,21 +27,30 @@ namespace Messenger.Api.Controllers
         [Route("api/user/{id}")]
         public User Get(Guid id)
         {
-            return _userLayer.Get(id);
+            NLogger.Logger.Trace("Запрос на пользователя с ID:{0}", id);
+            var user = _userLayer.Get(id);
+            NLogger.Logger.Trace("Получен пользователь с ID:{0}", id);
+
+            return user;            
         }
 
         [HttpPost]
         [Route("api/user")]
         public User Create([FromBody] User user)
         {
-            return _userLayer.Create(user);
+            NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}", user.FirstName, user.SecondName,  user.Password);
+            var newUser = _userLayer.Create(user);
+            NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password);
+            return newUser;
         }
 
         [HttpDelete]
         [Route("api/user/{id}")]
         public void Delete(Guid id)
         {
+            NLogger.Logger.Trace("Запрос на удаление пользователя с Id:{0}", id);
             _userLayer.Delete(id);
+            NLogger.Logger.Trace("Пользователь с Id:{0} удален", id);
         }
 
         public struct newData
@@ -55,11 +65,14 @@ namespace Messenger.Api.Controllers
         [Route("api/user/{id}")]
         public User UpdateUser(Guid id, [FromBody]newData update) 
         {
-           _userLayer.UpdateFirstName(id, update.firstName);
+            NLogger.Logger.Trace("Запрос на обновление пользователя с Id:{0}", id);
+            _userLayer.UpdateFirstName(id, update.firstName);
            _userLayer.UpdateSecondName(id, update.secondName);
            _userLayer.UpdatePassword(id, update.password);
            _userLayer.UpdatePhoto(id, update.photo);
-            return _userLayer.Get(id);
+            var user = _userLayer.Get(id);
+            NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}", user.Id, user.SecondName, user.FirstName, user.Password);
+            return user;
         }
     }
 }

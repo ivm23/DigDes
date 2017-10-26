@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Messenger.DataLayer;
 using Messenger.Model;
 using System.Data.SqlClient;
+using Messenger.Logger;
 
 namespace Messenger.DataLayer.Sql
 {
@@ -42,6 +43,7 @@ namespace Messenger.DataLayer.Sql
                         command.Parameters.AddWithValue("@nameOfChat", chat.NameOfChat);
 
                         command.ExecuteNonQuery();
+                        NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdChat: {1}, nameOfChat:{2})", "[Chat]",chat.Id, chat.NameOfChat);
                     }
                     foreach (var IdUser in members)
                     {
@@ -52,6 +54,7 @@ namespace Messenger.DataLayer.Sql
                             command.Parameters.AddWithValue("@IdChat", chat.Id);
                             command.Parameters.AddWithValue("@IdUser", IdUser);
                             command.ExecuteNonQuery();
+                            NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdChat: {1}, IdUser:{2})", "[ChatMembers]", chat.Id, IdUser);
                         }
                     }
                     transaction.Commit();
@@ -75,6 +78,7 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@id", id);
 
                     command.ExecuteNonQuery();
+                    NLogger.Logger.Trace("База данных:удалено из таблицы:{0}:где ChatID:{1}", "[Chat]", id);
                 }
             }
         }
@@ -186,6 +190,7 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@nameChat", nameChat);
 
                     command.ExecuteNonQuery();
+                    NLogger.Logger.Trace("База данных:обновлено nameOfChat:{0}:где ChatID:{1}", "[Chat]", id);
                     return Get(id);
                 }
             }
@@ -208,6 +213,7 @@ namespace Messenger.DataLayer.Sql
                             command.Parameters.AddWithValue("@IdChat", idChat);
                             command.Parameters.AddWithValue("@IdUser", IdUser);
                             command.ExecuteNonQuery();
+                            NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdChat: {1}, IdUser:{2})", "[ChatMembers]", idChat, IdUser);
                         }
                     }
                     transaction.Commit();
@@ -231,6 +237,7 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@IdUser", idUser);
 
                     command.ExecuteNonQuery();
+                    NLogger.Logger.Trace("База данных:удалено из таблицы:{0}:где ChatID:{1} и UserId: {2}", "[ChatMembers]", idChat, idUser);
                 }
             }
         }

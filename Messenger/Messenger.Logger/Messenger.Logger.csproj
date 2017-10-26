@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2EF487B9-1E54-4DB3-A96C-52E07BBBAD79}</ProjectGuid>
+    <ProjectGuid>{3DC7795A-F49E-4234-9328-36A283677970}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Messenger.DataLayer</RootNamespace>
-    <AssemblyName>Messenger.DataLayer</AssemblyName>
+    <RootNamespace>Messenger.Logger</RootNamespace>
+    <AssemblyName>Messenger.Logger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,18 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IChatLayer.cs" />
-    <Compile Include="IMessageLayer.cs" />
-    <Compile Include="IUserLayer.cs" />
+    <Compile Include="NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Messenger.Model\Messenger.Model.csproj">
-      <Project>{c617d1c2-4a04-455b-b776-3a4866b8ee45}</Project>
-      <Name>Messenger.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

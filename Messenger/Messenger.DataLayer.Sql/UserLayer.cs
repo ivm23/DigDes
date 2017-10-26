@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Messenger.DataLayer;
 using Messenger.Model;
 using System.Data.SqlClient;
+using Messenger.Logger;
 
 
 namespace Messenger.DataLayer.Sql
@@ -38,6 +39,7 @@ namespace Messenger.DataLayer.Sql
 
                     command.ExecuteNonQuery();
 
+                    NLogger.Logger.Trace("База данных:Добавлено в таблицу:{0}:значения (IdUser: {1}, FirstName:{2}, SecondName:{3}, Password:{4})", "[ListOfUsers]", user.Id, user.SecondName, user.FirstName, user.Password);
                     return user;
                 }
             }
@@ -55,6 +57,8 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@id", id);
 
                     command.ExecuteNonQuery();
+
+                    NLogger.Logger.Trace("База данных:удалено из таблицы:{0}:где UserID:{1}", "[ListOfUsers]", id);
                 }
             }
         }
@@ -109,7 +113,9 @@ namespace Messenger.DataLayer.Sql
                     command.Parameters.AddWithValue("@" + columnName, value);
 
                     command.ExecuteNonQuery();
-                }
+
+                    
+                    }
             }
             }
         }
@@ -117,24 +123,28 @@ namespace Messenger.DataLayer.Sql
         public User UpdateFirstName(Guid id, string firstName)
         {
             Update(id, firstName, "firstName");
+            NLogger.Logger.Trace("База данных:обновлено FirstName:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
         }
 
         public User UpdateSecondName(Guid id, string secondName)
         {
             Update(id, secondName, "secondName");
+            NLogger.Logger.Trace("База данных:обновлено SecondName:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
         }
 
         public User UpdatePassword(Guid id, string password)
         {
             Update(id, password, "password");
+            NLogger.Logger.Trace("База данных:обновлено Password:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
         }
 
         public User UpdatePhoto(Guid id, byte[] photo)
         {
             Update(id, photo, "photo");
+            NLogger.Logger.Trace("База данных:обновлено Photo:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
         }
     }
