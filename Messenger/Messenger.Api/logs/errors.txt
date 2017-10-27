@@ -1,1 +1,2 @@
 2017-10-27 02:33:31.3622|ERROR|UserController.UpdateUser|Пользователя с таким UserID: 50723e9c-022a-4e13-a7c6-22e123283a4e не существует
+2017-10-27 23:09:38.0337|ERROR|UserController.UpdateUser|Пользователя с таким UserID: 50723e9c-022a-4e13-a7c6-22e123283a44 не существует

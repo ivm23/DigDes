@@ -99,9 +99,17 @@ namespace Messenger.Api.Controllers
         public Chat Create([FromBody]CreateChatData chat)
         {
             NLogger.Logger.Trace("Запрос на создание нового чата nameOfChat:{1}", chat.nameChat);
-            var newChat = _chatLayer.Create(chat.members, chat.nameChat);
-            NLogger.Logger.Trace("Создан новый чат IdChat: {0}, nameOfChat:{1}", newChat.Id, newChat.NameOfChat);
-            return newChat;
+            if (chat.members == null)
+            {
+                NLogger.Logger.Error("Нет пользователей для создания чата!");
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Нет пользователей!"));
+            }
+            else
+            {
+                var newChat = _chatLayer.Create(chat.members, chat.nameChat);
+                NLogger.Logger.Trace("Создан новый чат IdChat: {0}, nameOfChat:{1}", newChat.Id, newChat.NameOfChat);
+                return newChat;
+            }
         }
 
         public struct NewUsers
