@@ -29,10 +29,17 @@ namespace Messenger.Api.Controllers
         public Message Get(Guid id)
         {
             NLogger.Logger.Trace("Запрос на сообщение с ID:{0}", id);
-            var message = _messageLayer.Get(id);
-            NLogger.Logger.Trace("Получено сообщение с ID:{0}", id);
-
-            return message;
+            try
+            {
+                var message = _messageLayer.Get(id);
+                NLogger.Logger.Trace("Получено сообщение с ID:{0}", id);
+                return message;
+            }
+            catch
+            {
+                NLogMessageNotFound(id);
+                throw new HttpResponseException(MessageNotFound());
+            }
         }
 
         [HttpPost]
@@ -50,8 +57,17 @@ namespace Messenger.Api.Controllers
         public void Delete(Guid id)
         {
             NLogger.Logger.Trace("Запрос на удаление сообщения с Id:{0}", id);
-            _messageLayer.SelfDestroy(id);
-            NLogger.Logger.Trace("Сообщение с Id:{0} удалено", id);
+            try
+            {
+                _messageLayer.Get(id);
+                _messageLayer.SelfDestroy(id);
+                NLogger.Logger.Trace("Сообщение с Id:{0} удалено", id);
+            }
+            catch
+            {
+                NLogMessageNotFound(id);
+                throw new HttpResponseException(MessageNotFound());
+            }
         }
 
         public struct newText
@@ -68,6 +84,15 @@ namespace Messenger.Api.Controllers
             NLogger.Logger.Trace("Обновленное сообщение с id: {0}, text: {1}", id, update.text);
 
             return message;
+        }
+        public HttpResponseMessage MessageNotFound()
+        {
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такого сообщения не существует!");
+        }
+
+        public void NLogMessageNotFound(Guid id)
+        {
+            NLogger.Logger.Error("Сообщения с таким ChatID: {0} не существует", id);
         }
     }
 }

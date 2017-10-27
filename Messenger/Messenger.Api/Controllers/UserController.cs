@@ -8,6 +8,13 @@ using Messenger.DataLayer;
 using Messenger.DataLayer.Sql;
 using Messenger.Model;
 using Messenger.Logger;
+using System;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Web.Http.Controllers;
+using System.Web.Http.Routing;
+
 
 namespace Messenger.Api.Controllers
 {
@@ -37,9 +44,8 @@ namespace Messenger.Api.Controllers
                 return user;
             }
             catch {
-                NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого пользователя не существует!"));
+                NLogUserNotFound(id);
+                throw new HttpResponseException(UserNotFound());
             }
         }
 
@@ -74,9 +80,8 @@ namespace Messenger.Api.Controllers
             }
             catch
             {
-                NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого пользователя не существует!"));
+                NLogUserNotFound(id);
+                throw new HttpResponseException(UserNotFound());
             }
             
         }
@@ -107,11 +112,18 @@ namespace Messenger.Api.Controllers
             }
             catch
             {
-                NLogger.Logger.Error(
-                                   "Пользователя с таким UserID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого пользователя не существует!"));
+                NLogUserNotFound(id);
+                throw new HttpResponseException(UserNotFound());
             }
+        }
+
+        public HttpResponseMessage UserNotFound() 
+        {            
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такого пользователя не существует!");
+        }
+        public void NLogUserNotFound(Guid id)
+        {
+            NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", id);
         }
     }
 }
