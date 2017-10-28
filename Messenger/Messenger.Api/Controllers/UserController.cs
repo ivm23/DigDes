@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -8,13 +6,6 @@ using Messenger.DataLayer;
 using Messenger.DataLayer.Sql;
 using Messenger.Model;
 using Messenger.Logger;
-using System;
-using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web.Http.Controllers;
-using System.Web.Http.Routing;
-
 
 namespace Messenger.Api.Controllers
 {

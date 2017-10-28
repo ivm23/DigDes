@@ -39,9 +39,8 @@ namespace Messenger.Api.Controllers
             }
             catch
             {
-                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого чата не существует!"));
+                NLogChatNotFound(id);
+                throw new HttpResponseException(ChatNotFound());
             }
         }
 
@@ -59,9 +58,8 @@ namespace Messenger.Api.Controllers
             }
             catch
             {
-                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого чата не существует!"));
+                NLogChatNotFound(id);
+                throw new HttpResponseException(ChatNotFound());
             }
         }
 
@@ -81,9 +79,8 @@ namespace Messenger.Api.Controllers
             }
             catch
             {
-                NLogger.Logger.Error("Чата с таким ChatID: {0} не существует", id);
-                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound,
-                    "Такого чата не существует!"));
+                NLogChatNotFound(id);
+                throw new HttpResponseException(ChatNotFound());
             }
         }
 
