@@ -66,11 +66,23 @@
     <Compile Include="Controls\UserCheckInControl.Designer.cs">
       <DependentUpon>UserCheckInControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UserInterfaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInterfaceControl.Designer.cs">
+      <DependentUpon>UserInterfaceControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserCheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\UserCheckIn.Designer.cs">
       <DependentUpon>UserCheckIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserInterface.Designer.cs">
+      <DependentUpon>UserInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -93,8 +105,14 @@
     <EmbeddedResource Include="Controls\UserCheckInControl.resx">
       <DependentUpon>UserCheckInControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserInterfaceControl.resx">
+      <DependentUpon>UserInterfaceControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserCheckIn.resx">
       <DependentUpon>UserCheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserInterface.resx">
+      <DependentUpon>UserInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
@@ -110,6 +128,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -130,6 +149,12 @@
       <Project>{c617d1c2-4a04-455b-b776-3a4866b8ee45}</Project>
       <Name>Messenger.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7d332828a589292e4dd1ded3eab4b02aae7da8e6_full.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BzcvL1m7NKQ.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Messenger.WinForms.Controls
+namespace Messenger.WinForms.Forms
 {
-    public partial class UserAuthorizationControl : UserControl
+    public partial class UserInterface : Form
     {
-        public UserAuthorizationControl()
+        public UserInterface()
         {
             InitializeComponent();
         }
 
         public string UserName
         {
-            get { return txtName.Text; }
+            set { userInterfaceControl1.UserName = value; }
         }
 
-        public string UserPassword
+        public byte[] UserPhoto
         {
-            get { return txtPassword.Text; }
+            set { userInterfaceControl1.UserPhoto = value; }
         }
-
     }
 }

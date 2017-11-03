@@ -40,6 +40,8 @@
             this.btnSelectPicture = new System.Windows.Forms.Button();
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnCancelCheckIn = new System.Windows.Forms.Button();
+            this.pbUserPhoto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +136,7 @@
             // btnCheckIn
             // 
             this.btnCheckIn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnCheckIn.Location = new System.Drawing.Point(217, 286);
+            this.btnCheckIn.Location = new System.Drawing.Point(262, 297);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(105, 32);
             this.btnCheckIn.TabIndex = 10;
@@ -144,17 +146,28 @@
             // btnCancelCheckIn
             // 
             this.btnCancelCheckIn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelCheckIn.Location = new System.Drawing.Point(328, 286);
+            this.btnCancelCheckIn.Location = new System.Drawing.Point(373, 297);
             this.btnCancelCheckIn.Name = "btnCancelCheckIn";
             this.btnCancelCheckIn.Size = new System.Drawing.Size(105, 32);
             this.btnCancelCheckIn.TabIndex = 11;
             this.btnCancelCheckIn.Text = "Отмена";
             this.btnCancelCheckIn.UseVisualStyleBackColor = true;
             // 
+            // pbUserPhoto
+            // 
+            this.pbUserPhoto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pbUserPhoto.Image = global::Messenger.WinForms.Properties.Resources.BzcvL1m7NKQ;
+            this.pbUserPhoto.Location = new System.Drawing.Point(328, 158);
+            this.pbUserPhoto.Name = "pbUserPhoto";
+            this.pbUserPhoto.Size = new System.Drawing.Size(88, 122);
+            this.pbUserPhoto.TabIndex = 12;
+            this.pbUserPhoto.TabStop = false;
+            // 
             // UserCheckInControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbUserPhoto);
             this.Controls.Add(this.btnCancelCheckIn);
             this.Controls.Add(this.btnCheckIn);
             this.Controls.Add(this.btnSelectPicture);
@@ -168,7 +181,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserCheckInControl";
-            this.Size = new System.Drawing.Size(459, 349);
+            this.Size = new System.Drawing.Size(492, 342);
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +202,6 @@
         private System.Windows.Forms.Button btnSelectPicture;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnCancelCheckIn;
+        private System.Windows.Forms.PictureBox pbUserPhoto;
     }
 }

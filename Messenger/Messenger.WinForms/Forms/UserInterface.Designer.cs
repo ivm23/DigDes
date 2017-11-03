@@ -1,6 +1,6 @@
 ﻿namespace Messenger.WinForms.Forms
 {
-    partial class UserCheckIn
+    partial class UserInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userCheckInControl1 = new Messenger.WinForms.Controls.UserCheckInControl();
+            this.userInterfaceControl1 = new Messenger.WinForms.Controls.UserInterfaceControl();
             this.SuspendLayout();
             // 
-            // userCheckInControl1
+            // userInterfaceControl1
             // 
-            this.userCheckInControl1.Location = new System.Drawing.Point(1, 3);
-            this.userCheckInControl1.Name = "userCheckInControl1";
-            this.userCheckInControl1.Size = new System.Drawing.Size(500, 351);
-            this.userCheckInControl1.TabIndex = 0;
+            this.userInterfaceControl1.Location = new System.Drawing.Point(0, 2);
+            this.userInterfaceControl1.Name = "userInterfaceControl1";
+            this.userInterfaceControl1.Size = new System.Drawing.Size(503, 234);
+            this.userInterfaceControl1.TabIndex = 0;
             // 
-            // UserCheckIn
+            // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 348);
-            this.Controls.Add(this.userCheckInControl1);
-            this.Name = "UserCheckIn";
-            this.Text = "UserCheckIn";
+            this.ClientSize = new System.Drawing.Size(400, 210);
+            this.Controls.Add(this.userInterfaceControl1);
+            this.Name = "UserInterface";
+            this.Text = "UserInterface";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controls.UserCheckInControl userCheckInControl1;
+        private Controls.UserInterfaceControl userInterfaceControl1;
     }
 }

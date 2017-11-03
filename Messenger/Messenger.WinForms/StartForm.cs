@@ -22,8 +22,6 @@ namespace Messenger.WinForms
         }
 
 
-  
-
         private void btnMainEnter_Click(object sender, EventArgs e)
         {
             using (var form = new UserEnter())
@@ -31,29 +29,46 @@ namespace Messenger.WinForms
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     //var user = _serviceClient.CreateUser(new User { FirstName = form.UserName });
-                    ///MessageBox.Show($"Id пользователя: {user.Id}", "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show($"Id пользователя: {user.Id}", "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
         }
+        private void UserInterface(User user)
+        {
+
+            using (var form = new UserInterface())
+            {
+                form.UserName = user.FirstName + ' ' + user.SecondName;
+                form.UserPhoto = user.Photo;
+
+                if (form.ShowDialog() == DialogResult.Cancel)
+                MessageBox.Show("dgf");
+            }
+
+        }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            byte[] ph = new byte[3] { 1,2,3};
+            byte[] ph = new byte[] { 1, 2, 3 };
             using (var form = new UserCheckIn())
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    
                     var user = _serviceClient.CreateUser(new User
                     {
                         FirstName = form.UserFirstName,
                         SecondName = form.UserSecondName,
                         Password = form.UserPassword,
-                        Photo = ph,
+                        Photo = form.UserPhoto,
                         TimeOfDelMes = form.UserTimeDelMes
-                                                                 });
-                    MessageBox.Show($"Пользователь: {user.FirstName} успешно зарегистрирован!", "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    });
+
+                    var message = "Пользователь" + user.FirstName + ' ' + user.SecondName + " успешно зарегистрирован!";
+                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    UserInterface(user);
+
                 }
 
             }

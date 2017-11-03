@@ -17,6 +17,7 @@ namespace Messenger.WinForms.Controls
             InitializeComponent();
         }
         public byte[] bmp_for_draw;
+        public byte[] b = new byte[5000];
         private void btnSelectPicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog open_dialog = new OpenFileDialog();
@@ -25,14 +26,25 @@ namespace Messenger.WinForms.Controls
             {
                 try
                 {
-                    var temp = new Bitmap(open_dialog.FileName);
+                    var bmp = (Bitmap)Bitmap.FromFile(open_dialog.FileName);
+
+                    var s = bmp.Size;
+                    s.Width = 88;
+                    s.Height = 122;
+                    var temp = new Bitmap(Image.FromFile(open_dialog.FileName), s);
+
 
                     ImageConverter converter = new ImageConverter();
                     bmp_for_draw = (byte[])converter.ConvertTo(temp, typeof(byte[]));
 
-                    //pictureBox1.ClientSize = new Size(bmp_for_draw.Width, bmp_for_draw.Height);
-                    //pictureBox1.Image = bmp_for_draw;
-                    //pictureBox1.Invalidate();
+                  
+                    for (int i = 0; i < 5000 && i < bmp_for_draw.Length; ++i) b[i] = bmp_for_draw[i];
+
+                    var imageConverter = new ImageConverter();
+                    var image = (Image)imageConverter.ConvertFrom(b);
+
+                    pbUserPhoto.Image = (Bitmap)image;
+                    pbUserPhoto.Invalidate();
                 }
                 catch
                 {
@@ -42,44 +54,29 @@ namespace Messenger.WinForms.Controls
             }
         }
 
-       public string UserFirstName
+        public string UserFirstName
         {
-            get
-            {
-                return txtUserFirstName.Text;
-            }
+            get { return txtUserFirstName.Text; }
         }
 
         public string UserSecondName
         {
-            get
-            {
-                return txtUserSecondName.Text;
-            }
+            get { return txtUserSecondName.Text; }
         }
 
         public string UserPassword
         {
-            get
-            {
-                return txtUserPassword.Text;
-            }
+            get { return txtUserPassword.Text; }
         }
 
         public byte[] UserPhoto
         {
-            get
-            {
-                return bmp_for_draw ;
-            }
+            get { return bmp_for_draw; }
         }
 
         public DateTime UserTimeDelMes
         {
-            get
-            {
-                return Convert.ToDateTime("00:00:00");
-            }
+            get { return Convert.ToDateTime(txtUserTimeDelMes.Text); }
         }
 
     }
