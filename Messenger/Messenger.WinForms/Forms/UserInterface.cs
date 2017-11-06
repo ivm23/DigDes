@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Messenger.Model;
 
 namespace Messenger.WinForms.Forms
 {
     public partial class UserInterface : Form
     {
-        public UserInterface()
+        User _user;
+        public UserInterface(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         public string UserName
@@ -25,6 +28,21 @@ namespace Messenger.WinForms.Forms
         public byte[] UserPhoto
         {
             set { userInterfaceControl1.UserPhoto = value; }
+        }
+
+        private void btnUserSetting_Click(object sender, EventArgs e)
+        {
+            using (var form = new UserSetting(_user))
+            {
+                if (form.ShowDialog() == DialogResult.Abort)
+                    MessageBox.Show("UserInterface");
+                
+            }
+        }
+
+        private void btnUserDialogs_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

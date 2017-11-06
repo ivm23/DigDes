@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace Messenger.WinForms.Forms
 {
-    public partial class UserEnter : Form
+    public partial class UserChats : Form
     {
-        public UserEnter()
+        public UserChats()
         {
             InitializeComponent();
         }
 
-        public string UserName
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            get { return userAuthorizationControl1.UserName; }
-        }
 
-        public string UserPassword
-        {
-            get { return userAuthorizationControl1.UserPassword; }
         }
     }
 }

@@ -33,6 +33,5 @@ namespace Messenger.WinForms.Controls
                 pbUserPhoto.Invalidate();
             }
         }
-
     }
 }

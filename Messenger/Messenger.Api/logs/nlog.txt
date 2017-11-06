@@ -77,3 +77,170 @@
 2017/11/03 10:43:02.853|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
 2017/11/03 10:43:02.868|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: b3291b4f-a121-4767-94b5-1dbb11905a75, FirstName:1, SecondName:1, Password:1)
 2017/11/03 10:43:02.868|Trace|Создан новый пользователь id: b3291b4f-a121-4767-94b5-1dbb11905a75, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/03 17:19:05.458|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 17:19:35.570|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 17:19:35.580|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 57836265-6cab-4bd9-846b-c64311832124, FirstName:1, SecondName:11, Password:1)
+2017/11/03 17:19:35.580|Trace|Создан новый пользователь id: 57836265-6cab-4bd9-846b-c64311832124, FirstName: 1, SecondName: 11, Password: 1)
+2017/11/03 17:21:06.593|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 17:21:28.027|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 17:21:28.037|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 13f50a7e-d606-4e55-a7c8-95130ecc72a9, FirstName:1, SecondName:1, Password:1)
+2017/11/03 17:21:28.037|Trace|Создан новый пользователь id: 13f50a7e-d606-4e55-a7c8-95130ecc72a9, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/03 17:52:11.082|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 17:52:11.172|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: e94b6a73-c692-4e08-a82e-a7686a45006c, FirstName:1, SecondName:1, Password:11)
+2017/11/03 17:52:11.172|Trace|Создан новый пользователь id: e94b6a73-c692-4e08-a82e-a7686a45006c, FirstName: 1, SecondName: 1, Password: 11)
+2017/11/03 22:21:05.686|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 22:21:06.360|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 072c6001-0dd0-4aa0-9dd1-d77d7a335487, FirstName:1, SecondName:1, Password:1)
+2017/11/03 22:21:06.360|Trace|Создан новый пользователь id: 072c6001-0dd0-4aa0-9dd1-d77d7a335487, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/03 22:37:55.635|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 22:37:55.655|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: d44204d0-dd95-4289-ae15-2a078269cabc, FirstName:1, SecondName:1, Password:1)
+2017/11/03 22:37:55.655|Trace|Создан новый пользователь id: d44204d0-dd95-4289-ae15-2a078269cabc, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/03 23:05:37.498|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/03 23:05:37.518|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: e005a605-7fda-4a8b-97c1-ad68c0d4244d, FirstName:1, SecondName:1, Password:1)
+2017/11/03 23:05:37.518|Trace|Создан новый пользователь id: e005a605-7fda-4a8b-97c1-ad68c0d4244d, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 13:52:43.833|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 13:52:44.806|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: f3c6e167-04e8-481c-aa04-8f5f069fd923, FirstName:1, SecondName:1, Password:1)
+2017/11/06 13:52:44.806|Trace|Создан новый пользователь id: f3c6e167-04e8-481c-aa04-8f5f069fd923, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 13:58:03.574|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 13:58:04.942|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 15237482-dd00-4507-8447-9fbcfb4a0e84, FirstName:1, SecondName:1, Password:1)
+2017/11/06 13:58:04.942|Trace|Создан новый пользователь id: 15237482-dd00-4507-8447-9fbcfb4a0e84, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:01:01.838|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:01:02.048|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: ab8e5bda-ea67-44ac-b657-23dc79bf1f26, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:01:02.048|Trace|Создан новый пользователь id: ab8e5bda-ea67-44ac-b657-23dc79bf1f26, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:05:56.541|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:05:56.559|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 8896395f-cda8-413d-95ce-2b98442b3511, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:05:56.559|Trace|Создан новый пользователь id: 8896395f-cda8-413d-95ce-2b98442b3511, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:17:28.379|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:17:28.391|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 4da219b2-877f-4e4d-88de-17c328202791, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:17:28.391|Trace|Создан новый пользователь id: 4da219b2-877f-4e4d-88de-17c328202791, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:40:48.422|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:40:48.422|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 1c5f0996-3399-4965-bff0-1b35c2cc8c64, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:40:48.422|Trace|Создан новый пользователь id: 1c5f0996-3399-4965-bff0-1b35c2cc8c64, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:42:16.508|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:42:17.967|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: af0ce1fb-f346-4259-a5a9-223f7e9861e2, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:42:17.967|Trace|Создан новый пользователь id: af0ce1fb-f346-4259-a5a9-223f7e9861e2, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:44:04.735|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:44:06.353|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 39b34d65-5292-49da-93a2-37b1067e9560, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:44:06.393|Trace|Создан новый пользователь id: 39b34d65-5292-49da-93a2-37b1067e9560, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 14:57:19.095|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 14:57:19.235|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 6f08484d-1fc3-4194-a77f-6f34a177767f, FirstName:1, SecondName:1, Password:1)
+2017/11/06 14:57:19.235|Trace|Создан новый пользователь id: 6f08484d-1fc3-4194-a77f-6f34a177767f, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:01:30.161|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:01:30.161|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 36959399-79b0-4269-8585-13c82c837cb3, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:01:30.161|Trace|Создан новый пользователь id: 36959399-79b0-4269-8585-13c82c837cb3, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:01:36.806|Trace|Запрос на удаление пользователя с Id:00000000-0000-0000-0000-000000000000
+2017/11/06 15:01:36.847|Error|Пользователя с таким UserID: 00000000-0000-0000-0000-000000000000 не существует
+2017/11/06 15:02:21.668|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:02:21.675|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 4f030fc2-eff8-4c5f-bab8-cb811e8c7e28, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:02:21.675|Trace|Создан новый пользователь id: 4f030fc2-eff8-4c5f-bab8-cb811e8c7e28, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:02:28.682|Trace|Запрос на удаление пользователя с Id:00000000-0000-0000-0000-000000000000
+2017/11/06 15:02:28.682|Error|Пользователя с таким UserID: 00000000-0000-0000-0000-000000000000 не существует
+2017/11/06 15:05:49.767|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:06:37.303|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 9d0ba1af-fab7-4848-b3ef-6b080d62cab3, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:06:37.303|Trace|Создан новый пользователь id: 9d0ba1af-fab7-4848-b3ef-6b080d62cab3, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:06:46.729|Trace|Запрос на удаление пользователя с Id:00000000-0000-0000-0000-000000000000
+2017/11/06 15:08:31.254|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:08:40.472|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 1bb754af-2778-4e79-aa72-d4931c59efd3, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:08:46.490|Trace|Создан новый пользователь id: 1bb754af-2778-4e79-aa72-d4931c59efd3, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:10:07.474|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:10:15.881|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 173944c5-e812-4f8d-ac56-c4fb24fc16fa, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:10:23.553|Trace|Создан новый пользователь id: 173944c5-e812-4f8d-ac56-c4fb24fc16fa, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:12:57.490|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:12:57.698|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 2422b484-950d-4cda-ad96-4c000856eb7f, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:12:57.698|Trace|Создан новый пользователь id: 2422b484-950d-4cda-ad96-4c000856eb7f, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:13:03.105|Trace|Запрос на удаление пользователя с Id:00000000-0000-0000-0000-000000000000
+2017/11/06 15:13:03.105|Error|Пользователя с таким UserID: 00000000-0000-0000-0000-000000000000 не существует
+2017/11/06 15:18:42.504|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:18:42.513|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 8255a025-3592-4c15-9864-d8f8bd73b560, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:18:42.513|Trace|Создан новый пользователь id: 8255a025-3592-4c15-9864-d8f8bd73b560, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:18:48.208|Trace|Запрос на удаление пользователя с Id:00000000-0000-0000-0000-000000000000
+2017/11/06 15:18:48.208|Error|Пользователя с таким UserID: 00000000-0000-0000-0000-000000000000 не существует
+2017/11/06 15:19:34.064|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 15:19:34.064|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: b356ea77-03d8-439a-9f10-1518018c1f70, FirstName:1, SecondName:1, Password:1)
+2017/11/06 15:19:34.070|Trace|Создан новый пользователь id: b356ea77-03d8-439a-9f10-1518018c1f70, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 15:19:38.785|Trace|Запрос на удаление пользователя с Id:b356ea77-03d8-439a-9f10-1518018c1f70
+2017/11/06 15:19:38.883|Trace|База данных:удалено из таблицы:[ListOfUsers]:где UserID:b356ea77-03d8-439a-9f10-1518018c1f70
+2017/11/06 15:19:38.883|Trace|Пользователь с Id:b356ea77-03d8-439a-9f10-1518018c1f70 удален
+2017/11/06 16:04:43.422|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 16:04:43.443|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 7f816504-c985-4ae7-813f-f9df22e8304a, FirstName:1, SecondName:1, Password:1)
+2017/11/06 16:04:43.443|Trace|Создан новый пользователь id: 7f816504-c985-4ae7-813f-f9df22e8304a, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 17:28:30.583|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 17:28:30.583|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 2d01e62e-5799-4616-a85b-49019a3374aa, FirstName:1, SecondName:1, Password:1)
+2017/11/06 17:28:30.596|Trace|Создан новый пользователь id: 2d01e62e-5799-4616-a85b-49019a3374aa, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 17:28:36.823|Trace|Запрос на удаление пользователя с Id:2d01e62e-5799-4616-a85b-49019a3374aa
+2017/11/06 17:28:36.840|Trace|База данных:удалено из таблицы:[ListOfUsers]:где UserID:2d01e62e-5799-4616-a85b-49019a3374aa
+2017/11/06 17:28:36.840|Trace|Пользователь с Id:2d01e62e-5799-4616-a85b-49019a3374aa удален
+2017/11/06 17:29:35.826|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 17:29:35.826|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: dbfb02e0-5fc5-4a7b-a47f-6a2bfff357fc, FirstName:2, SecondName:2, Password:2)
+2017/11/06 17:29:35.826|Trace|Создан новый пользователь id: dbfb02e0-5fc5-4a7b-a47f-6a2bfff357fc, FirstName: 2, SecondName: 2, Password: 2)
+2017/11/06 17:29:42.011|Trace|Запрос на удаление пользователя с Id:dbfb02e0-5fc5-4a7b-a47f-6a2bfff357fc
+2017/11/06 17:29:42.026|Trace|База данных:удалено из таблицы:[ListOfUsers]:где UserID:dbfb02e0-5fc5-4a7b-a47f-6a2bfff357fc
+2017/11/06 17:29:42.029|Trace|Пользователь с Id:dbfb02e0-5fc5-4a7b-a47f-6a2bfff357fc удален
+2017/11/06 17:38:56.448|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 17:38:56.461|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 8d0682ae-0018-4713-9721-684861674f37, FirstName:1, SecondName:12, Password:1)
+2017/11/06 17:38:56.461|Trace|Создан новый пользователь id: 8d0682ae-0018-4713-9721-684861674f37, FirstName: 1, SecondName: 12, Password: 1)
+2017/11/06 17:39:01.609|Trace|Запрос на удаление пользователя с Id:8d0682ae-0018-4713-9721-684861674f37
+2017/11/06 17:39:01.623|Trace|База данных:удалено из таблицы:[ListOfUsers]:где UserID:8d0682ae-0018-4713-9721-684861674f37
+2017/11/06 17:39:01.623|Trace|Пользователь с Id:8d0682ae-0018-4713-9721-684861674f37 удален
+2017/11/06 18:03:38.935|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:03:39.404|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: be0402a4-ed92-49b4-a549-cbf736b9c94f, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:03:39.404|Trace|Создан новый пользователь id: be0402a4-ed92-49b4-a549-cbf736b9c94f, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:04:02.212|Trace|Запрос на обновление пользователя с Id:be0402a4-ed92-49b4-a549-cbf736b9c94f
+2017/11/06 18:04:02.244|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:be0402a4-ed92-49b4-a549-cbf736b9c94f
+2017/11/06 18:04:02.285|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:be0402a4-ed92-49b4-a549-cbf736b9c94f
+2017/11/06 18:04:02.295|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:be0402a4-ed92-49b4-a549-cbf736b9c94f
+2017/11/06 18:04:02.307|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:be0402a4-ed92-49b4-a549-cbf736b9c94f
+2017/11/06 18:04:02.327|Error|Пользователя с таким UserID: be0402a4-ed92-49b4-a549-cbf736b9c94f не существует
+2017/11/06 18:05:22.202|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:05:22.207|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: f482fb82-76ac-42d4-9806-39cb3c5eb5ec, FirstName:i, SecondName:m, Password:q)
+2017/11/06 18:05:22.207|Trace|Создан новый пользователь id: f482fb82-76ac-42d4-9806-39cb3c5eb5ec, FirstName: i, SecondName: m, Password: q)
+2017/11/06 18:05:45.703|Trace|Запрос на обновление пользователя с Id:f482fb82-76ac-42d4-9806-39cb3c5eb5ec
+2017/11/06 18:05:45.722|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:f482fb82-76ac-42d4-9806-39cb3c5eb5ec
+2017/11/06 18:05:45.722|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:f482fb82-76ac-42d4-9806-39cb3c5eb5ec
+2017/11/06 18:05:45.739|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:f482fb82-76ac-42d4-9806-39cb3c5eb5ec
+2017/11/06 18:05:45.739|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:f482fb82-76ac-42d4-9806-39cb3c5eb5ec
+2017/11/06 18:05:45.751|Error|Пользователя с таким UserID: f482fb82-76ac-42d4-9806-39cb3c5eb5ec не существует
+2017/11/06 18:06:18.788|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:06:18.792|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: d67152ea-ee02-41e8-89ad-15a371815d8f, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:06:18.792|Trace|Создан новый пользователь id: d67152ea-ee02-41e8-89ad-15a371815d8f, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:06:32.054|Trace|Запрос на обновление пользователя с Id:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:32.070|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:32.070|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:32.086|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:32.086|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:32.098|Error|Пользователя с таким UserID: d67152ea-ee02-41e8-89ad-15a371815d8f не существует
+2017/11/06 18:06:36.572|Trace|Запрос на удаление пользователя с Id:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:36.587|Trace|База данных:удалено из таблицы:[ListOfUsers]:где UserID:d67152ea-ee02-41e8-89ad-15a371815d8f
+2017/11/06 18:06:36.588|Trace|Пользователь с Id:d67152ea-ee02-41e8-89ad-15a371815d8f удален
+2017/11/06 18:08:11.461|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:08:11.461|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: a0cf55ca-1c04-490a-a209-ebe0deb11b87, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:08:11.461|Trace|Создан новый пользователь id: a0cf55ca-1c04-490a-a209-ebe0deb11b87, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:08:31.955|Trace|Запрос на обновление пользователя с Id:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:32.006|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:32.013|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:32.034|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:32.063|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:32.063|Error|Пользователя с таким UserID: a0cf55ca-1c04-490a-a209-ebe0deb11b87 не существует
+2017/11/06 18:08:35.407|Trace|Запрос на обновление пользователя с Id:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:35.417|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:35.417|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:35.436|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:35.436|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:a0cf55ca-1c04-490a-a209-ebe0deb11b87
+2017/11/06 18:08:35.516|Error|Пользователя с таким UserID: a0cf55ca-1c04-490a-a209-ebe0deb11b87 не существует
+2017/11/06 18:10:27.828|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:10:28.159|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: a6d3f1de-9b9b-4045-86b5-fce41f171cb2, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:10:28.159|Trace|Создан новый пользователь id: a6d3f1de-9b9b-4045-86b5-fce41f171cb2, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:12:01.082|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:12:02.136|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: a99e704d-2194-4097-be02-b562aeb5e90e, FirstName:11, SecondName:1, Password:1)
+2017/11/06 18:12:02.136|Trace|Создан новый пользователь id: a99e704d-2194-4097-be02-b562aeb5e90e, FirstName: 11, SecondName: 1, Password: 1)
+2017/11/06 18:15:08.561|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:15:08.712|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 0d658f6d-77d0-4084-9b7e-f1c9fdc58743, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:15:08.712|Trace|Создан новый пользователь id: 0d658f6d-77d0-4084-9b7e-f1c9fdc58743, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:16:04.219|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 18:16:04.219|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 371e3502-483f-4f24-bf23-e30c0005060d, FirstName:1, SecondName:1, Password:1)
+2017/11/06 18:16:04.219|Trace|Создан новый пользователь id: 371e3502-483f-4f24-bf23-e30c0005060d, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 18:16:08.968|Trace|Запрос на обновление пользователя с Id:371e3502-483f-4f24-bf23-e30c0005060d
+2017/11/06 18:16:08.990|Trace|База данных:обновлено FirstName:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
+2017/11/06 18:16:08.990|Trace|База данных:обновлено SecondName:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
+2017/11/06 18:16:09.004|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
+2017/11/06 18:16:09.004|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
+2017/11/06 18:16:09.029|Error|Пользователя с таким UserID: 371e3502-483f-4f24-bf23-e30c0005060d не существует

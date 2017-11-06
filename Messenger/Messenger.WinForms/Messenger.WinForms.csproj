@@ -72,6 +72,18 @@
     <Compile Include="Controls\UserInterfaceControl.Designer.cs">
       <DependentUpon>UserInterfaceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UserSettingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserSettingControl.Designer.cs">
+      <DependentUpon>UserSettingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserChats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserChats.Designer.cs">
+      <DependentUpon>UserChats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserCheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     </Compile>
     <Compile Include="Forms\UserInterface.Designer.cs">
       <DependentUpon>UserInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserSetting.Designer.cs">
+      <DependentUpon>UserSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -108,11 +126,20 @@
     <EmbeddedResource Include="Controls\UserInterfaceControl.resx">
       <DependentUpon>UserInterfaceControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserSettingControl.resx">
+      <DependentUpon>UserSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserChats.resx">
+      <DependentUpon>UserChats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserCheckIn.resx">
       <DependentUpon>UserCheckIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserInterface.resx">
       <DependentUpon>UserInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserSetting.resx">
+      <DependentUpon>UserSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>

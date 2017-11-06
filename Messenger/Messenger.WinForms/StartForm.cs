@@ -19,8 +19,21 @@ namespace Messenger.WinForms
         public StartForm()
         {
             InitializeComponent();
+            Data.EventHandlerDelUser = new Data.MyEventDelUser(DelUser);
+            Data.EventHandlerUpdateUser = new Data.MyEventUpdateUser(UpdateUser);
         }
 
+        void DelUser(User param)
+        {
+            _serviceClient.DelUser(param.Id);
+            MessageBox.Show("Пользователь удален!");
+        }
+
+        void UpdateUser(User param)
+        {
+            _serviceClient.UpdateUser(param);
+            MessageBox.Show($"Пользователь: {param.FirstName} изменен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
         {
@@ -28,25 +41,23 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    //var user = _serviceClient.CreateUser(new User { FirstName = form.UserName });
-                    //MessageBox.Show($"Id пользователя: {user.Id}", "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                 }
             }
         }
+     
+
         private void UserInterface(User user)
         {
-
-            using (var form = new UserInterface())
+            using (var form = new UserInterface(user)) //new MyDelegate.DelUser(DelUser), user))
             {
                 form.UserName = user.FirstName + ' ' + user.SecondName;
                 form.UserPhoto = user.Photo;
-
-                if (form.ShowDialog() == DialogResult.Cancel)
-                MessageBox.Show("dgf");
+                if (form.ShowDialog() == DialogResult.Abort) MessageBox.Show("sdfgF");
             }
 
         }
+
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
@@ -55,7 +66,7 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    var user = _serviceClient.CreateUser(new User
+                   var _user = _serviceClient.CreateUser(new User
                     {
                         FirstName = form.UserFirstName,
                         SecondName = form.UserSecondName,
@@ -63,12 +74,10 @@ namespace Messenger.WinForms
                         Photo = form.UserPhoto,
                         TimeOfDelMes = form.UserTimeDelMes
                     });
-
-                    var message = "Пользователь" + user.FirstName + ' ' + user.SecondName + " успешно зарегистрирован!";
-                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    UserInterface(user);
-
+                 
+                    var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
+                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    UserInterface(_user);
                 }
 
             }

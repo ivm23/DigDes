@@ -62,6 +62,7 @@
             this.Name = "StartForm";
             this.Text = "StartForm";
             this.Load += new System.EventHandler(this.StartForm_Load);
+            //this.Click += new System.EventHandler();
             this.ResumeLayout(false);
 
         }

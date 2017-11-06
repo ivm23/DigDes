@@ -147,5 +147,12 @@ namespace Messenger.DataLayer.Sql
             NLogger.Logger.Trace("База данных:обновлено Photo:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
         }
+
+        public User UpdateTimeDelMes(Guid id, DateTime time)
+        {
+            Update(id, time, "timeOfDelMes");
+            NLogger.Logger.Trace("База данных:обновлено TimeDelMes:{0}:где UserID:{1}", "[ListOfUsers]", id);
+            return Get(id);
+        }
     }
 }

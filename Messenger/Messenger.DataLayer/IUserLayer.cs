@@ -16,5 +16,6 @@ namespace Messenger.DataLayer
         User UpdateSecondName(Guid idUser, string secondName);
         User UpdatePassword(Guid idUser, string password);
         User UpdatePhoto(Guid idUser, byte[] photo);
+        User UpdateTimeDelMes(Guid idUser, DateTime timeOfDelMes);
     }
 }
