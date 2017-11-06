@@ -21,6 +21,7 @@ namespace Messenger.WinForms
             InitializeComponent();
             Data.EventHandlerDelUser = new Data.MyEventDelUser(DelUser);
             Data.EventHandlerUpdateUser = new Data.MyEventUpdateUser(UpdateUser);
+            Data.EventHandlerGetUserChats = new Data.MyEventGetUserChats(GetUserChats);
         }
 
         void DelUser(User param)
@@ -33,6 +34,18 @@ namespace Messenger.WinForms
         {
             _serviceClient.UpdateUser(param);
             MessageBox.Show($"Пользователь: {param.FirstName} изменен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        void GetUserChats(User user)
+        {
+            var chats = _serviceClient.GetUserChats(user.Id);
+           /* chats.Reset();
+            MessageBox.Show(chats.Current.NameOfChat, "", MessageBoxButtons.OK);
+            while(chats.MoveNext() )
+            {
+                MessageBox.Show(chats.Current.NameOfChat, "", MessageBoxButtons.OK);
+            }*/
+
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)

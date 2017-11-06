@@ -15,3 +15,5 @@
 2017-11-06 18:08:32.0637|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: a0cf55ca-1c04-490a-a209-ebe0deb11b87 не существует
 2017-11-06 18:08:35.5169|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: a0cf55ca-1c04-490a-a209-ebe0deb11b87 не существует
 2017-11-06 18:16:09.0293|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 371e3502-483f-4f24-bf23-e30c0005060d не существует
+2017-11-06 19:54:11.5117|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 50723e9c-022a-4e13-a7c6-22e173783a4e не существует
+2017-11-06 19:58:49.6546|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: ef3ebb55-a617-4d0a-b408-09e56203381a не существует

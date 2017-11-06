@@ -9,7 +9,7 @@ using Messenger.Model;
 
 namespace Messenger.WinForms
 {
-
+    
     internal class ServiceClient
     {
         private readonly HttpClient _client;
@@ -32,10 +32,17 @@ namespace Messenger.WinForms
             _client.DeleteAsync("user/" + Convert.ToString(UserId));
         }
 
+        //[JsonObject]
         public User GetUser(Guid id)
         {
             var user = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<User>().Result;
             return user;
+        }
+        public IEnumerator<Chat> GetUserChats(Guid id)
+        {
+            var chats = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<IEnumerator<Chat>>().Result;
+            
+            return chats;
         }
 
         public struct newData

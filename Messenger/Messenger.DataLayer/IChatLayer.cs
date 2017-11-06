@@ -7,6 +7,7 @@ using Messenger.Model;
 
 namespace Messenger.DataLayer
 {
+    
     public interface IChatLayer
     {
         Chat Create(IEnumerable<Guid> members, string nameOfChat);

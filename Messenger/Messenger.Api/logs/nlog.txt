@@ -244,3 +244,53 @@
 2017/11/06 18:16:09.004|Trace|База данных:обновлено Password:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
 2017/11/06 18:16:09.004|Trace|База данных:обновлено Photo:[ListOfUsers]:где UserID:371e3502-483f-4f24-bf23-e30c0005060d
 2017/11/06 18:16:09.029|Error|Пользователя с таким UserID: 371e3502-483f-4f24-bf23-e30c0005060d не существует
+2017/11/06 19:52:48.404|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 19:52:51.123|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 09f8227b-8b07-40a9-b138-2dd186b9cbbc, FirstName:Famili, SecondName:Name, Password:paswолрорord1)
+2017/11/06 19:52:51.175|Trace|Создан новый пользователь id: 09f8227b-8b07-40a9-b138-2dd186b9cbbc, FirstName: Famili, SecondName: Name, Password: paswолрорord1)
+2017/11/06 19:53:51.024|Trace|Запрос на создание нового чата nameOfChat:{1}
+2017/11/06 19:53:51.074|Trace|База данных: Добавлено в таблицу :[Chat]: значения (IdChat: fbda2289-b3b4-41e6-bb21-4159f7604c22, nameOfChat:Chaaaaarlyyy)
+2017/11/06 19:53:51.111|Trace|База данных: Добавлено в таблицу :[ChatMembers]: значения (IdChat: fbda2289-b3b4-41e6-bb21-4159f7604c22, IdUser:16a57557-fb74-41ea-926c-0344658573ab)
+2017/11/06 19:54:11.398|Trace|Запрос на пользователя с ID:50723e9c-022a-4e13-a7c6-22e173783a4e
+2017/11/06 19:54:11.511|Error|Пользователя с таким UserID: 50723e9c-022a-4e13-a7c6-22e173783a4e не существует
+2017/11/06 19:54:53.171|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 19:54:55.487|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 6f3a2063-ccad-4010-92cb-096075155d57, FirstName:Famili, SecondName:Name, Password:paswолрорord1)
+2017/11/06 19:54:55.593|Trace|Создан новый пользователь id: 6f3a2063-ccad-4010-92cb-096075155d57, FirstName: Famili, SecondName: Name, Password: paswолрорord1)
+2017/11/06 19:55:18.472|Trace|Запрос на создание нового чата nameOfChat:{1}
+2017/11/06 19:55:18.591|Trace|База данных: Добавлено в таблицу :[Chat]: значения (IdChat: 74003b5b-bf8a-4fa1-96fe-9b6d589d0d17, nameOfChat:Charlyyy)
+2017/11/06 19:55:18.612|Trace|База данных: Добавлено в таблицу :[ChatMembers]: значения (IdChat: 74003b5b-bf8a-4fa1-96fe-9b6d589d0d17, IdUser:6f3a2063-ccad-4010-92cb-096075155d57)
+2017/11/06 19:56:20.692|Trace|Запрос на создание нового чата nameOfChat:{1}
+2017/11/06 19:56:20.840|Trace|База данных: Добавлено в таблицу :[Chat]: значения (IdChat: 793688f6-5292-4da5-b43a-afac5a2a2fd3, nameOfChat:Charlyyy)
+2017/11/06 19:56:20.850|Trace|База данных: Добавлено в таблицу :[ChatMembers]: значения (IdChat: 793688f6-5292-4da5-b43a-afac5a2a2fd3, IdUser:6f3a2063-ccad-4010-92cb-096075155d57)
+2017/11/06 19:56:28.568|Trace|Запрос на создание нового чата nameOfChat:{1}
+2017/11/06 19:56:28.686|Trace|База данных: Добавлено в таблицу :[Chat]: значения (IdChat: 11a339c4-d24e-4df6-9a2f-79109488547d, nameOfChat:Charlyyy)
+2017/11/06 19:58:13.240|Trace|Запрос на пользователя с ID:6f3a2063-ccad-4010-92cb-096075155d57
+2017/11/06 19:58:13.420|Trace|Получен пользователь с ID:6f3a2063-ccad-4010-92cb-096075155d57
+2017/11/06 19:58:49.460|Trace|Запрос на пользователя с ID:ef3ebb55-a617-4d0a-b408-09e56203381a
+2017/11/06 19:58:49.654|Error|Пользователя с таким UserID: ef3ebb55-a617-4d0a-b408-09e56203381a не существует
+2017/11/06 20:00:19.386|Trace|Запрос на создание нового чата nameOfChat:{1}
+2017/11/06 20:01:24.978|Trace|База данных: Добавлено в таблицу :[Chat]: значения (IdChat: ca2b159d-3b94-4efa-8e86-7247bbb2e023, nameOfChat:Charlyyy)
+2017/11/06 20:01:57.100|Trace|База данных: Добавлено в таблицу :[ChatMembers]: значения (IdChat: ca2b159d-3b94-4efa-8e86-7247bbb2e023, IdUser:6f3a2063-ccad-4010-92cb-096075155d57)
+2017/11/06 20:02:04.475|Trace|Создан новый чат IdChat: ca2b159d-3b94-4efa-8e86-7247bbb2e023, nameOfChat:Charlyyy
+2017/11/06 20:09:18.000|Trace|Запрос на пользователя с ID:6f3a2063-ccad-4010-92cb-096075155d57
+2017/11/06 20:09:18.039|Trace|Получен пользователь с ID:6f3a2063-ccad-4010-92cb-096075155d57
+2017/11/06 20:12:29.671|Trace|Запрос на чаты пользователя с IdUser: 6f3a2063-ccad-4010-92cb-096075155d57
+2017/11/06 20:12:30.612|Trace|Получены чаты пользователя с IdUser: 6f3a2063-ccad-4010-92cb-096075155d57 
+2017/11/06 20:35:56.761|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 20:35:56.909|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 021c4225-b260-444f-8a9f-892b648f22b7, FirstName:I, SecondName:a, Password:ak)
+2017/11/06 20:35:56.911|Trace|Создан новый пользователь id: 021c4225-b260-444f-8a9f-892b648f22b7, FirstName: I, SecondName: a, Password: ak)
+2017/11/06 20:37:36.456|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 20:37:36.495|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: ff29f7eb-459c-468e-9986-b831a66512ef, FirstName:1, SecondName:1, Password:1)
+2017/11/06 20:37:36.495|Trace|Создан новый пользователь id: ff29f7eb-459c-468e-9986-b831a66512ef, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 20:38:39.668|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 20:38:39.696|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 045ec817-c5cb-48f0-b03f-93587bf2f508, FirstName:1, SecondName:1, Password:1)
+2017/11/06 20:38:39.698|Trace|Создан новый пользователь id: 045ec817-c5cb-48f0-b03f-93587bf2f508, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 20:40:21.062|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 20:40:21.062|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: c4309c77-b984-43a0-ab54-7da15332fa25, FirstName:1, SecondName:1, Password:1)
+2017/11/06 20:40:21.068|Trace|Создан новый пользователь id: c4309c77-b984-43a0-ab54-7da15332fa25, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 20:40:23.381|Trace|Запрос на пользователя с ID:c4309c77-b984-43a0-ab54-7da15332fa25
+2017/11/06 20:40:23.381|Trace|Получен пользователь с ID:c4309c77-b984-43a0-ab54-7da15332fa25
+2017/11/06 20:53:36.366|Trace|Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}
+2017/11/06 20:53:36.384|Trace|База данных:Добавлено в таблицу:[ListOfUsers]:значения (IdUser: 684418b9-5767-45e9-9921-eb0d3abfbdfd, FirstName:1, SecondName:1, Password:1)
+2017/11/06 20:53:36.384|Trace|Создан новый пользователь id: 684418b9-5767-45e9-9921-eb0d3abfbdfd, FirstName: 1, SecondName: 1, Password: 1)
+2017/11/06 20:53:39.285|Trace|Запрос на пользователя с ID:684418b9-5767-45e9-9921-eb0d3abfbdfd
+2017/11/06 20:53:39.285|Trace|Получен пользователь с ID:684418b9-5767-45e9-9921-eb0d3abfbdfd

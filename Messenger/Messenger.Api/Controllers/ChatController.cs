@@ -84,6 +84,26 @@ namespace Messenger.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/member/{idMemb}/chats")]
+        public IEnumerable<Chat> GetChats(Guid idMemb)
+        {
+            NLogger.Logger.Trace("Запрос на чаты пользователя с IdUser: {0}", idMemb);
+            try
+            {
+                var chats = _chatLayer.GetUserChats(idMemb);
+               
+                NLogger.Logger.Trace("Получены чаты пользователя с IdUser: {0} ", idMemb);
+                return chats;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Пользователя с таким UserID: {0} не существует", idMemb);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.Unauthorized,
+                    "Пользователя не существует!"));                              
+            }
+        }
+
 
         public struct CreateChatData
         {

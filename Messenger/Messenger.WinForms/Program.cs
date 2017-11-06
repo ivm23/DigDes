@@ -30,5 +30,9 @@ namespace Messenger.WinForms
         public delegate void MyEventUpdateUser(User user);
         public static MyEventUpdateUser EventHandlerUpdateUser;
 
+
+        public delegate void MyEventGetUserChats(User user);
+        public static MyEventGetUserChats EventHandlerGetUserChats;
+
     }
 }

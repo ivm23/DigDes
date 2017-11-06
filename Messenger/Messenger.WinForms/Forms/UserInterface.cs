@@ -42,7 +42,11 @@ namespace Messenger.WinForms.Forms
 
         private void btnUserDialogs_Click(object sender, EventArgs e)
         {
-
+            using (var form = new UserChats(_user))
+            {
+                if (form.ShowDialog() == DialogResult.Abort)
+                    MessageBox.Show("UserInterface");
+            }
         }
     }
 }
