@@ -22,6 +22,12 @@ namespace Messenger.WinForms
             Application.Run(new StartForm());
         }
     }
+    public struct CreateChatData
+    {
+        public string nameChat;
+        public IEnumerable<Guid> members;
+    }
+
     public static class Data
     {
         public delegate void MyEventDelUser(User user);
@@ -34,5 +40,11 @@ namespace Messenger.WinForms
         public delegate void MyEventGetUserChats(User user);
         public static MyEventGetUserChats EventHandlerGetUserChats;
 
+        public delegate void MyEventCreateNewChat(User user);
+        public static MyEventCreateNewChat EventHandlerCreateNewChat;
+
+
+        public delegate void MyEventAddNewChat(List<String> users, String name);
+        public static MyEventAddNewChat EventHandlerAddNewChat;
     }
 }

@@ -22,6 +22,8 @@ namespace Messenger.WinForms
             Data.EventHandlerDelUser = new Data.MyEventDelUser(DelUser);
             Data.EventHandlerUpdateUser = new Data.MyEventUpdateUser(UpdateUser);
             Data.EventHandlerGetUserChats = new Data.MyEventGetUserChats(GetUserChats);
+            Data.EventHandlerCreateNewChat = new Data.MyEventCreateNewChat(CreateNewChat);
+            Data.EventHandlerAddNewChat = new Data.MyEventAddNewChat(AddNewChat);
         }
 
         void DelUser(User param)
@@ -38,14 +40,47 @@ namespace Messenger.WinForms
 
         void GetUserChats(User user)
         {
-            var chats = _serviceClient.GetUserChats(user.Id);
-           /* chats.Reset();
-            MessageBox.Show(chats.Current.NameOfChat, "", MessageBoxButtons.OK);
-            while(chats.MoveNext() )
+            var chats = _serviceClient.GetUserChats(user.Id).ToList();
+            foreach (var chat in chats)
             {
-                MessageBox.Show(chats.Current.NameOfChat, "", MessageBoxButtons.OK);
-            }*/
+                MessageBox.Show(chat.NameOfChat, "", MessageBoxButtons.OK);
+            }
+        }
 
+        void CreateNewChat(User user)
+        {
+            var users = _serviceClient.GetAllUsers(user.Id);
+            using (var form = new NewChat(user, users))
+            {
+                if (form.ShowDialog() == DialogResult.Abort)
+                    MessageBox.Show("UserInterface");
+            }
+        }
+        Guid getId(string str)
+        {
+            var index = str.LastIndexOf('(');
+            MessageBox.Show(Convert.ToString(index));
+            var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
+            return id;
+        }
+    
+        void AddNewChat(List<String> users, String name)
+        {
+            var chatUsers = new List<Guid>();
+            foreach (var user in users)
+            {
+                var id = getId(user);
+                var _user = _serviceClient.GetUser(id);
+                chatUsers.Add(_user.Id);
+            }
+
+
+            var chat = new CreateChatData
+            {
+                nameChat = name,
+                members = chatUsers
+            };
+            var newChat = _serviceClient.CreateChat(chat);
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
@@ -54,11 +89,11 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    
+
                 }
             }
         }
-     
+
 
         private void UserInterface(User user)
         {
@@ -79,7 +114,7 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                   var _user = _serviceClient.CreateUser(new User
+                    var _user = _serviceClient.CreateUser(new User
                     {
                         FirstName = form.UserFirstName,
                         SecondName = form.UserSecondName,
@@ -87,9 +122,9 @@ namespace Messenger.WinForms
                         Photo = form.UserPhoto,
                         TimeOfDelMes = form.UserTimeDelMes
                     });
-                 
+
                     var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
-                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UserInterface(_user);
                 }
 

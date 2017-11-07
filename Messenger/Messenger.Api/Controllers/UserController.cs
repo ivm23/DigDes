@@ -6,6 +6,7 @@ using Messenger.DataLayer;
 using Messenger.DataLayer.Sql;
 using Messenger.Model;
 using Messenger.Logger;
+using System.Collections.Generic;
 
 namespace Messenger.Api.Controllers
 {
@@ -35,6 +36,25 @@ namespace Messenger.Api.Controllers
                 return user;
             }
             catch {
+                NLogUserNotFound(id);
+                throw new HttpResponseException(UserNotFound());
+            }
+        }
+
+        [HttpGet]
+        [Route("api/user/{id}/all")]
+        public List<User> GetAllUsers(Guid id)
+        {
+            NLogger.Logger.Trace("Запрос на пользователей");
+            try
+            {
+                var user = _userLayer.AllUsers(id);
+                NLogger.Logger.Trace("Пользователи получены");
+
+                return user;
+            }
+            catch
+            {
                 NLogUserNotFound(id);
                 throw new HttpResponseException(UserNotFound());
             }

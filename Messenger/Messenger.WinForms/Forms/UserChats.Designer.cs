@@ -42,6 +42,7 @@
             this.NewChat.TabIndex = 0;
             this.NewChat.Text = "Создать новый диалог";
             this.NewChat.UseVisualStyleBackColor = true;
+            this.NewChat.Click += new System.EventHandler(this.NewChat_Click);
             // 
             // contextMenuStrip1
             // 

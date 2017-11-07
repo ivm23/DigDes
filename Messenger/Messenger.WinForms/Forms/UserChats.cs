@@ -32,5 +32,10 @@ namespace Messenger.WinForms.Forms
         {
 
         }
+
+        private void NewChat_Click(object sender, EventArgs e)
+        {
+            Data.EventHandlerCreateNewChat(_user);  
+        }
     }
 }

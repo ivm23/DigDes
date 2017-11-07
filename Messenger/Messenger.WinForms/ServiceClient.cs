@@ -9,7 +9,7 @@ using Messenger.Model;
 
 namespace Messenger.WinForms
 {
-    
+
     internal class ServiceClient
     {
         private readonly HttpClient _client;
@@ -38,10 +38,27 @@ namespace Messenger.WinForms
             var user = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<User>().Result;
             return user;
         }
-        public IEnumerator<Chat> GetUserChats(Guid id)
+
+        public List<User> GetAllUsers(Guid id)
         {
-            var chats = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<IEnumerator<Chat>>().Result;
-            
+            var users = _client.GetAsync($"user/{id}/all").Result.Content.ReadAsAsync<List<User>>().Result;
+            return users;
+        }
+
+        public IEnumerable<Chat> GetUserChats(Guid id)
+        {
+            IEnumerable<Chat> chats = null;
+            using (var response = _client.GetAsync($"member/{id}/chats").Result)
+            {
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    chats = response.Content.ReadAsAsync<IEnumerable<Chat>>().Result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
             return chats;
         }
 
@@ -59,12 +76,21 @@ namespace Messenger.WinForms
                 firstName = user.FirstName,
                 secondName = user.SecondName,
                 password = user.Password,
-                photo  = user.Photo
+                photo = user.Photo
             };
             user = _client.PutAsJsonAsync("user/" + Convert.ToString(user.Id), data).Result.Content.ReadAsAsync<User>().Result;
 
             return user;
 
+        }
+
+        //chat
+
+        public Chat CreateChat(CreateChatData chat)
+        {
+            Console.WriteLine(chat.nameChat);
+            var newChat = _client.PostAsJsonAsync("chat", chat).Result.Content.ReadAsAsync<Chat>().Result;
+            return newChat;
         }
 
     }

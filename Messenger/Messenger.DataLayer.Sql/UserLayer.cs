@@ -101,22 +101,23 @@ namespace Messenger.DataLayer.Sql
 
         private void Update<T>(Guid id, T value, string columnName)
         {
-            if (value != null) { 
-            using (var connection = new SqlConnection(_connectionString))
+            if (value != null)
             {
-                connection.Open();
-                using (var command = connection.CreateCommand())
+                using (var connection = new SqlConnection(_connectionString))
                 {
-                    command.CommandText = "update ListOfUsers set " + columnName + " = " + "@" + columnName + " where id = @id";
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "update ListOfUsers set " + columnName + " = " + "@" + columnName + " where id = @id";
 
-                    command.Parameters.AddWithValue("@id", id);
-                    command.Parameters.AddWithValue("@" + columnName, value);
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@" + columnName, value);
 
-                    command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
 
-                    
+
                     }
-            }
+                }
             }
         }
 
@@ -153,6 +154,42 @@ namespace Messenger.DataLayer.Sql
             Update(id, time, "timeOfDelMes");
             NLogger.Logger.Trace("База данных:обновлено TimeDelMes:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
+        }
+
+        public List<User> AllUsers(Guid id)
+        {
+            List<User> users = new List<User>();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"select id, password, photo, firstName, secondName, timeOfDelMes from ListOfUsers where not(id = @id)";
+
+                    command.Parameters.AddWithValue("@id", id);
+
+                    command.ExecuteNonQuery();
+                    using (var reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            users.Add(new User
+                            {
+                                Id = reader.GetGuid(reader.GetOrdinal("id")),
+                                Password = reader.GetString(reader.GetOrdinal("password")),
+                                Photo = new byte[] { 1, 2, 3 },
+                                FirstName = reader.GetString(reader.GetOrdinal("firstName")),
+                                SecondName = reader.GetString(reader.GetOrdinal("secondName")),
+                                TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
+                            });
+
+                        }
+
+                        return users;
+                    }
+                }
+            }
         }
     }
 }
