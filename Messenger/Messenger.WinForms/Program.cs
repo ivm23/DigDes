@@ -46,5 +46,9 @@ namespace Messenger.WinForms
 
         public delegate void MyEventAddNewChat(List<String> users, String name);
         public static MyEventAddNewChat EventHandlerAddNewChat;
+
+
+        public delegate void MyEventCreateMessage(Chat chat, User user, String text);
+        public static MyEventCreateMessage EventHandlerCreateMessage;
     }
 }

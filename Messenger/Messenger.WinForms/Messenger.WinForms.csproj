@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AddUsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AddUsersControl.Designer.cs">
+      <DependentUpon>AddUsersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NewChatControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="Controls\UserSettingControl.Designer.cs">
       <DependentUpon>UserSettingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChatInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatInterface.Designer.cs">
+      <DependentUpon>ChatInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\NewChat.cs">
       <SubType>Form</SubType>
@@ -129,6 +141,9 @@
     <Compile Include="ServiceClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\AddUsersControl.resx">
+      <DependentUpon>AddUsersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewChatControl.resx">
       <DependentUpon>NewChatControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UserSettingControl.resx">
       <DependentUpon>UserSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatInterface.resx">
+      <DependentUpon>ChatInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewChat.resx">
       <DependentUpon>NewChat.cs</DependentUpon>

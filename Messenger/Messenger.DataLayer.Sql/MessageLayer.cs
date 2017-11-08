@@ -27,7 +27,7 @@ namespace Messenger.DataLayer.Sql
                 {
                     using (var command = connection.CreateCommand())
                     {
-                        if (message.Attach.Count != 0)
+                        if (message.Attach != null && message.Attach.Count != 0)
                         {
                             foreach (var attach in message.Attach)
                             {

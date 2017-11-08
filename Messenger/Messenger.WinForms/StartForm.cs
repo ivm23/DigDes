@@ -24,6 +24,7 @@ namespace Messenger.WinForms
             Data.EventHandlerGetUserChats = new Data.MyEventGetUserChats(GetUserChats);
             Data.EventHandlerCreateNewChat = new Data.MyEventCreateNewChat(CreateNewChat);
             Data.EventHandlerAddNewChat = new Data.MyEventAddNewChat(AddNewChat);
+            Data.EventHandlerCreateMessage = new Data.MyEventCreateMessage(CreateMessage);
         }
 
         void DelUser(User param)
@@ -63,24 +64,48 @@ namespace Messenger.WinForms
             var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
             return id;
         }
-    
+
         void AddNewChat(List<String> users, String name)
         {
             var chatUsers = new List<Guid>();
-            foreach (var user in users)
+            foreach (var usr in users)
             {
-                var id = getId(user);
+                var id = getId(usr);
                 var _user = _serviceClient.GetUser(id);
                 chatUsers.Add(_user.Id);
             }
-
 
             var chat = new CreateChatData
             {
                 nameChat = name,
                 members = chatUsers
             };
+
             var newChat = _serviceClient.CreateChat(chat);
+            var user = _serviceClient.GetUser((chatUsers.Last()));
+
+            using (var form = new ChatInterface(newChat, user))
+            {
+                form.ChatName = name;
+                form.SetChatMembers = users;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        void CreateMessage(Chat chat, User user, String text)
+        {
+            var message = new Model.Message
+            {
+                IdChat = chat.Id,
+                IdUser = user.Id,
+                Text = text,
+                TimeCreate = Convert.ToDateTime("0:0:0")
+                
+            };
+            var newMessage = _serviceClient.CreateMessage(message);
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)

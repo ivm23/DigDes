@@ -88,9 +88,15 @@ namespace Messenger.WinForms
 
         public Chat CreateChat(CreateChatData chat)
         {
-            Console.WriteLine(chat.nameChat);
             var newChat = _client.PostAsJsonAsync("chat", chat).Result.Content.ReadAsAsync<Chat>().Result;
             return newChat;
+        }
+
+        //message
+        public Message CreateMessage(Message message)
+        {
+            message = _client.PostAsJsonAsync("message", message).Result.Content.ReadAsAsync<Message>().Result;
+            return message;
         }
 
     }
