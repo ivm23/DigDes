@@ -104,6 +104,26 @@ namespace Messenger.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/chat/{idChat}/messages")]
+        public IEnumerable<Message> GetMessages(Guid idChat)
+        {
+            NLogger.Logger.Trace("Запрос на сообщения чата с IdChat: {0}", idChat);
+            try
+            {
+                var messages = _chatLayer.GetChatMessages(idChat);
+
+                NLogger.Logger.Trace("Получены сообщения чата с IdChat: {0} ", idChat);
+                return messages;
+            }
+            catch
+            {
+                NLogger.Logger.Error("Чата с таким IdChat: {0} не существует", idChat);
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.Unauthorized,
+                    "Чата не существует!"));
+            }
+        }
+
 
         public struct CreateChatData
         {

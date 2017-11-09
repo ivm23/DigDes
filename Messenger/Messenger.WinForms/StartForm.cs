@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Messenger.WinForms.Forms;
 using Messenger.Model;
 
+
 namespace Messenger.WinForms
 {
     public partial class StartForm : Form
@@ -26,6 +27,8 @@ namespace Messenger.WinForms
             Data.EventHandlerAddNewChat = new Data.MyEventAddNewChat(AddNewChat);
             Data.EventHandlerCreateMessage = new Data.MyEventCreateMessage(CreateMessage);
             Data.EventHandlerChatsOfUser = new Data.MyEventChatsOfUser(ChatsOfUser);
+            Data.EventHandlerOpenChat = new Data.MyEventOpenChat(OpenChat);
+            Data.EventHandlerWatchMessages = new Data.MyEventWatchMessages(WatchMessages);
         }
 
         void DelUser(User param)
@@ -43,10 +46,6 @@ namespace Messenger.WinForms
         void GetUserChats(User user)
         {
             var chats = _serviceClient.GetUserChats(user.Id).ToList();
-            foreach (var chat in chats)
-            {
-                MessageBox.Show(chat.NameOfChat, "", MessageBoxButtons.OK);
-            }
         }
 
         void CreateNewChat(User user)
@@ -61,7 +60,7 @@ namespace Messenger.WinForms
         Guid getId(string str)
         {
             var index = str.LastIndexOf('(');
-            MessageBox.Show(Convert.ToString(index));
+            
             var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
             return id;
         }
@@ -90,13 +89,6 @@ namespace Messenger.WinForms
                 form.ChatName = name;
                 form.SetChatMembers = users;
                 form.ShowDialog();
-                List<String> mes = new List<String> { "dsfsd", "sdfd" };
-                form.SetMessages = mes;
-                //form.ShowDialog();
-                //  form.Show();
-                MessageBox.Show("fdf");
-                form.SetMessages = mes;
-
             }
         }
 
@@ -111,25 +103,59 @@ namespace Messenger.WinForms
 
             };
             var newMessage = _serviceClient.CreateMessage(message);
+            MessageBox.Show("Сообщение отправлено");
         }
 
         void ChatsOfUser(User user)
         {
             var chats = _serviceClient.GetChatsOfUser(user);
             var nameChatsOfUsers = new List<String>();
-            foreach(var chat in chats)
+            foreach (var chat in chats)
             {
                 nameChatsOfUsers.Add(chat.NameOfChat);
             }
-            using (var form = new UserChats(user))
+            using (var form = new UserChats(user, chats))
             {
                 form.NameChatsOfUser = nameChatsOfUsers;
                 form.ShowDialog();
             }
-                foreach (var chat in chats)
+        }
+   
+   
+        void OpenChat(User user, Chat chat)
+        {
+            List<User> users = (chat.Members).ToList<User>();
+            List<String> nameOfUsers = new List<String>();
+            foreach (var us in users)
             {
+                nameOfUsers.Add(us.FirstName + ' ' + us.SecondName + " (" + us.Id + ")");
+            }
+            using (var form = new ChatInterface(chat, user))
+            {
+                form.ChatName = chat.NameOfChat;
+                form.SetChatMembers = nameOfUsers;
 
-                //MessageBox.Show(Convert.ToString(chat.Id));
+                form.ShowDialog();
+                
+               
+            }
+
+        }
+
+        void WatchMessages (Chat chat)
+        {
+            var messages = _serviceClient.GetChatMessages(chat);
+            List<String> textMessages = new List<String>();
+
+            foreach(var mes in messages)
+            {
+                var name = _serviceClient.GetUser(mes.IdUser);
+                textMessages.Add(name.FirstName + ' ' + name.SecondName + ':' + mes.Text);
+            }
+            using (var form = new MessagesInterface())
+            {
+                form.SetText = textMessages;
+                form.ShowDialog();                
             }
         }
 
@@ -157,13 +183,12 @@ namespace Messenger.WinForms
 
         private void UserInterface(User user)
         {
-            using (var form = new UserInterface(user)) //new MyDelegate.DelUser(DelUser), user))
+            using (var form = new UserInterface(user))
             {
                 form.UserName = user.FirstName + ' ' + user.SecondName;
                 form.UserPhoto = user.Photo;
                 if (form.ShowDialog() == DialogResult.Abort) MessageBox.Show("sdfgF");
             }
-
         }
 
 

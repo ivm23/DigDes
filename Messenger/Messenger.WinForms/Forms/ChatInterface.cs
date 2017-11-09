@@ -37,25 +37,16 @@ namespace Messenger.WinForms.Forms
             set { addUsersControl2.SetChatMembers = value; }
         }
 
-        public List<String> SetMessages
-        {
-            set
-            {
-                /*foreach (var val in value)
-                {
-                    lbMessages.Text += val + Environment.NewLine;
-                }*/
-
-            
-                lbMessages.Items.Add(" fsdggfhdxfv ");             
-                
-            }
-        }
-
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
 
             Data.EventHandlerCreateMessage(_chat, _user, txtMessage.Text);
+
+        }
+
+        private void btnWatchMessages_Click(object sender, EventArgs e)
+        {
+            Data.EventHandlerWatchMessages(_chat);
         }
     }
 }

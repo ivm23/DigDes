@@ -177,6 +177,39 @@ namespace Messenger.DataLayer.Sql
             }
         }
 
+        public IEnumerable<Message> GetChatMessages(Guid idChat)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"select id, IdUser, IdChat, timeCreate, IdAttach, text from Message 
+                                                    where IdChat = @IdChat";
+
+
+                    command.Parameters.AddWithValue("@IdChat", idChat);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return new Message                // yield - создает итератор
+                            {
+                                Id = reader.GetGuid(reader.GetOrdinal("id")),
+                                IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
+                                IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
+                                TimeCreate = Convert.ToDateTime("0:0:0"),
+                                Text = reader.GetString(reader.GetOrdinal("text")) 
+                            };
+                        }
+                    }
+
+                }
+            }
+
+        }
+
         public Chat UpdateName(Guid id, string nameChat)
         {
             using (var connection = new SqlConnection(_connectionString))

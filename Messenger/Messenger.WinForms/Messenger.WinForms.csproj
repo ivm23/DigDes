@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="Controls\AddUsersControl.Designer.cs">
       <DependentUpon>AddUsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageInterface.Designer.cs">
+      <DependentUpon>MessageInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewChatControl.cs">
       <SubType>UserControl</SubType>
@@ -95,6 +102,12 @@
     </Compile>
     <Compile Include="Forms\ChatInterface.Designer.cs">
       <DependentUpon>ChatInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessagesInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MessagesInterface.Designer.cs">
+      <DependentUpon>MessagesInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\NewChat.cs">
       <SubType>Form</SubType>
@@ -144,6 +157,9 @@
     <EmbeddedResource Include="Controls\AddUsersControl.resx">
       <DependentUpon>AddUsersControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageInterface.resx">
+      <DependentUpon>MessageInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewChatControl.resx">
       <DependentUpon>NewChatControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChatInterface.resx">
       <DependentUpon>ChatInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MessagesInterface.resx">
+      <DependentUpon>MessagesInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewChat.resx">
       <DependentUpon>NewChat.cs</DependentUpon>

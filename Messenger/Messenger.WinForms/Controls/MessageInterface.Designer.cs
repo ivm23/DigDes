@@ -1,6 +1,6 @@
 ﻿namespace Messenger.WinForms.Controls
 {
-    partial class AddUsersControl
+    partial class MessageInterface
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbMessages = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtChatUsers = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // lbMessages
+            // 
+            this.lbMessages.FormattingEnabled = true;
+            this.lbMessages.Location = new System.Drawing.Point(13, 43);
+            this.lbMessages.Name = "lbMessages";
+            this.lbMessages.ScrollAlwaysVisible = true;
+            this.lbMessages.Size = new System.Drawing.Size(221, 121);
+            this.lbMessages.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Location = new System.Drawing.Point(10, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Пользователи:";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Сообщения:";
             // 
-            // txtChatUsers
-            // 
-            this.txtChatUsers.Location = new System.Drawing.Point(6, 42);
-            this.txtChatUsers.Multiline = true;
-            this.txtChatUsers.Name = "txtChatUsers";
-            this.txtChatUsers.ReadOnly = true;
-            this.txtChatUsers.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtChatUsers.Size = new System.Drawing.Size(209, 54);
-            this.txtChatUsers.TabIndex = 2;
-            // 
-            // AddUsersControl
+            // MessageInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtChatUsers);
             this.Controls.Add(this.label1);
-            this.Name = "AddUsersControl";
-            this.Size = new System.Drawing.Size(218, 158);
+            this.Controls.Add(this.lbMessages);
+            this.Name = "MessageInterface";
+            this.Size = new System.Drawing.Size(261, 190);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox lbMessages;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtChatUsers;
     }
 }

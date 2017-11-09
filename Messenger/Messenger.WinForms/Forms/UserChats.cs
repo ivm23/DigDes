@@ -14,11 +14,13 @@ namespace Messenger.WinForms.Forms
     public partial class UserChats : Form
     {
         User _user;
-        public UserChats(User user)
+        List<Chat> _chats;
+        public UserChats(User user, List<Chat> chats)
         {
             InitializeComponent();
             Data.EventHandlerGetUserChats(user);
             _user = user;
+            _chats = chats;
         }
 
         public List<String> NameChatsOfUser
@@ -30,11 +32,19 @@ namespace Messenger.WinForms.Forms
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public Chat GetChat(int index)
         {
-
+             return _chats[index]; 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var indexChat = cbAllChats.SelectedIndex;
+            var chat = GetChat(indexChat);
+            Data.EventHandlerOpenChat(_user, chat);
+        }
+
+        
         private void NewChat_Click(object sender, EventArgs e)
         {
             Data.EventHandlerCreateNewChat(_user);  

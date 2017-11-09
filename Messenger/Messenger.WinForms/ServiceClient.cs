@@ -103,6 +103,12 @@ namespace Messenger.WinForms
             message = _client.PostAsJsonAsync("message", message).Result.Content.ReadAsAsync<Message>().Result;
             return message;
         }
+        public List<Message> GetChatMessages(Chat chat)
+        {
+            var messages = _client.GetAsync($"chat/{chat.Id}/messages").Result.Content.ReadAsAsync<List<Message>>().Result;
+            return messages;
+        }
+
 
     }
 }
