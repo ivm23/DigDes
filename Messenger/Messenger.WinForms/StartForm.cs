@@ -25,6 +25,7 @@ namespace Messenger.WinForms
             Data.EventHandlerCreateNewChat = new Data.MyEventCreateNewChat(CreateNewChat);
             Data.EventHandlerAddNewChat = new Data.MyEventAddNewChat(AddNewChat);
             Data.EventHandlerCreateMessage = new Data.MyEventCreateMessage(CreateMessage);
+            Data.EventHandlerChatsOfUser = new Data.MyEventChatsOfUser(ChatsOfUser);
         }
 
         void DelUser(User param)
@@ -88,10 +89,14 @@ namespace Messenger.WinForms
             {
                 form.ChatName = name;
                 form.SetChatMembers = users;
-                if (form.ShowDialog() == DialogResult.OK)
-                {
+                form.ShowDialog();
+                List<String> mes = new List<String> { "dsfsd", "sdfd" };
+                form.SetMessages = mes;
+                //form.ShowDialog();
+                //  form.Show();
+                MessageBox.Show("fdf");
+                form.SetMessages = mes;
 
-                }
             }
         }
 
@@ -103,9 +108,29 @@ namespace Messenger.WinForms
                 IdUser = user.Id,
                 Text = text,
                 TimeCreate = Convert.ToDateTime("0:0:0")
-                
+
             };
             var newMessage = _serviceClient.CreateMessage(message);
+        }
+
+        void ChatsOfUser(User user)
+        {
+            var chats = _serviceClient.GetChatsOfUser(user);
+            var nameChatsOfUsers = new List<String>();
+            foreach(var chat in chats)
+            {
+                nameChatsOfUsers.Add(chat.NameOfChat);
+            }
+            using (var form = new UserChats(user))
+            {
+                form.NameChatsOfUser = nameChatsOfUsers;
+                form.ShowDialog();
+            }
+                foreach (var chat in chats)
+            {
+
+                //MessageBox.Show(Convert.ToString(chat.Id));
+            }
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
@@ -114,7 +139,17 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-
+                    var id = getId(form.UserName);
+                    User user = _serviceClient.GetUser(id);
+                    if (user.Password == form.UserPassword)
+                    {
+                        using (var formChat = new UserInterface(user))
+                        {
+                            formChat.UserName = user.FirstName + ' ' + user.SecondName;
+                            formChat.UserPhoto = user.Photo;
+                            formChat.ShowDialog();
+                        }
+                    }
                 }
             }
         }

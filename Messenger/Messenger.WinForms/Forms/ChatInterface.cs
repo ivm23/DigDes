@@ -20,8 +20,8 @@ namespace Messenger.WinForms.Forms
             InitializeComponent();
             _chat = chat;
             _user = user;
-        
         }
+
         public string ChatName
         {
             set { lbNameChat.Text = value; }
@@ -29,19 +29,32 @@ namespace Messenger.WinForms.Forms
 
         public string GetMessage
         {
-            get { return txtMessage.Text;  }
+            get { return txtMessage.Text; }
         }
+
         public List<String> SetChatMembers
+        {
+            set { addUsersControl2.SetChatMembers = value; }
+        }
+
+        public List<String> SetMessages
         {
             set
             {
-                addUsersControl2.SetChatMembers = value;
+                /*foreach (var val in value)
+                {
+                    lbMessages.Text += val + Environment.NewLine;
+                }*/
+
+            
+                lbMessages.Items.Add(" fsdggfhdxfv ");             
+                
             }
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            
+
             Data.EventHandlerCreateMessage(_chat, _user, txtMessage.Text);
         }
     }

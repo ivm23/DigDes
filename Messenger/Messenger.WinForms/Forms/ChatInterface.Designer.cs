@@ -33,6 +33,8 @@
             this.addUsersControl1 = new Messenger.WinForms.Controls.AddUsersControl();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
+            this.lbMessages = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbNameChat
@@ -61,17 +63,17 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(279, 50);
+            this.txtMessage.Location = new System.Drawing.Point(282, 202);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(221, 120);
+            this.txtMessage.Size = new System.Drawing.Size(221, 71);
             this.txtMessage.TabIndex = 3;
             this.txtMessage.Text = "Введите сообщение...";
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.Location = new System.Drawing.Point(425, 176);
+            this.btnSendMessage.Location = new System.Drawing.Point(428, 279);
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(75, 23);
             this.btnSendMessage.TabIndex = 4;
@@ -79,11 +81,31 @@
             this.btnSendMessage.UseVisualStyleBackColor = true;
             this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
             // 
+            // lbMessages
+            // 
+            this.lbMessages.FormattingEnabled = true;
+            this.lbMessages.Location = new System.Drawing.Point(282, 70);
+            this.lbMessages.Name = "lbMessages";
+            this.lbMessages.ScrollAlwaysVisible = true;
+            this.lbMessages.Size = new System.Drawing.Size(221, 121);
+            this.lbMessages.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(279, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Сообщения:";
+            // 
             // ChatInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 310);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbMessages);
             this.Controls.Add(this.btnSendMessage);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.lbNameChat);
@@ -102,5 +124,7 @@
         private System.Windows.Forms.Label lbNameChat;
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnSendMessage;
+        private System.Windows.Forms.ListBox lbMessages;
+        private System.Windows.Forms.Label label1;
     }
 }

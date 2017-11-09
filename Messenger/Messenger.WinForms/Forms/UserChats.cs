@@ -20,7 +20,8 @@ namespace Messenger.WinForms.Forms
             Data.EventHandlerGetUserChats(user);
             _user = user;
         }
-        public string[] NameChatsOfUser
+
+        public List<String> NameChatsOfUser
         {
             set
             {
@@ -28,6 +29,7 @@ namespace Messenger.WinForms.Forms
                     cbAllChats.Items.Add(item);
             }
         }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

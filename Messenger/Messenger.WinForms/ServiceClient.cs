@@ -32,7 +32,7 @@ namespace Messenger.WinForms
             _client.DeleteAsync("user/" + Convert.ToString(UserId));
         }
 
-        //[JsonObject]
+        
         public User GetUser(Guid id)
         {
             var user = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<User>().Result;
@@ -82,6 +82,11 @@ namespace Messenger.WinForms
 
             return user;
 
+        }
+        public List<Chat> GetChatsOfUser(User user)
+        {
+            var chats = _client.GetAsync($"member/{user.Id}/chats").Result.Content.ReadAsAsync<List<Chat>>().Result;
+            return chats;
         }
 
         //chat
