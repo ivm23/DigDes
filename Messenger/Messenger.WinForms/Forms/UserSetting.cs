@@ -28,6 +28,10 @@ namespace Messenger.WinForms.Forms
         {
             get { return userSettingControl1.UserSecondName; }
         }
+        public string UserLogin
+        {
+            get { return userSettingControl1.UserLogin; }
+        }
         public string UserPassword
         {
             get { return userSettingControl1.UserPassword; }
@@ -49,6 +53,7 @@ namespace Messenger.WinForms.Forms
 
         private void btnSaveUser_Click(object sender, EventArgs e)
         {
+            if (userSettingControl1.UserLogin != "") _user.Login = userSettingControl1.UserLogin;
             if (userSettingControl1.UserFirstName != "") _user.FirstName = userSettingControl1.UserFirstName;
 
             if (userSettingControl1.UserSecondName != "") _user.SecondName = userSettingControl1.UserSecondName;

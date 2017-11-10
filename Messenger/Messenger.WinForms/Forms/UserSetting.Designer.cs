@@ -36,7 +36,7 @@
             // 
             // btnDelUser
             // 
-            this.btnDelUser.Location = new System.Drawing.Point(33, 175);
+            this.btnDelUser.Location = new System.Drawing.Point(35, 221);
             this.btnDelUser.Name = "btnDelUser";
             this.btnDelUser.Size = new System.Drawing.Size(168, 23);
             this.btnDelUser.TabIndex = 1;
@@ -46,7 +46,7 @@
             // 
             // btnSaveUser
             // 
-            this.btnSaveUser.Location = new System.Drawing.Point(220, 219);
+            this.btnSaveUser.Location = new System.Drawing.Point(222, 265);
             this.btnSaveUser.Name = "btnSaveUser";
             this.btnSaveUser.Size = new System.Drawing.Size(75, 51);
             this.btnSaveUser.TabIndex = 2;
@@ -56,7 +56,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(301, 219);
+            this.btnCancel.Location = new System.Drawing.Point(303, 265);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 51);
             this.btnCancel.TabIndex = 3;
@@ -65,20 +65,20 @@
             // 
             // userSettingControl1
             // 
-            this.userSettingControl1.Location = new System.Drawing.Point(12, -3);
+            this.userSettingControl1.Location = new System.Drawing.Point(12, -14);
             this.userSettingControl1.Name = "userSettingControl1";
-            this.userSettingControl1.Size = new System.Drawing.Size(377, 172);
-            this.userSettingControl1.TabIndex = 0;
+            this.userSettingControl1.Size = new System.Drawing.Size(345, 229);
+            this.userSettingControl1.TabIndex = 4;
             // 
             // UserSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 285);
+            this.ClientSize = new System.Drawing.Size(512, 358);
+            this.Controls.Add(this.userSettingControl1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveUser);
             this.Controls.Add(this.btnDelUser);
-            this.Controls.Add(this.userSettingControl1);
             this.Name = "UserSetting";
             this.Text = "UserSettingcs";
             this.ResumeLayout(false);
@@ -86,10 +86,9 @@
         }
 
         #endregion
-
-        private Controls.UserSettingControl userSettingControl1;
         private System.Windows.Forms.Button btnDelUser;
         private System.Windows.Forms.Button btnSaveUser;
         private System.Windows.Forms.Button btnCancel;
+        private Controls.UserSettingControl userSettingControl1;
     }
 }

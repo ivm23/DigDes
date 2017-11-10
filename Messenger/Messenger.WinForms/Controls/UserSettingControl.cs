@@ -34,6 +34,10 @@ namespace Messenger.WinForms.Controls
             get { return txtUserPassword.Text; }
         }
 
+        public string UserLogin
+        {
+            get { return txtUserLogin.Text; }
+        }
         public string RepeatUserPassword
         {
             get { return txtRepeatUserPassword.Text; }

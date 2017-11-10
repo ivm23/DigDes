@@ -74,6 +74,7 @@ namespace Messenger.WinForms
         {
             var data = new newData
             {
+                login = user.Login,
                 firstName = user.FirstName,
                 secondName = user.SecondName,
                 password = user.Password,

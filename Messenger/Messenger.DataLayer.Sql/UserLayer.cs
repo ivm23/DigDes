@@ -212,7 +212,19 @@ namespace Messenger.DataLayer.Sql
         {
             if (!existLogin(login))
             {
-                Update(id, login, "login");
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "update UsersLogin set login = @login where id = @id";
+
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@login", login);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
                 NLogger.Logger.Trace("База данных:обновлено Login:{0}:где UserID:{1}", "[ListOfUsers]", id);
                 return Get(id);
             }

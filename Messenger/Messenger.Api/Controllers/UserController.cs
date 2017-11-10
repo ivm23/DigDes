@@ -12,7 +12,7 @@ namespace Messenger.Api.Controllers
 {
     public class UserController : ApiController
     {
-        
+
         private readonly IUserLayer _userLayer;
         private const string ConnectionString = @"Data Source = (local)\SQLEXPRESS;
                                                     Initial Catalog = Messenger.BD;
@@ -35,7 +35,8 @@ namespace Messenger.Api.Controllers
 
                 return user;
             }
-            catch {
+            catch
+            {
                 NLogUserNotFound(id);
                 throw new HttpResponseException(UserNotFound());
             }
@@ -84,7 +85,7 @@ namespace Messenger.Api.Controllers
         [Route("api/user")]
         public User Create([FromBody] User user)
         {
-            NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}, Login:{4}", user.FirstName, user.SecondName,  user.Password, user.Login);
+            NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}, Login:{4}", user.FirstName, user.SecondName, user.Password, user.Login);
             if (user.Password == null)
             {
                 NLogger.Logger.Error(
@@ -114,14 +115,14 @@ namespace Messenger.Api.Controllers
                 NLogUserNotFound(id);
                 throw new HttpResponseException(UserNotFound());
             }
-            
+
         }
 
         public struct newData
         {
             public string login { get; set; }
-            public string firstName { get; set;  }
-            public string secondName { get; set;  }
+            public string firstName { get; set; }
+            public string secondName { get; set; }
             public string password { get; set; }
             public byte[] photo { get; set; }
             public DateTime timeDelMes { get; set; }
@@ -129,31 +130,34 @@ namespace Messenger.Api.Controllers
 
         [HttpPut]
         [Route("api/user/{id}")]
-        public User UpdateUser(Guid id, [FromBody]newData update) 
+        public User UpdateUser(Guid id, [FromBody]newData update)
         {
             NLogger.Logger.Trace("Запрос на обновление пользователя с Id:{0}", id);
             try
             {
                 _userLayer.Get(id);
-                _userLayer.UpdateLogin(id, update.login);
-                _userLayer.UpdateFirstName(id, update.firstName);
-                _userLayer.UpdateSecondName(id, update.secondName);
-                _userLayer.UpdatePassword(id, update.password);
-                _userLayer.UpdatePhoto(id, update.photo);
-                _userLayer.UpdateTimeDelMes(id, update.timeDelMes);
-                var user = _userLayer.Get(id);
-                NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, TimeOfDelMes: {4}, Login: {5}", user.Id, user.SecondName, user.FirstName, user.Password, user.TimeOfDelMes, user.Login);
-                return user;
             }
             catch
             {
                 NLogUserNotFound(id);
                 throw new HttpResponseException(UserNotFound());
             }
+            try { _userLayer.UpdateLogin(id, update.login); }
+            catch { }
+            _userLayer.UpdateFirstName(id, update.firstName);
+            _userLayer.UpdateSecondName(id, update.secondName);
+            _userLayer.UpdatePassword(id, update.password);
+            _userLayer.UpdatePhoto(id, update.photo);
+            _userLayer.UpdateTimeDelMes(id, update.timeDelMes);
+            var user = _userLayer.Get(id);
+            NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, TimeOfDelMes: {4}, Login: {5}", user.Id, user.SecondName, user.FirstName, user.Password, user.TimeOfDelMes, user.Login);
+            return user;
+
+
         }
 
-        public HttpResponseMessage UserNotFound() 
-        {            
+        public HttpResponseMessage UserNotFound()
+        {
             return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такого пользователя не существует!");
         }
         public void NLogUserNotFound(Guid id)
