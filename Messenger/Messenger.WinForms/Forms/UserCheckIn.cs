@@ -19,42 +19,32 @@ namespace Messenger.WinForms.Forms
 
         public string UserFirstName
         {
-            get
-            {
-                return userCheckInControl1.UserFirstName;
-            }
+            get { return userCheckInControl1.UserFirstName; }
         }
 
         public string UserSecondName
         {
-            get
-            {
-                return userCheckInControl1.UserSecondName;
-            }
+            get { return userCheckInControl1.UserSecondName; }
         }
 
         public string UserPassword
         {
-            get
-            {
-                return userCheckInControl1.UserPassword;
-            }
+            get { return userCheckInControl1.UserPassword; }
         }
 
         public byte[] UserPhoto
         {
-            get
-            {
-                return userCheckInControl1.UserPhoto;
-            }
+            get { return userCheckInControl1.UserPhoto; }
         }
 
         public DateTime UserTimeDelMes
         {
-            get
-            {
-                return userCheckInControl1.UserTimeDelMes;
-            }
+            get { return userCheckInControl1.UserTimeDelMes; }
+        }
+
+        public String UserLogin
+        {
+            get { return userCheckInControl1.UserLogin;  }
         }
     }
 }

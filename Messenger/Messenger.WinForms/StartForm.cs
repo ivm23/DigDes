@@ -136,10 +136,7 @@ namespace Messenger.WinForms
                 form.SetChatMembers = nameOfUsers;
 
                 form.ShowDialog();
-                
-               
             }
-
         }
 
         void WatchMessages (Chat chat)
@@ -165,7 +162,8 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    var id = getId(form.UserName);
+                    var login = form.UserLogin;
+                    var id = _serviceClient.GetId(login);
                     User user = _serviceClient.GetUser(id);
                     if (user.Password == form.UserPassword)
                     {
@@ -201,6 +199,7 @@ namespace Messenger.WinForms
                 {
                     var _user = _serviceClient.CreateUser(new User
                     {
+                        Login = form.UserLogin,
                         FirstName = form.UserFirstName,
                         SecondName = form.UserSecondName,
                         Password = form.UserPassword,

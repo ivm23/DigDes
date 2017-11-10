@@ -19,3 +19,10 @@
 2017-11-06 19:58:49.6546|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: ef3ebb55-a617-4d0a-b408-09e56203381a не существует
 2017-11-07 11:25:34.3488|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 6f3a2063-ccad-4010-92cb-096075155d57 не существует
 2017-11-10 02:09:02.8840|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: fe485185-0d0e-46ec-8fba-dbb4b00114af не существует
+2017-11-10 13:33:28.1146|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 3bac3744-3cea-43db-bd48-8820b2b37a42 не существует
+2017-11-10 13:36:54.4844|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 3bac3744-3cea-43db-bd48-8820b2b37a42 не существует
+2017-11-10 15:05:23.6946|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 80c438b3-f33b-416b-9354-1e2bbb4a56ea не существует
+2017-11-10 15:42:00.6606|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: e4129423-3f88-4e8d-a2ed-440f0c00f03a не существует
+2017-11-10 16:29:57.5791|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 3a5a9c7a-02fa-48cb-9b7f-97dd3bc031de не существует
+2017-11-10 16:30:23.3976|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 3a5a9c7a-02fa-48cb-9b7f-97dd3bc031de не существует
+2017-11-10 16:34:24.9584|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: bcda58b8-5c8b-4a43-ac4c-b11d448a9442 не существует

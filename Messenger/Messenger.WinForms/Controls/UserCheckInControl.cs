@@ -73,6 +73,10 @@ namespace Messenger.WinForms.Controls
         {
             get { return bmp_for_draw; }
         }
+        public string UserLogin
+        {
+            get { return txtUserLogin.Text;  }
+        }
 
         public DateTime UserTimeDelMes
         {

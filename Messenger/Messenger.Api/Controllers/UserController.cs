@@ -41,6 +41,26 @@ namespace Messenger.Api.Controllers
             }
         }
 
+
+        [HttpGet]
+        [Route("api/user/login/{login}")]
+        public Guid GetId(string login)
+        {
+            NLogger.Logger.Trace("Запрос на пользователя с login:{0}", login);
+            try
+            {
+                var id = _userLayer.GetId(login);
+                NLogger.Logger.Trace("Получен пользователь с login:{0}", login);
+
+                return id;
+            }
+            catch
+            {
+                //NLogUserNotFound();
+                throw new HttpResponseException(UserNotFound());
+            }
+        }
+
         [HttpGet]
         [Route("api/user/{id}/all")]
         public List<User> GetAllUsers(Guid id)
@@ -64,7 +84,7 @@ namespace Messenger.Api.Controllers
         [Route("api/user")]
         public User Create([FromBody] User user)
         {
-            NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}", user.FirstName, user.SecondName,  user.Password);
+            NLogger.Logger.Trace("Запрос на создание нового пользователя FirstName: {0}, SecondName: {1},  Password: {3}, Login:{4}", user.FirstName, user.SecondName,  user.Password, user.Login);
             if (user.Password == null)
             {
                 NLogger.Logger.Error(
@@ -74,7 +94,7 @@ namespace Messenger.Api.Controllers
             }
 
             var newUser = _userLayer.Create(user);
-            NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password);
+            NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, Login:{4})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password, user.Login);
             return newUser;
         }
 
@@ -99,6 +119,7 @@ namespace Messenger.Api.Controllers
 
         public struct newData
         {
+            public string login { get; set; }
             public string firstName { get; set;  }
             public string secondName { get; set;  }
             public string password { get; set; }
@@ -114,13 +135,14 @@ namespace Messenger.Api.Controllers
             try
             {
                 _userLayer.Get(id);
+                _userLayer.UpdateLogin(id, update.login);
                 _userLayer.UpdateFirstName(id, update.firstName);
                 _userLayer.UpdateSecondName(id, update.secondName);
                 _userLayer.UpdatePassword(id, update.password);
                 _userLayer.UpdatePhoto(id, update.photo);
                 _userLayer.UpdateTimeDelMes(id, update.timeDelMes);
                 var user = _userLayer.Get(id);
-                NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, TimeOfDelMes: {4}", user.Id, user.SecondName, user.FirstName, user.Password, user.TimeOfDelMes);
+                NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, TimeOfDelMes: {4}, Login: {5}", user.Id, user.SecondName, user.FirstName, user.Password, user.TimeOfDelMes, user.Login);
                 return user;
             }
             catch

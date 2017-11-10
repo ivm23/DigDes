@@ -30,7 +30,7 @@
         {
             this.labelName = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnCancelEnter = new System.Windows.Forms.Button();
@@ -42,9 +42,9 @@
             this.labelName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.labelName.Location = new System.Drawing.Point(32, 48);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(32, 13);
+            this.labelName.Size = new System.Drawing.Size(41, 13);
             this.labelName.TabIndex = 0;
-            this.labelName.Text = "Имя:";
+            this.labelName.Text = "Логин:";
             // 
             // labelPassword
             // 
@@ -56,12 +56,12 @@
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль:";
             // 
-            // txtName
+            // txtLogin
             // 
-            this.txtName.Location = new System.Drawing.Point(90, 41);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(140, 20);
-            this.txtName.TabIndex = 2;
+            this.txtLogin.Location = new System.Drawing.Point(90, 41);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(140, 20);
+            this.txtLogin.TabIndex = 2;
             // 
             // txtPassword
             // 
@@ -90,17 +90,17 @@
             this.btnCancelEnter.Text = "Отмена";
             this.btnCancelEnter.UseVisualStyleBackColor = true;
             // 
-            // UserAuthorization
+            // UserAuthorizationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCancelEnter);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelName);
-            this.Name = "UserAuthorization";
+            this.Name = "UserAuthorizationControl";
             this.Size = new System.Drawing.Size(279, 177);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,7 +111,7 @@
 
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnCancelEnter;

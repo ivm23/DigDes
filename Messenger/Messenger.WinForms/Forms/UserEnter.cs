@@ -17,9 +17,9 @@ namespace Messenger.WinForms.Forms
             InitializeComponent();
         }
 
-        public string UserName
+        public string UserLogin
         {
-            get { return userAuthorizationControl1.UserName; }
+            get { return userAuthorizationControl1.UserLogin; }
         }
 
         public string UserPassword

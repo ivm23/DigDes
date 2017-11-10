@@ -64,6 +64,7 @@ namespace Messenger.WinForms
 
         public struct newData
         {
+            public string login { get; set; }
             public string firstName { get; set; }
             public string secondName { get; set; }
             public string password { get; set; }
@@ -87,6 +88,11 @@ namespace Messenger.WinForms
         {
             var chats = _client.GetAsync($"member/{user.Id}/chats").Result.Content.ReadAsAsync<List<Chat>>().Result;
             return chats;
+        }
+
+        public Guid GetId(string login)
+        {
+            return _client.GetAsync($"user/login/{login}").Result.Content.ReadAsAsync<Guid>().Result;
         }
 
         //chat

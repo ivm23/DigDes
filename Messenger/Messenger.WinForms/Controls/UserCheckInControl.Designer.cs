@@ -41,6 +41,8 @@
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnCancelCheckIn = new System.Windows.Forms.Button();
             this.pbUserPhoto = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUserLogin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,10 +165,29 @@
             this.pbUserPhoto.TabIndex = 12;
             this.pbUserPhoto.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label6.Location = new System.Drawing.Point(42, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Логин:";
+            // 
+            // txtUserLogin
+            // 
+            this.txtUserLogin.Location = new System.Drawing.Point(204, 52);
+            this.txtUserLogin.Name = "txtUserLogin";
+            this.txtUserLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtUserLogin.TabIndex = 14;
+            // 
             // UserCheckInControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtUserLogin);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pbUserPhoto);
             this.Controls.Add(this.btnCancelCheckIn);
             this.Controls.Add(this.btnCheckIn);
@@ -203,5 +224,7 @@
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnCancelCheckIn;
         private System.Windows.Forms.PictureBox pbUserPhoto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtUserLogin;
     }
 }

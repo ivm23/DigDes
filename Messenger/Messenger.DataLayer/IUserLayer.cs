@@ -12,6 +12,9 @@ namespace Messenger.DataLayer
         User Create(User user);
         void Delete(Guid idUser);
         User Get(Guid idUser);
+        Guid GetId(string login);
+
+        User UpdateLogin(Guid idUser, string login);
         User UpdateFirstName(Guid idUser, string firstName);
         User UpdateSecondName(Guid idUser, string secondName);
         User UpdatePassword(Guid idUser, string password);
