@@ -23,8 +23,15 @@ namespace Messenger.WinForms
 
         public User CreateUser(User user)
         {
-            user = _client.PostAsJsonAsync("user", user).Result.Content.ReadAsAsync<User>().Result;
-            return user;
+            try
+            {
+                user = _client.PostAsJsonAsync("user", user).Result.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            catch
+            {
+                throw new Exception("Такой пользователь уже существует!");
+            }
         }
 
         public void DelUser(Guid UserId)
@@ -35,8 +42,15 @@ namespace Messenger.WinForms
         
         public User GetUser(Guid id)
         {
-            var user = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<User>().Result;
-            return user;
+            try
+            {
+                var user = _client.GetAsync("user/" + Convert.ToString(id)).Result.Content.ReadAsAsync<User>().Result;
+                return user;
+            }
+            catch
+            {
+                throw new Exception("Такого пользователя не существует!");
+            }
         }
 
         public List<User> GetAllUsers(Guid id)

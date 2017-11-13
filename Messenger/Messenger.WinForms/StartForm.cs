@@ -17,6 +17,7 @@ namespace Messenger.WinForms
     {
         private ServiceClient _serviceClient;
 
+        
         public StartForm()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Messenger.WinForms
             Data.EventHandlerChatsOfUser = new Data.MyEventChatsOfUser(ChatsOfUser);
             Data.EventHandlerOpenChat = new Data.MyEventOpenChat(OpenChat);
             Data.EventHandlerWatchMessages = new Data.MyEventWatchMessages(WatchMessages);
+            Data.EventHandlerMessages = new Data.MyEventMessages(GetMessages);
         }
 
         void DelUser(User param)
@@ -57,10 +59,12 @@ namespace Messenger.WinForms
                     MessageBox.Show("UserInterface");
             }
         }
+
+
         Guid getId(string str)
         {
             var index = str.LastIndexOf('(');
-            
+
             var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
             return id;
         }
@@ -99,11 +103,11 @@ namespace Messenger.WinForms
                 IdChat = chat.Id,
                 IdUser = user.Id,
                 Text = text,
-                TimeCreate = Convert.ToDateTime("0:0:0")
-
+                TimeCreate = DateTime.Now
             };
             var newMessage = _serviceClient.CreateMessage(message);
             MessageBox.Show("Сообщение отправлено");
+            
         }
 
         void ChatsOfUser(User user)
@@ -120,15 +124,15 @@ namespace Messenger.WinForms
                 form.ShowDialog();
             }
         }
-   
-   
+
+        
         void OpenChat(User user, Chat chat)
         {
             List<User> users = (chat.Members).ToList<User>();
             List<String> nameOfUsers = new List<String>();
             foreach (var us in users)
             {
-                nameOfUsers.Add(us.FirstName + ' ' + us.SecondName + " (" + us.Id + ")");
+                nameOfUsers.Add(us.FirstName + ' ' + us.SecondName);
             }
             using (var form = new ChatInterface(chat, user))
             {
@@ -139,21 +143,39 @@ namespace Messenger.WinForms
             }
         }
 
-        void WatchMessages (Chat chat)
+        void WatchMessages(Chat chat)
         {
             var messages = _serviceClient.GetChatMessages(chat);
             List<String> textMessages = new List<String>();
-
-            foreach(var mes in messages)
+            messages.OrderByDescending(x => x.TimeCreate);
+            int k = 0;
+            foreach (var mes in messages)
             {
                 var name = _serviceClient.GetUser(mes.IdUser);
-                textMessages.Add(name.FirstName + ' ' + name.SecondName + ':' + mes.Text);
+                textMessages.Add(name.FirstName + ' ' + name.SecondName + ": " + mes.Text);
             }
             using (var form = new MessagesInterface())
             {
                 form.SetText = textMessages;
-                form.ShowDialog();                
+                form.ShowDialog();
             }
+        }
+   
+       void GetMessages(Chat chat, ref List<String> m)
+        {
+            var messages = _serviceClient.GetChatMessages(chat);
+            List<String> textMessages = new List<String>();
+            messages.OrderByDescending(x => x.TimeCreate);
+            int k = 7;
+            foreach (var mes in messages)
+            {
+                --k;
+                var name = _serviceClient.GetUser(mes.IdUser);
+                textMessages.Add(name.FirstName + ' ' + name.SecondName + ": " + mes.Text);
+                if (k == 0) break;
+            }
+         
+            m = textMessages;
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
@@ -163,17 +185,26 @@ namespace Messenger.WinForms
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     var login = form.UserLogin;
-                    var id = _serviceClient.GetId(login);
-                    User user = _serviceClient.GetUser(id);
-                    if (user.Password == form.UserPassword)
+                    try
                     {
-                        using (var formChat = new UserInterface(user))
+                        var id = _serviceClient.GetId(login);
+                    
+                        User user = _serviceClient.GetUser(id);
+                        if (user.Password == form.UserPassword)
                         {
-                            formChat.UserName = user.FirstName + ' ' + user.SecondName;
-                            formChat.UserPhoto = user.Photo;
-                            formChat.ShowDialog();
+                            using (var formChat = new UserInterface(user))
+                            {
+                                formChat.UserName = user.FirstName + ' ' + user.SecondName;
+                                formChat.UserPhoto = user.Photo;
+                                formChat.ShowDialog();
+                            }
                         }
                     }
+                    catch
+                    {
+                        MessageBox.Show("Такого пользователя нет!");
+                    }
+
                 }
             }
         }
@@ -197,19 +228,26 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    var _user = _serviceClient.CreateUser(new User
+                    try
                     {
-                        Login = form.UserLogin,
-                        FirstName = form.UserFirstName,
-                        SecondName = form.UserSecondName,
-                        Password = form.UserPassword,
-                        Photo = form.UserPhoto,
-                        TimeOfDelMes = form.UserTimeDelMes
-                    });
+                        var _user = _serviceClient.CreateUser(new User
+                        {
+                            Login = form.UserLogin,
+                            FirstName = form.UserFirstName,
+                            SecondName = form.UserSecondName,
+                            Password = form.UserPassword,
+                            Photo = form.UserPhoto,
+                            TimeOfDelMes = form.UserTimeDelMes
+                        });
 
-                    var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
-                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UserInterface(_user);
+                        var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
+                        MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        UserInterface(_user);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Такой пользователь уже существует!");
+                    }
                 }
 
             }
