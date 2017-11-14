@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Api", "Messenger.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Logger", "Messenger.Logger\Messenger.Logger.csproj", "{3DC7795A-F49E-4234-9328-36A283677970}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{135C2297-5957-47A7-9CBE-EED31BEB5F9B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.WinForms", "Messenger.WinForms\Messenger.WinForms.csproj", "{02962B41-5EB9-4C9C-B371-C9FDB2A13A37}"
 EndProject
 Global
@@ -47,6 +49,10 @@ Global
 		{3DC7795A-F49E-4234-9328-36A283677970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DC7795A-F49E-4234-9328-36A283677970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DC7795A-F49E-4234-9328-36A283677970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135C2297-5957-47A7-9CBE-EED31BEB5F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135C2297-5957-47A7-9CBE-EED31BEB5F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135C2297-5957-47A7-9CBE-EED31BEB5F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135C2297-5957-47A7-9CBE-EED31BEB5F9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02962B41-5EB9-4C9C-B371-C9FDB2A13A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02962B41-5EB9-4C9C-B371-C9FDB2A13A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02962B41-5EB9-4C9C-B371-C9FDB2A13A37}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -199,7 +199,7 @@ namespace Messenger.DataLayer.Sql
                                 Id = reader.GetGuid(reader.GetOrdinal("id")),
                                 IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
                                 IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
-                                TimeCreate = reader.GetDateTime(reader.GetOrdinal("timeCreate")),
+                                TimeCreate = Convert.ToDateTime("0:0:0"),
                                 Text = reader.GetString(reader.GetOrdinal("text")) 
                             };
                         }

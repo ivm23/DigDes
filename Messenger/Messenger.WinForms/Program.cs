@@ -28,11 +28,6 @@ namespace Messenger.WinForms
         public IEnumerable<Guid> members;
     }
 
-    public struct getMess
-    {
-        public List<String> messages;
-    }
-
     public static class Data
     {
         public delegate void MyEventDelUser(User user);
@@ -64,9 +59,5 @@ namespace Messenger.WinForms
 
         public delegate void MyEventWatchMessages(Chat chat);
         public static MyEventWatchMessages EventHandlerWatchMessages;
-
-        public delegate void MyEventMessages(Chat chat, ref List<String> mes);
-        public static MyEventMessages EventHandlerMessages;
-
     }
 }

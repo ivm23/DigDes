@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Messenger.WinForms">
-      <HintPath>obj\Debug\Messenger.WinForms.exe</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -64,11 +61,11 @@
     <Compile Include="Controls\AddUsersControl.Designer.cs">
       <DependentUpon>AddUsersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ChatMessagesControl.cs">
+    <Compile Include="Controls\MessageInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ChatMessagesControl.Designer.cs">
-      <DependentUpon>ChatMessagesControl.cs</DependentUpon>
+    <Compile Include="Controls\MessageInterface.Designer.cs">
+      <DependentUpon>MessageInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewChatControl.cs">
       <SubType>UserControl</SubType>
@@ -160,8 +157,8 @@
     <EmbeddedResource Include="Controls\AddUsersControl.resx">
       <DependentUpon>AddUsersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ChatMessagesControl.resx">
-      <DependentUpon>ChatMessagesControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\MessageInterface.resx">
+      <DependentUpon>MessageInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewChatControl.resx">
       <DependentUpon>NewChatControl.cs</DependentUpon>
