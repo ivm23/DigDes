@@ -36,6 +36,7 @@
             // 
             // NewChat
             // 
+            this.NewChat.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.NewChat.Location = new System.Drawing.Point(27, 35);
             this.NewChat.Name = "NewChat";
             this.NewChat.Size = new System.Drawing.Size(61, 56);

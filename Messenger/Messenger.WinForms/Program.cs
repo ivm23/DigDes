@@ -59,5 +59,8 @@ namespace Messenger.WinForms
 
         public delegate void MyEventWatchMessages(Chat chat);
         public static MyEventWatchMessages EventHandlerWatchMessages;
+
+        public delegate void MyEventMessages(Chat chat, ref List<String> mes);
+        public static MyEventMessages EventHandlerMessages;
     }
 }

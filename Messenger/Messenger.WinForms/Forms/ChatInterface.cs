@@ -34,7 +34,11 @@ namespace Messenger.WinForms.Forms
 
         public List<String> SetChatMembers
         {
-            set { addUsersControl2.SetChatMembers = value; }
+            set { addUsersControl1.SetChatMembers = value; }
+        }
+        public List<String> SetChatMessages
+        {
+            set { messageControl1.SetChatMessages = value; }
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
@@ -47,6 +51,23 @@ namespace Messenger.WinForms.Forms
         private void btnWatchMessages_Click(object sender, EventArgs e)
         {
             Data.EventHandlerWatchMessages(_chat);
+        }
+
+        private void ChatInterface_Load(object sender, EventArgs e)
+        {
+            
+            var timer = new Timer();
+            timer.Interval = 2000;
+            timer.Tick += new EventHandler(TimerTick);
+            timer.Enabled = true;
+        }
+        int k = 0;
+        public void TimerTick(object sender, EventArgs e)
+        {
+            List<String> mes = new List<String>();
+            Data.EventHandlerMessages(_chat, ref mes);
+            messageControl1.SetChatMessages = mes;
+            ++k;
         }
     }
 }

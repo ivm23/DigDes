@@ -33,9 +33,10 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addUsersControl2 = new Messenger.WinForms.Controls.AddUsersControl();
-            this.addUsersControl1 = new Messenger.WinForms.Controls.AddUsersControl();
             this.btnWatchMessages = new System.Windows.Forms.Button();
+            this.messageControl1 = new Messenger.WinForms.Controls.MessageControl();
+            this.addUsersControl1 = new Messenger.WinForms.Controls.AddUsersControl();
+            this.addUsersControl2 = new Messenger.WinForms.Controls.AddUsersControl();
             this.SuspendLayout();
             // 
             // lbNameChat
@@ -60,6 +61,7 @@
             // 
             // btnSendMessage
             // 
+            this.btnSendMessage.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSendMessage.Location = new System.Drawing.Point(400, 145);
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(84, 43);
@@ -73,22 +75,9 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // addUsersControl2
-            // 
-            this.addUsersControl2.Location = new System.Drawing.Point(21, 30);
-            this.addUsersControl2.Name = "addUsersControl2";
-            this.addUsersControl2.Size = new System.Drawing.Size(231, 158);
-            this.addUsersControl2.TabIndex = 1;
-            // 
-            // addUsersControl1
-            // 
-            this.addUsersControl1.Location = new System.Drawing.Point(12, 28);
-            this.addUsersControl1.Name = "addUsersControl1";
-            this.addUsersControl1.Size = new System.Drawing.Size(207, 205);
-            this.addUsersControl1.TabIndex = 1;
-            // 
             // btnWatchMessages
             // 
+            this.btnWatchMessages.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnWatchMessages.Location = new System.Drawing.Point(258, 145);
             this.btnWatchMessages.Name = "btnWatchMessages";
             this.btnWatchMessages.Size = new System.Drawing.Size(84, 43);
@@ -97,11 +86,33 @@
             this.btnWatchMessages.UseVisualStyleBackColor = true;
             this.btnWatchMessages.Click += new System.EventHandler(this.btnWatchMessages_Click);
             // 
+            // messageControl1
+            // 
+            this.messageControl1.Location = new System.Drawing.Point(17, 187);
+            this.messageControl1.Name = "messageControl1";
+            this.messageControl1.Size = new System.Drawing.Size(134, 111);
+            this.messageControl1.TabIndex = 6;
+            // 
+            // addUsersControl1
+            // 
+            this.addUsersControl1.Location = new System.Drawing.Point(12, 28);
+            this.addUsersControl1.Name = "addUsersControl1";
+            this.addUsersControl1.Size = new System.Drawing.Size(207, 205);
+            this.addUsersControl1.TabIndex = 1;
+            // 
+            // addUsersControl2
+            // 
+            this.addUsersControl2.Location = new System.Drawing.Point(21, 30);
+            this.addUsersControl2.Name = "addUsersControl2";
+            this.addUsersControl2.Size = new System.Drawing.Size(231, 158);
+            this.addUsersControl2.TabIndex = 1;
+            // 
             // ChatInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 310);
+            this.Controls.Add(this.messageControl1);
             this.Controls.Add(this.btnWatchMessages);
             this.Controls.Add(this.btnSendMessage);
             this.Controls.Add(this.txtMessage);
@@ -109,6 +120,7 @@
             this.Controls.Add(this.addUsersControl1);
             this.Name = "ChatInterface";
             this.Text = "ChatInterface";
+            this.Load += new System.EventHandler(this.ChatInterface_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Button btnSendMessage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnWatchMessages;
+        private Controls.MessageControl messageControl1;
     }
 }

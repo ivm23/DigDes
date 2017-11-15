@@ -29,6 +29,7 @@ namespace Messenger.WinForms
             Data.EventHandlerChatsOfUser = new Data.MyEventChatsOfUser(ChatsOfUser);
             Data.EventHandlerOpenChat = new Data.MyEventOpenChat(OpenChat);
             Data.EventHandlerWatchMessages = new Data.MyEventWatchMessages(WatchMessages);
+            Data.EventHandlerMessages = new Data.MyEventMessages(GetMessages);
         }
 
         void DelUser(User param)
@@ -60,7 +61,7 @@ namespace Messenger.WinForms
         Guid getId(string str)
         {
             var index = str.LastIndexOf('(');
-            
+
             var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
             return id;
         }
@@ -120,31 +121,30 @@ namespace Messenger.WinForms
                 form.ShowDialog();
             }
         }
-   
-   
+
+
         void OpenChat(User user, Chat chat)
         {
             List<User> users = (chat.Members).ToList<User>();
             List<String> nameOfUsers = new List<String>();
             foreach (var us in users)
             {
-                nameOfUsers.Add(us.FirstName + ' ' + us.SecondName + " (" + us.Id + ")");
+                nameOfUsers.Add(us.FirstName + ' ' + us.SecondName);
             }
             using (var form = new ChatInterface(chat, user))
             {
                 form.ChatName = chat.NameOfChat;
                 form.SetChatMembers = nameOfUsers;
-
                 form.ShowDialog();
             }
         }
 
-        void WatchMessages (Chat chat)
+        void WatchMessages(Chat chat)
         {
             var messages = _serviceClient.GetChatMessages(chat);
             List<String> textMessages = new List<String>();
 
-            foreach(var mes in messages)
+            foreach (var mes in messages)
             {
                 var name = _serviceClient.GetUser(mes.IdUser);
                 textMessages.Add(name.FirstName + ' ' + name.SecondName + ':' + mes.Text);
@@ -152,8 +152,22 @@ namespace Messenger.WinForms
             using (var form = new MessagesInterface())
             {
                 form.SetText = textMessages;
-                form.ShowDialog();                
+                form.ShowDialog();
             }
+        }
+
+
+        void GetMessages(Chat chat, ref List<String> m)
+        {
+            var messages = _serviceClient.GetChatMessages(chat);
+            List<String> textMessages = new List<String>();
+            messages.OrderByDescending(x => x.TimeCreate);
+            foreach (var mes in messages)
+            {
+                var name = _serviceClient.GetUser(mes.IdUser);
+                textMessages.Add(name.FirstName + ' ' + name.SecondName + ": " + mes.Text);
+            }
+            m = textMessages;
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
