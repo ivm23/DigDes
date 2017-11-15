@@ -177,16 +177,24 @@ namespace Messenger.WinForms
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     var login = form.UserLogin;
-                    var id = _serviceClient.GetId(login);
-                    User user = _serviceClient.GetUser(id);
-                    if (user.Password == form.UserPassword)
+                    try
                     {
-                        using (var formChat = new UserInterface(user))
+                        var id = _serviceClient.GetId(login);
+                        User user = _serviceClient.GetUser(id);
+                        if (user.Password == form.UserPassword)
                         {
-                            formChat.UserName = user.FirstName + ' ' + user.SecondName;
-                            formChat.UserPhoto = user.Photo;
-                            formChat.ShowDialog();
+                            using (var formChat = new UserInterface(user))
+                            {
+                                formChat.UserName = user.FirstName + ' ' + user.SecondName;
+                                formChat.UserPhoto = user.Photo;
+                                formChat.ShowDialog();
+                            }
                         }
+                        else MessageBox.Show("Неверный пароль!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Такого пользователя не существует!");
                     }
                 }
             }
@@ -199,7 +207,6 @@ namespace Messenger.WinForms
             {
                 form.UserName = user.FirstName + ' ' + user.SecondName;
                 form.UserPhoto = user.Photo;
-                if (form.ShowDialog() == DialogResult.Abort) MessageBox.Show("sdfgF");
             }
         }
 
@@ -211,19 +218,26 @@ namespace Messenger.WinForms
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    var _user = _serviceClient.CreateUser(new User
+                    try
                     {
-                        Login = form.UserLogin,
-                        FirstName = form.UserFirstName,
-                        SecondName = form.UserSecondName,
-                        Password = form.UserPassword,
-                        Photo = form.UserPhoto,
-                        TimeOfDelMes = form.UserTimeDelMes
-                    });
+                        var _user = _serviceClient.CreateUser(new User
+                        {
+                            Login = form.UserLogin,
+                            FirstName = form.UserFirstName,
+                            SecondName = form.UserSecondName,
+                            Password = form.UserPassword,
+                            Photo = form.UserPhoto,
+                            TimeOfDelMes = form.UserTimeDelMes
+                        });
 
-                    var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
-                    MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UserInterface(_user);
+                        var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
+                        MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        UserInterface(_user);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Такой пользователь уже существует!");
+                    }
                 }
 
             }

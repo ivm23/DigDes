@@ -94,9 +94,16 @@ namespace Messenger.Api.Controllers
                     "Не введен пароль!"));
             }
 
-            var newUser = _userLayer.Create(user);
-            NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, Login:{4})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password, user.Login);
-            return newUser;
+            try
+            {
+                var newUser = _userLayer.Create(user);
+                NLogger.Logger.Trace("Создан новый пользователь id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, Login:{4})", newUser.Id, newUser.SecondName, newUser.FirstName, newUser.Password, user.Login);
+                return newUser;
+            }
+            catch
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такой пользователь уже существует!"));
+            }
         }
 
         [HttpDelete]

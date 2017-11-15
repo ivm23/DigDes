@@ -34,19 +34,19 @@ namespace Messenger.WinForms.Forms
         {
             using (var form = new UserSetting(_user))
             {
-                if (form.ShowDialog() == DialogResult.Abort)
-                    MessageBox.Show("UserInterface");
-                
+                form.UserFirstName = _user.FirstName;
+                form.UserSecondName = _user.SecondName;
+                form.UserLogin = _user.Login;
+                form.UserTimeDelMes = _user.TimeOfDelMes;
+                form.ShowDialog();                
             }
         }
 
         private void btnUserDialogs_Click(object sender, EventArgs e)
         {
-           
                 Data.EventHandlerChatsOfUser(_user);
             //    if (form.ShowDialog() == DialogResult.Abort)
-              //      MessageBox.Show("UserInterface");
-            
+              //      MessageBox.Show("UserInterface");     
         }
     }
 }

@@ -22,14 +22,17 @@ namespace Messenger.WinForms.Forms
 
         public string UserFirstName
         {
+            set { userSettingControl1.UserFirstName = value; }
             get { return userSettingControl1.UserFirstName; }
         }
         public string UserSecondName
         {
+            set { userSettingControl1.UserSecondName = value; }
             get { return userSettingControl1.UserSecondName; }
         }
         public string UserLogin
         {
+            set { userSettingControl1.UserLogin = value; }
             get { return userSettingControl1.UserLogin; }
         }
         public string UserPassword
@@ -42,8 +45,8 @@ namespace Messenger.WinForms.Forms
         }
         public DateTime UserTimeDelMes
         {
+            set { userSettingControl1.UserTimeDelMes = value; }
             get { return userSettingControl1.UserTimeDelMes; }
-
         }
 
         private void btnDelUser_Click(object sender, EventArgs e)

@@ -20,11 +20,13 @@ namespace Messenger.WinForms.Controls
 
         public string UserFirstName
         {
+            set { txtUserFirstName.Text = value; }
             get { return txtUserFirstName.Text; }
         }
 
         public string UserSecondName
         {
+            set { txtUserSecondName.Text = value; }
             get { return txtUserSecondName.Text; }
         }
 
@@ -36,6 +38,7 @@ namespace Messenger.WinForms.Controls
 
         public string UserLogin
         {
+            set { txtUserLogin.Text = value; }
             get { return txtUserLogin.Text; }
         }
         public string RepeatUserPassword
@@ -46,6 +49,7 @@ namespace Messenger.WinForms.Controls
 
         public DateTime UserTimeDelMes
         {
+            set { txtUserTimeDelMes.Text = Convert.ToString(value); }
             get { return (txtUserTimeDelMes.Text != "" ? Convert.ToDateTime(txtUserTimeDelMes.Text) : 
                                                          Convert.ToDateTime("0:0:0"));  }
         }
