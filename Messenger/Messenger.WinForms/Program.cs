@@ -30,6 +30,8 @@ namespace Messenger.WinForms
 
     public static class Data
     {
+        public static List<Messenger.Model.Message> oldMessages;// = new List<Messenger.Model.Message>();
+
         public delegate void MyEventDelUser(User user);
         public static MyEventDelUser EventHandlerDelUser;
 

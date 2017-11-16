@@ -39,15 +39,19 @@ namespace Messenger.WinForms.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Visible = false;
             var indexChat = cbAllChats.SelectedIndex;
             var chat = GetChat(indexChat);
             Data.EventHandlerOpenChat(_user, chat);
+            Visible = true;
         }
 
         
         private void NewChat_Click(object sender, EventArgs e)
         {
-            Data.EventHandlerCreateNewChat(_user);  
+            Visible = false;
+            Data.EventHandlerCreateNewChat(_user);
+            Visible = true;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Messenger.WinForms
     public partial class StartForm : Form
     {
         private ServiceClient _serviceClient;
+        
 
         public StartForm()
         {
@@ -32,6 +33,7 @@ namespace Messenger.WinForms
             Data.EventHandlerMessages = new Data.MyEventMessages(GetMessages);
             Data.EventHandlerDelMessage = new Data.MyEventDelMessage(DelMessage);
 
+            Data.oldMessages = new List<Model.Message>();
         }
 
         void DelUser(User param)
@@ -192,7 +194,7 @@ namespace Messenger.WinForms
             Visible = false;
             using (var form = new UserEnter())
             {
-                form.FormClosed += UserEnter_Closed;
+               
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     var login = form.UserLogin;
@@ -202,10 +204,10 @@ namespace Messenger.WinForms
                         User user = _serviceClient.GetUser(id);
                         if (user.Password == form.UserPassword)
                         {
-                            Visible = false;
+                          
                             using (var formChat = new UserInterface(user))
                             {
-                                formChat.FormClosed += UserInterface_Closed;
+                           
                                 formChat.UserName = user.FirstName + ' ' + user.SecondName;
                                 formChat.UserPhoto = user.Photo;
                                 formChat.ShowDialog();
@@ -223,6 +225,7 @@ namespace Messenger.WinForms
                     }
                 }
             }
+            Visible = true;
         }
 
 
@@ -231,7 +234,7 @@ namespace Messenger.WinForms
             Visible = false;
             using (var form = new UserInterface(user))
             {
-                form.FormClosed += UserInterface_Closed;
+              //  form.FormClosed += UserInterface_Closed;
                 form.UserName = user.FirstName + ' ' + user.SecondName;
                 form.UserPhoto = user.Photo;
             }
@@ -245,7 +248,7 @@ namespace Messenger.WinForms
             Visible = false;
             using (var form = new UserCheckIn())
             {
-               form.FormClosed += UserCheckIn_Closed;
+             //  form.FormClosed += UserCheckIn_Closed;
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -263,11 +266,9 @@ namespace Messenger.WinForms
                         var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
                         MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        form.Close();
-                        Visible = false;
+                        form.Close();                      
                         using (var formChat = new UserInterface(_user))
                         {
-                            formChat.FormClosed += UserInterface_Closed;
                             formChat.UserName = _user.FirstName + ' ' + _user.SecondName;
                             formChat.UserPhoto = _user.Photo;
                             formChat.ShowDialog();
@@ -281,6 +282,7 @@ namespace Messenger.WinForms
                 }
 
             }
+            Visible = true;
         }
 
         private void StartForm_Load(object sender, EventArgs e)
@@ -288,18 +290,5 @@ namespace Messenger.WinForms
             _serviceClient = new ServiceClient("http://localhost:57893/api/");
         }
 
-        private void UserCheckIn_Closed(object sender, FormClosedEventArgs e)
-        {
-            this.Visible = true;
-        }
-
-        private void UserEnter_Closed(object sender, FormClosedEventArgs e)
-        {
-            this.Visible = true;
-        }
-        private void UserInterface_Closed(object sender, FormClosedEventArgs e)
-        {
-            this.Visible = true;
-        }
     }
 }
