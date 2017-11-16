@@ -43,15 +43,11 @@ namespace Messenger.WinForms.Forms
         {
             get { return userSettingControl1.RepeatUserPassword; }
         }
-        public DateTime UserTimeDelMes
-        {
-            set { userSettingControl1.UserTimeDelMes = value; }
-            get { return userSettingControl1.UserTimeDelMes; }
-        }
-
+    
         private void btnDelUser_Click(object sender, EventArgs e)
         {
             Data.EventHandlerDelUser(_user);
+            Close();
         }
 
         private void btnSaveUser_Click(object sender, EventArgs e)
@@ -65,10 +61,8 @@ namespace Messenger.WinForms.Forms
                 userSettingControl1.RepeatUserPassword == userSettingControl1.UserPassword)
                                                             _user.Password = userSettingControl1.UserPassword;
 
-            if (userSettingControl1.UserTimeDelMes != null) _user.TimeOfDelMes = userSettingControl1.UserTimeDelMes;
-
             Data.EventHandlerUpdateUser(_user);
-
         }
+
     }
 }

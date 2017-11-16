@@ -107,7 +107,7 @@ namespace Messenger.DataLayer.Sql
                                 Photo = reader.GetSqlBinary(reader.GetOrdinal("photo")).Value,
                                 FirstName = reader.GetString(reader.GetOrdinal("firstName")),
                                 SecondName = reader.GetString(reader.GetOrdinal("secondName")),
-                                TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
+                                //TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
                             };
                         }
                     }

@@ -36,12 +36,21 @@ namespace Messenger.WinForms
         {
             _serviceClient.DelUser(param.Id);
             MessageBox.Show("Пользователь удален!");
+            
         }
 
         void UpdateUser(User param)
         {
-            _serviceClient.UpdateUser(param);
-            MessageBox.Show($"Пользователь: {param.FirstName} изменен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                _serviceClient.UpdateUser(param);
+                MessageBox.Show($"Пользователь изменен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Такой пользователь уже существует!");
+                    
+            }
         }
 
         void GetUserChats(User user)
@@ -58,6 +67,7 @@ namespace Messenger.WinForms
                     MessageBox.Show("UserInterface");
             }
         }
+
         Guid getId(string str)
         {
             var index = str.LastIndexOf('(');
@@ -101,10 +111,9 @@ namespace Messenger.WinForms
                 IdUser = user.Id,
                 Text = text,
                 TimeCreate = Convert.ToDateTime("0:0:0")
-
             };
             var newMessage = _serviceClient.CreateMessage(message);
-            MessageBox.Show("Сообщение отправлено");
+            //MessageBox.Show("Сообщение отправлено");
         }
 
         void ChatsOfUser(User user)
@@ -157,7 +166,7 @@ namespace Messenger.WinForms
         }
 
 
-        void GetMessages(Chat chat, ref List<String> m)
+        void GetMessages(Chat chat, ref List<Messenger.Model.Message> m)
         {
             var messages = _serviceClient.GetChatMessages(chat);
             List<String> textMessages = new List<String>();
@@ -165,15 +174,18 @@ namespace Messenger.WinForms
             foreach (var mes in messages)
             {
                 var name = _serviceClient.GetUser(mes.IdUser);
-                textMessages.Add(name.FirstName + ' ' + name.SecondName + ": " + mes.Text);
+                var text = name.FirstName + ' ' + name.SecondName + ": " + mes.Text;
+                mes.Text = text;
             }
-            m = textMessages;
+            m = messages;
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
         {
+            Visible = false;
             using (var form = new UserEnter())
             {
+                form.FormClosed += UserEnter_Closed;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     var login = form.UserLogin;
@@ -183,14 +195,20 @@ namespace Messenger.WinForms
                         User user = _serviceClient.GetUser(id);
                         if (user.Password == form.UserPassword)
                         {
+                            Visible = false;
                             using (var formChat = new UserInterface(user))
                             {
+                                formChat.FormClosed += UserInterface_Closed;
                                 formChat.UserName = user.FirstName + ' ' + user.SecondName;
                                 formChat.UserPhoto = user.Photo;
                                 formChat.ShowDialog();
                             }
                         }
-                        else MessageBox.Show("Неверный пароль!");
+                        else
+                        {
+                            MessageBox.Show("Неверный пароль!");
+                            btnMainEnter_Click(sender, e);
+                        }
                     }
                     catch
                     {
@@ -203,8 +221,10 @@ namespace Messenger.WinForms
 
         private void UserInterface(User user)
         {
+            Visible = false;
             using (var form = new UserInterface(user))
             {
+                form.FormClosed += UserInterface_Closed;
                 form.UserName = user.FirstName + ' ' + user.SecondName;
                 form.UserPhoto = user.Photo;
             }
@@ -213,9 +233,13 @@ namespace Messenger.WinForms
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+
             byte[] ph = new byte[] { 1, 2, 3 };
+            Visible = false;
             using (var form = new UserCheckIn())
             {
+               form.FormClosed += UserCheckIn_Closed;
+
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     try
@@ -226,17 +250,26 @@ namespace Messenger.WinForms
                             FirstName = form.UserFirstName,
                             SecondName = form.UserSecondName,
                             Password = form.UserPassword,
-                            Photo = form.UserPhoto,
-                            TimeOfDelMes = form.UserTimeDelMes
+                            Photo = form.UserPhoto
                         });
 
                         var message = "Пользователь" + _user.FirstName + ' ' + _user.SecondName + " успешно зарегистрирован!";
                         MessageBox.Show(message, "Пользователь", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        UserInterface(_user);
+
+                        form.Close();
+                        Visible = false;
+                        using (var formChat = new UserInterface(_user))
+                        {
+                            formChat.FormClosed += UserInterface_Closed;
+                            formChat.UserName = _user.FirstName + ' ' + _user.SecondName;
+                            formChat.UserPhoto = _user.Photo;
+                            formChat.ShowDialog();
+                        }
                     }
                     catch
                     {
                         MessageBox.Show("Такой пользователь уже существует!");
+                        btnCheckIn_Click(sender, e);
                     }
                 }
 
@@ -246,6 +279,20 @@ namespace Messenger.WinForms
         private void StartForm_Load(object sender, EventArgs e)
         {
             _serviceClient = new ServiceClient("http://localhost:57893/api/");
+        }
+
+        private void UserCheckIn_Closed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
+        }
+
+        private void UserEnter_Closed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
+        }
+        private void UserInterface_Closed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
         }
     }
 }

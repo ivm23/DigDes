@@ -31,12 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtUserFirstName = new System.Windows.Forms.TextBox();
             this.txtUserSecondName = new System.Windows.Forms.TextBox();
             this.txtUserPassword = new System.Windows.Forms.TextBox();
-            this.txtUserTimeDelMes = new System.Windows.Forms.TextBox();
             this.btnSelectPicture = new System.Windows.Forms.Button();
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnCancelCheckIn = new System.Windows.Forms.Button();
@@ -76,17 +74,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Пароль:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.label4.Location = new System.Drawing.Point(42, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Время удаления сообщений:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -117,13 +104,6 @@
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.Size = new System.Drawing.Size(100, 20);
             this.txtUserPassword.TabIndex = 7;
-            // 
-            // txtUserTimeDelMes
-            // 
-            this.txtUserTimeDelMes.Location = new System.Drawing.Point(204, 161);
-            this.txtUserTimeDelMes.Name = "txtUserTimeDelMes";
-            this.txtUserTimeDelMes.Size = new System.Drawing.Size(100, 20);
-            this.txtUserTimeDelMes.TabIndex = 8;
             // 
             // btnSelectPicture
             // 
@@ -192,12 +172,10 @@
             this.Controls.Add(this.btnCancelCheckIn);
             this.Controls.Add(this.btnCheckIn);
             this.Controls.Add(this.btnSelectPicture);
-            this.Controls.Add(this.txtUserTimeDelMes);
             this.Controls.Add(this.txtUserPassword);
             this.Controls.Add(this.txtUserSecondName);
             this.Controls.Add(this.txtUserFirstName);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -214,12 +192,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUserFirstName;
         private System.Windows.Forms.TextBox txtUserSecondName;
         private System.Windows.Forms.TextBox txtUserPassword;
-        private System.Windows.Forms.TextBox txtUserTimeDelMes;
         private System.Windows.Forms.Button btnSelectPicture;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnCancelCheckIn;

@@ -15,6 +15,8 @@ namespace Messenger.WinForms.Forms
     {
         Chat _chat;
         User _user;
+        List<Messenger.Model.Message> oldMessages = new List<Messenger.Model.Message>();
+
         public ChatInterface(Chat chat, User user)
         {
             InitializeComponent();
@@ -36,16 +38,10 @@ namespace Messenger.WinForms.Forms
         {
             set { addUsersControl1.SetChatMembers = value; }
         }
-        public List<String> SetChatMessages
-        {
-            set { messageControl1.SetChatMessages = value; }
-        }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-
             Data.EventHandlerCreateMessage(_chat, _user, txtMessage.Text);
-
         }
 
         private void btnWatchMessages_Click(object sender, EventArgs e)
@@ -55,19 +51,30 @@ namespace Messenger.WinForms.Forms
 
         private void ChatInterface_Load(object sender, EventArgs e)
         {
-            
             var timer = new Timer();
-            timer.Interval = 2000;
+            timer.Interval = 1000;
             timer.Tick += new EventHandler(TimerTick);
             timer.Enabled = true;
         }
-        int k = 0;
+
         public void TimerTick(object sender, EventArgs e)
         {
-            List<String> mes = new List<String>();
+            List<Messenger.Model.Message> mes = new List<Messenger.Model.Message>();
             Data.EventHandlerMessages(_chat, ref mes);
-            messageControl1.SetChatMessages = mes;
-            ++k;
+                        
+            foreach (var m in mes)
+            {
+                bool exist = false;
+                foreach (var message in oldMessages)
+                {
+                   if (message.Id.Equals(m.Id)) exist = true;
+                }
+                if (!exist) { 
+                    checkedListBox1.Items.Insert(0,m.Text);
+                    checkedListBox1.SetItemChecked(0, true);
+                    oldMessages.Add(m);
+                }
+            }
         }
     }
 }

@@ -37,11 +37,11 @@ namespace Messenger.WinForms.Forms
             get { return userCheckInControl1.UserPhoto; }
         }
 
-        public DateTime UserTimeDelMes
+        /*public DateTime UserTimeDelMes
         {
             get { return userCheckInControl1.UserTimeDelMes; }
         }
-
+        */
         public String UserLogin
         {
             get { return userCheckInControl1.UserLogin;  }

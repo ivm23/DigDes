@@ -27,7 +27,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "sName",
                 Photo = Encoding.UTF8.GetBytes("aphoto"),
                 Password = "apassword",
-                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:24")
             };
 
             const string nameOfChat = "chat";
@@ -52,7 +52,7 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(user.FirstName, chatMembers.ElementAt(0).FirstName);
             Assert.AreEqual(user.SecondName, chatMembers.ElementAt(0).SecondName);
             Assert.AreEqual(user.Password, chatMembers.ElementAt(0).Password);
-            Assert.AreEqual(user.TimeOfDelMes, chatMembers.ElementAt(0).TimeOfDelMes);
+            //Assert.AreEqual(user.TimeOfDelMes, chatMembers.ElementAt(0).TimeOfDelMes);
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
                 Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:23")
             };
 
             const string nameOfChat = "chat";
@@ -89,7 +89,7 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(chat.Members.ElementAt(0).Password, user.Password);
 
             Assert.AreEqual(chat.Members.ElementAt(0).SecondName, user.SecondName);
-            Assert.AreEqual(chat.Members.ElementAt(0).TimeOfDelMes, user.TimeOfDelMes);
+            //Assert.AreEqual(chat.Members.ElementAt(0).TimeOfDelMes, user.TimeOfDelMes);
         }
 
 
@@ -103,7 +103,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
                 Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:23")
             };
 
             const string nameOfChat = "chat";
@@ -136,7 +136,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "sName",
                 Photo = Encoding.UTF8.GetBytes("aphoto"),
                 Password = "apassword",
-                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:24")
             };
 
             const string nameOfChat = "chat";
@@ -167,7 +167,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "sName1",
                 Photo = Encoding.UTF8.GetBytes("aphoto"),
                 Password = "apassword1",
-                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:24")
             };
             var user2 = new User
             {
@@ -175,7 +175,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "sNam2e1",
                 Photo = Encoding.UTF8.GetBytes("aphot2o"),
                 Password = "apasswo2rd1",
-                TimeOfDelMes = Convert.ToDateTime("00:09:24")
+                //TimeOfDelMes = Convert.ToDateTime("00:09:24")
             };
             const string nameOfChat = "chat";
 
@@ -204,7 +204,7 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(user2.FirstName, chatMembers.ElementAt(1).FirstName);
             Assert.AreEqual(user2.SecondName, chatMembers.ElementAt(1).SecondName);
             Assert.AreEqual(user2.Password, chatMembers.ElementAt(1).Password);
-            Assert.AreEqual(user2.TimeOfDelMes, chatMembers.ElementAt(1).TimeOfDelMes);
+         //   Assert.AreEqual(user2.TimeOfDelMes, chatMembers.ElementAt(1).TimeOfDelMes);
 
             chatLayer.DeleteUser(chat.Id, members.ElementAt(0));
             

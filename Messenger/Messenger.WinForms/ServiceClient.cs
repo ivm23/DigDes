@@ -42,10 +42,11 @@ namespace Messenger.WinForms
             _client.DeleteAsync("user/" + Convert.ToString(UserId));
         }
 
-        
+
         public User GetUser(Guid id)
         {
-            using (var response = _client.GetAsync("user/" + Convert.ToString(id)).Result) {
+            using (var response = _client.GetAsync("user/" + Convert.ToString(id)).Result)
+            {
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var user = response.Content.ReadAsAsync<User>().Result;
@@ -99,9 +100,18 @@ namespace Messenger.WinForms
                 password = user.Password,
                 photo = user.Photo
             };
-            user = _client.PutAsJsonAsync("user/" + Convert.ToString(user.Id), data).Result.Content.ReadAsAsync<User>().Result;
-
-            return user;
+            using (var response = _client.PutAsJsonAsync("user/" + Convert.ToString(user.Id), data).Result)
+            {
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    user = response.Content.ReadAsAsync<User>().Result;
+                    return user;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
 
         }
         public List<Chat> GetChatsOfUser(User user)

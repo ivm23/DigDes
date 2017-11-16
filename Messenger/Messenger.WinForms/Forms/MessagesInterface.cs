@@ -21,7 +21,10 @@ namespace Messenger.WinForms.Forms
         {
             set
             {
-                foreach (var text in value) lbMessages.Items.Add(text);
+                foreach (var text in value) {
+                    lbMessages.Items.Add(text);
+                        }
+                lbMessages.SelectedIndex = 0;                
             }
         }
     }

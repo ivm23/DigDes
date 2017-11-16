@@ -52,7 +52,6 @@
 
         #endregion
 
-        private Controls.UserAuthorizationControl userAuthorization1;
         private Controls.UserAuthorizationControl userAuthorizationControl1;
     }
 }

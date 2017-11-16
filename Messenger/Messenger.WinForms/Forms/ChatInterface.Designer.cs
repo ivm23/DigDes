@@ -33,10 +33,11 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnWatchMessages = new System.Windows.Forms.Button();
-            this.messageControl1 = new Messenger.WinForms.Controls.MessageControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.addUsersControl1 = new Messenger.WinForms.Controls.AddUsersControl();
             this.addUsersControl2 = new Messenger.WinForms.Controls.AddUsersControl();
+            this.AutoDelMess = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbNameChat
@@ -51,18 +52,17 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(258, 68);
+            this.txtMessage.Location = new System.Drawing.Point(239, 150);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(223, 71);
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtMessage.Size = new System.Drawing.Size(247, 71);
             this.txtMessage.TabIndex = 3;
             this.txtMessage.Text = "Введите сообщение...";
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSendMessage.Location = new System.Drawing.Point(400, 145);
+            this.btnSendMessage.Location = new System.Drawing.Point(401, 227);
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(84, 43);
             this.btnSendMessage.TabIndex = 4;
@@ -75,23 +75,23 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btnWatchMessages
+            // label1
             // 
-            this.btnWatchMessages.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnWatchMessages.Location = new System.Drawing.Point(258, 145);
-            this.btnWatchMessages.Name = "btnWatchMessages";
-            this.btnWatchMessages.Size = new System.Drawing.Size(84, 43);
-            this.btnWatchMessages.TabIndex = 5;
-            this.btnWatchMessages.Text = "Посмотреть сообщения";
-            this.btnWatchMessages.UseVisualStyleBackColor = true;
-            this.btnWatchMessages.Click += new System.EventHandler(this.btnWatchMessages_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(257, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Сообщения:";
             // 
-            // messageControl1
+            // checkedListBox1
             // 
-            this.messageControl1.Location = new System.Drawing.Point(17, 187);
-            this.messageControl1.Name = "messageControl1";
-            this.messageControl1.Size = new System.Drawing.Size(134, 111);
-            this.messageControl1.TabIndex = 6;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(239, 50);
+            this.checkedListBox1.MultiColumn = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(247, 94);
+            this.checkedListBox1.TabIndex = 9;
             // 
             // addUsersControl1
             // 
@@ -107,13 +107,24 @@
             this.addUsersControl2.Size = new System.Drawing.Size(231, 158);
             this.addUsersControl2.TabIndex = 1;
             // 
+            // AutoDelMess
+            // 
+            this.AutoDelMess.AutoSize = true;
+            this.AutoDelMess.Location = new System.Drawing.Point(239, 227);
+            this.AutoDelMess.Name = "AutoDelMess";
+            this.AutoDelMess.Size = new System.Drawing.Size(157, 17);
+            this.AutoDelMess.TabIndex = 10;
+            this.AutoDelMess.Text = "Автоудаление сообщений";
+            this.AutoDelMess.UseVisualStyleBackColor = true;
+            // 
             // ChatInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 310);
-            this.Controls.Add(this.messageControl1);
-            this.Controls.Add(this.btnWatchMessages);
+            this.Controls.Add(this.AutoDelMess);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSendMessage);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.lbNameChat);
@@ -134,7 +145,8 @@
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnSendMessage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button btnWatchMessages;
-        private Controls.MessageControl messageControl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckBox AutoDelMess;
     }
 }

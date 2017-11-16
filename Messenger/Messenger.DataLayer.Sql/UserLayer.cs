@@ -31,15 +31,15 @@ namespace Messenger.DataLayer.Sql
                     connection.Open();
                     using (var command = connection.CreateCommand())
                     {
-                        command.CommandText = @"insert into ListOfUsers (id, password, photo, firstName, secondName, timeOfDelMes) 
-                                                        values (@id, @password, @photo, @firstName, @secondName, @timeOfDelMes)";
+                        command.CommandText = @"insert into ListOfUsers (id, password, photo, firstName, secondName) 
+                                                        values (@id, @password, @photo, @firstName, @secondName)";
                         user.Id = Guid.NewGuid();
                         command.Parameters.AddWithValue("@id", user.Id);
                         command.Parameters.AddWithValue("@password", user.Password);
                         command.Parameters.AddWithValue("@photo", user.Photo);
                         command.Parameters.AddWithValue("@firstName", user.FirstName);
                         command.Parameters.AddWithValue("@secondName", user.SecondName);
-                        command.Parameters.AddWithValue("@timeOfDelMes", user.TimeOfDelMes);
+                     //   command.Parameters.AddWithValue("@timeOfDelMes", user.TimeOfDelMes);
 
                         command.ExecuteNonQuery();
 
@@ -115,8 +115,8 @@ namespace Messenger.DataLayer.Sql
 
                 using (var command = connection.CreateCommand())
                 {
-                    //command.CommandText = @"select top(1) login, id, password, photo, firstName, secondName, timeOfDelMes from UsersLogin FULL JOIN ListOfUsers on UsersLogin.id = ListOfUsers.id where id = @id";
-                    command.CommandText = @"select top(1) id, password, photo, firstName, secondName, timeOfDelMes from ListOfUsers where id = @id";
+                    
+                    command.CommandText = @"select top(1) id, password, photo, firstName, secondName from ListOfUsers where id = @id";
 
                     command.Parameters.AddWithValue("@id", id);
 
@@ -135,7 +135,7 @@ namespace Messenger.DataLayer.Sql
                             Photo = reader.GetSqlBinary(reader.GetOrdinal("photo")).Value,
                             FirstName = reader.GetString(reader.GetOrdinal("firstName")),
                             SecondName = reader.GetString(reader.GetOrdinal("secondName")),
-                            TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
+                            //TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
                         };
                         return user;
 
@@ -210,25 +210,29 @@ namespace Messenger.DataLayer.Sql
 
         public User UpdateLogin(Guid id, string login)
         {
-            if (!existLogin(login))
-            {
-                using (var connection = new SqlConnection(_connectionString))
+            if (Get(id).Login == login) return Get(id);
+            
+                if (!existLogin(login))
                 {
-                    connection.Open();
-                    using (var command = connection.CreateCommand())
+                    using (var connection = new SqlConnection(_connectionString))
                     {
-                        command.CommandText = "update UsersLogin set login = @login where id = @id";
+                        connection.Open();
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = "update UsersLogin set login = @login where id = @id";
 
-                        command.Parameters.AddWithValue("@id", id);
-                        command.Parameters.AddWithValue("@login", login);
+                            command.Parameters.AddWithValue("@id", id);
+                            command.Parameters.AddWithValue("@login", login);
 
-                        command.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
+                        }
                     }
+                    NLogger.Logger.Trace("База данных:обновлено Login:{0}:где UserID:{1}", "[ListOfUsers]", id);
+                    return Get(id);
                 }
-                NLogger.Logger.Trace("База данных:обновлено Login:{0}:где UserID:{1}", "[ListOfUsers]", id);
-                return Get(id);
-            }
-            else throw new ArgumentException($"Пользователь с login: {login} уже существует");
+                else throw new ArgumentException($"Пользователь с login: {login} уже существует");
+            
+       
         }
 
         public User UpdateSecondName(Guid id, string secondName)
@@ -252,12 +256,12 @@ namespace Messenger.DataLayer.Sql
             return Get(id);
         }
 
-        public User UpdateTimeDelMes(Guid id, DateTime time)
+      /*  public User UpdateTimeDelMes(Guid id, DateTime time)
         {
             Update(id, time, "timeOfDelMes");
             NLogger.Logger.Trace("База данных:обновлено TimeDelMes:{0}:где UserID:{1}", "[ListOfUsers]", id);
             return Get(id);
-        }
+        }*/
 
         public List<User> AllUsers(Guid id)
         {
@@ -267,7 +271,7 @@ namespace Messenger.DataLayer.Sql
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = @"select id, password, photo, firstName, secondName, timeOfDelMes from ListOfUsers where not(id = @id)";
+                    command.CommandText = @"select id, password, photo, firstName, secondName from ListOfUsers where not(id = @id)";
 
                     command.Parameters.AddWithValue("@id", id);
 
@@ -284,7 +288,7 @@ namespace Messenger.DataLayer.Sql
                                 Photo = new byte[] { 1, 2, 3 },
                                 FirstName = reader.GetString(reader.GetOrdinal("firstName")),
                                 SecondName = reader.GetString(reader.GetOrdinal("secondName")),
-                                TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
+                                //TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
                             };
                             user.Login = GetLogin(user.Id);
                             users.Add(user);

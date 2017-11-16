@@ -46,12 +46,5 @@ namespace Messenger.WinForms.Controls
             get { return txtRepeatUserPassword.Text; }
         }
 
-
-        public DateTime UserTimeDelMes
-        {
-            set { txtUserTimeDelMes.Text = Convert.ToString(value); }
-            get { return (txtUserTimeDelMes.Text != "" ? Convert.ToDateTime(txtUserTimeDelMes.Text) : 
-                                                         Convert.ToDateTime("0:0:0"));  }
-        }
     }
 }

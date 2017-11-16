@@ -70,6 +70,7 @@
             this.Controls.Add(this.userInterfaceControl1);
             this.Name = "UserInterface";
             this.Text = "UserInterface";
+            
             this.ResumeLayout(false);
 
         }

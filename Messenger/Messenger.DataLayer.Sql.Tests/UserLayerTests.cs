@@ -25,8 +25,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 FirstName = "firstName",
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
-                Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("0:0:0")
+                Password = "password"
             };
 
             var layer = new UserLayer(ConnectionString);
@@ -39,7 +38,6 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(user.FirstName, result.FirstName);
             Assert.AreEqual(user.SecondName, result.SecondName);
             Assert.AreEqual(user.Password, result.Password);
-            Assert.AreEqual(user.TimeOfDelMes, result.TimeOfDelMes);
         }
 
         [TestMethod]
@@ -50,8 +48,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 FirstName = "firstName",
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
-                Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                Password = "password"
             };
 
             var layer = new UserLayer(ConnectionString);
@@ -60,11 +57,10 @@ namespace Messenger.DataLayer.Sql.Tests
 
             _tempUsers.Add(result.Id);
 
-           // Assert.AreEqual(user.Photo, result.Photo);
+
             Assert.AreEqual(user.FirstName, result.FirstName);
             Assert.AreEqual(user.SecondName, result.SecondName);
             Assert.AreEqual(user.Password, result.Password);
-            Assert.AreEqual(user.TimeOfDelMes, result.TimeOfDelMes);
         }
 
 
@@ -76,8 +72,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 FirstName = "firstName",
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
-                Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                Password = "password"
             };
 
             var layer = new UserLayer(ConnectionString);
@@ -101,7 +96,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
                 Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                
             };
 
             var layer = new UserLayer(ConnectionString);
@@ -120,7 +115,6 @@ namespace Messenger.DataLayer.Sql.Tests
             Assert.AreEqual(resultAfterUpdate.FirstName, result.FirstName);
             Assert.AreEqual(resultAfterUpdate.SecondName, result.SecondName);
             Assert.AreEqual(resultAfterUpdate.Password, result.Password);
-            Assert.AreEqual(resultAfterUpdate.TimeOfDelMes, result.TimeOfDelMes);
         }
 
 

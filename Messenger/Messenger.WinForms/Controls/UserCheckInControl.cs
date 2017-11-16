@@ -78,10 +78,6 @@ namespace Messenger.WinForms.Controls
             get { return txtUserLogin.Text;  }
         }
 
-        public DateTime UserTimeDelMes
-        {
-            get { return Convert.ToDateTime(txtUserTimeDelMes.Text); }
-        }
 
     }
 }

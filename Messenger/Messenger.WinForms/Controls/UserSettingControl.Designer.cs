@@ -32,12 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtUserFirstName = new System.Windows.Forms.TextBox();
             this.txtUserSecondName = new System.Windows.Forms.TextBox();
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.txtRepeatUserPassword = new System.Windows.Forms.TextBox();
-            this.txtUserTimeDelMes = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUserLogin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -78,15 +76,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Повторите пароль:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 191);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Время автоудаления:";
-            // 
             // txtUserFirstName
             // 
             this.txtUserFirstName.Location = new System.Drawing.Point(153, 68);
@@ -115,13 +104,6 @@
             this.txtRepeatUserPassword.Size = new System.Drawing.Size(100, 20);
             this.txtRepeatUserPassword.TabIndex = 15;
             // 
-            // txtUserTimeDelMes
-            // 
-            this.txtUserTimeDelMes.Location = new System.Drawing.Point(153, 182);
-            this.txtUserTimeDelMes.Name = "txtUserTimeDelMes";
-            this.txtUserTimeDelMes.Size = new System.Drawing.Size(100, 20);
-            this.txtUserTimeDelMes.TabIndex = 16;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -144,12 +126,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtUserLogin);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtUserTimeDelMes);
             this.Controls.Add(this.txtRepeatUserPassword);
             this.Controls.Add(this.txtUserPassword);
             this.Controls.Add(this.txtUserSecondName);
             this.Controls.Add(this.txtUserFirstName);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -166,12 +146,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUserFirstName;
         private System.Windows.Forms.TextBox txtUserSecondName;
         private System.Windows.Forms.TextBox txtUserPassword;
         private System.Windows.Forms.TextBox txtRepeatUserPassword;
-        private System.Windows.Forms.TextBox txtUserTimeDelMes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtUserLogin;
     }

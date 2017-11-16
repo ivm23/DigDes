@@ -132,7 +132,7 @@ namespace Messenger.Api.Controllers
             public string secondName { get; set; }
             public string password { get; set; }
             public byte[] photo { get; set; }
-            public DateTime timeDelMes { get; set; }
+         //   public DateTime timeDelMes { get; set; }
         }
 
         [HttpPut]
@@ -149,15 +149,21 @@ namespace Messenger.Api.Controllers
                 NLogUserNotFound(id);
                 throw new HttpResponseException(UserNotFound());
             }
-            try { _userLayer.UpdateLogin(id, update.login); }
-            catch { }
+            try
+            {
+                _userLayer.UpdateLogin(id, update.login);
+            }
+            catch
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такой пользователь уже существует!"));
+            }
             _userLayer.UpdateFirstName(id, update.firstName);
             _userLayer.UpdateSecondName(id, update.secondName);
             _userLayer.UpdatePassword(id, update.password);
             _userLayer.UpdatePhoto(id, update.photo);
-            _userLayer.UpdateTimeDelMes(id, update.timeDelMes);
+      //      _userLayer.UpdateTimeDelMes(id, update.timeDelMes);
             var user = _userLayer.Get(id);
-            NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, TimeOfDelMes: {4}, Login: {5}", user.Id, user.SecondName, user.FirstName, user.Password, user.TimeOfDelMes, user.Login);
+            NLogger.Logger.Trace("Обновленный пользователь с id: {0}, FirstName: {1}, SecondName: {2}, Password: {3}, Login: {5}", user.Id, user.SecondName, user.FirstName, user.Password, user.Login);
             return user;
 
 

@@ -14,6 +14,6 @@ namespace Messenger.Model
         public string SecondName { get; set; }
         public byte[] Photo { get; set; }
         public string Password { get; set; }
-        public DateTime TimeOfDelMes { get; set; }
+       // public DateTime TimeOfDelMes { get; set; }
     }
 }
