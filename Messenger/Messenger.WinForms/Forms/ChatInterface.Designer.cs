@@ -35,9 +35,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.AutoDelMess = new System.Windows.Forms.CheckBox();
             this.addUsersControl1 = new Messenger.WinForms.Controls.AddUsersControl();
             this.addUsersControl2 = new Messenger.WinForms.Controls.AddUsersControl();
-            this.AutoDelMess = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbNameChat
@@ -93,6 +93,16 @@
             this.checkedListBox1.Size = new System.Drawing.Size(247, 94);
             this.checkedListBox1.TabIndex = 9;
             // 
+            // AutoDelMess
+            // 
+            this.AutoDelMess.AutoSize = true;
+            this.AutoDelMess.Location = new System.Drawing.Point(239, 227);
+            this.AutoDelMess.Name = "AutoDelMess";
+            this.AutoDelMess.Size = new System.Drawing.Size(157, 17);
+            this.AutoDelMess.TabIndex = 10;
+            this.AutoDelMess.Text = "Автоудаление сообщений";
+            this.AutoDelMess.UseVisualStyleBackColor = true;
+            // 
             // addUsersControl1
             // 
             this.addUsersControl1.Location = new System.Drawing.Point(12, 28);
@@ -106,16 +116,6 @@
             this.addUsersControl2.Name = "addUsersControl2";
             this.addUsersControl2.Size = new System.Drawing.Size(231, 158);
             this.addUsersControl2.TabIndex = 1;
-            // 
-            // AutoDelMess
-            // 
-            this.AutoDelMess.AutoSize = true;
-            this.AutoDelMess.Location = new System.Drawing.Point(239, 227);
-            this.AutoDelMess.Name = "AutoDelMess";
-            this.AutoDelMess.Size = new System.Drawing.Size(157, 17);
-            this.AutoDelMess.TabIndex = 10;
-            this.AutoDelMess.Text = "Автоудаление сообщений";
-            this.AutoDelMess.UseVisualStyleBackColor = true;
             // 
             // ChatInterface
             // 

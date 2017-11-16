@@ -146,5 +146,10 @@ namespace Messenger.WinForms
         }
 
 
+        public void DelMessage(Guid MessageId)
+        {
+            _client.DeleteAsync("message/" + Convert.ToString(MessageId));
+        }
+
     }
 }

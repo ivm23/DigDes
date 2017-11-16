@@ -62,5 +62,8 @@ namespace Messenger.WinForms
 
         public delegate void MyEventMessages(Chat chat, ref List<Messenger.Model.Message> mes);
         public static MyEventMessages EventHandlerMessages;
+
+        public delegate void MyEventDelMessage(Model.Message message);
+        public static MyEventDelMessage EventHandlerDelMessage;
     }
 }

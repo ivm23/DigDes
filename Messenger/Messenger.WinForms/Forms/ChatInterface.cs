@@ -20,6 +20,7 @@ namespace Messenger.WinForms.Forms
         public ChatInterface(Chat chat, User user)
         {
             InitializeComponent();
+            checkedListBox1.SelectedIndexChanged += AutoDelMess_CheckedChangedItemCheck;
             _chat = chat;
             _user = user;
         }
@@ -61,18 +62,37 @@ namespace Messenger.WinForms.Forms
         {
             List<Messenger.Model.Message> mes = new List<Messenger.Model.Message>();
             Data.EventHandlerMessages(_chat, ref mes);
-                        
+
             foreach (var m in mes)
             {
                 bool exist = false;
                 foreach (var message in oldMessages)
                 {
-                   if (message.Id.Equals(m.Id)) exist = true;
+                    if (message.Id.Equals(m.Id)) exist = true;
                 }
-                if (!exist) { 
-                    checkedListBox1.Items.Insert(0,m.Text);
+                if (!exist)
+                {
+                    checkedListBox1.Items.Insert(0, m.Text);
                     checkedListBox1.SetItemChecked(0, true);
                     oldMessages.Add(m);
+                }
+            }
+        }
+
+        private void AutoDelMess_CheckedChangedItemCheck(object sender, EventArgs e)
+        {
+            if (AutoDelMess.Checked == true)
+            {
+                var selectedMessages = checkedListBox1.SelectedItems;
+                List<int> indexOfDelMess = new List<int>();
+                for (int i = 0; i < checkedListBox1.Items.Count; ++i)
+                {
+                    if (!checkedListBox1.GetItemChecked(i))
+                    {
+                        checkedListBox1.Items.RemoveAt(i);
+                        Data.EventHandlerDelMessage(oldMessages[checkedListBox1.Items.Count - i]);
+                        oldMessages.RemoveAt(checkedListBox1.Items.Count - i);
+                    }
                 }
             }
         }

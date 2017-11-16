@@ -25,8 +25,7 @@ namespace Messenger.DataLayer.Sql.Tests
                 FirstName = "firstName",
                 SecondName = "secondName",
                 Photo = Encoding.UTF8.GetBytes("photo"),
-                Password = "password",
-                TimeOfDelMes = Convert.ToDateTime("00:09:23")
+                Password = "password"
             };
             var layerUser = new UserLayer(ConnectionString);
             var resultUser = layerUser.Create(user);

@@ -30,6 +30,8 @@ namespace Messenger.WinForms
             Data.EventHandlerOpenChat = new Data.MyEventOpenChat(OpenChat);
             Data.EventHandlerWatchMessages = new Data.MyEventWatchMessages(WatchMessages);
             Data.EventHandlerMessages = new Data.MyEventMessages(GetMessages);
+            Data.EventHandlerDelMessage = new Data.MyEventDelMessage(DelMessage);
+
         }
 
         void DelUser(User param)
@@ -178,6 +180,11 @@ namespace Messenger.WinForms
                 mes.Text = text;
             }
             m = messages;
+        }
+
+        void DelMessage(Model.Message message)
+        {
+            _serviceClient.DelMessage(message.Id);
         }
 
         private void btnMainEnter_Click(object sender, EventArgs e)
