@@ -106,8 +106,8 @@ namespace Messenger.DataLayer.Sql
                                 Password = reader.GetString(reader.GetOrdinal("password")),
                                 Photo = reader.GetSqlBinary(reader.GetOrdinal("photo")).Value,
                                 FirstName = reader.GetString(reader.GetOrdinal("firstName")),
-                                SecondName = reader.GetString(reader.GetOrdinal("secondName")),
-                                //TimeOfDelMes = reader.GetDateTime(reader.GetOrdinal("timeOfDelMes"))
+                                SecondName = reader.GetString(reader.GetOrdinal("secondName"))
+                                
                             };
                         }
                     }
@@ -184,7 +184,7 @@ namespace Messenger.DataLayer.Sql
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = @"select id, IdUser, IdChat, timeCreate, IdAttach, text from Message 
+                    command.CommandText = @"select id, IdUser, IdChat, timeCreate, IdAttach, text, alreadyRead from Message 
                                                     where IdChat = @IdChat";
 
 
@@ -200,7 +200,8 @@ namespace Messenger.DataLayer.Sql
                                 IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
                                 IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
                                 TimeCreate = Convert.ToDateTime("0:0:0"),
-                                Text = reader.GetString(reader.GetOrdinal("text")) 
+                                Text = reader.GetString(reader.GetOrdinal("text")),
+                                AlreadyRead = reader.GetBoolean(reader.GetOrdinal("alreadyRead"))
                             };
                         }
                     }

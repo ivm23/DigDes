@@ -41,8 +41,8 @@ namespace Messenger.DataLayer.Sql
 
                                 command.ExecuteNonQuery();
                                 command.Transaction = transaction;
-                                command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, IdAttach, text) 
-                                                        values (@id, @idChat, @idUser, @timeCreate, @idAttach, @text)";
+                                command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, IdAttach, text, alreadyRead) 
+                                                        values (@id, @idChat, @idUser, @timeCreate, @idAttach, @text, @AlreadyRead)";
 
                                 command.Parameters.AddWithValue("@id", message.Id);
                                 command.Parameters.AddWithValue("@idChat", message.IdChat);
@@ -50,6 +50,7 @@ namespace Messenger.DataLayer.Sql
                                 command.Parameters.AddWithValue("@timeCreate", message.TimeCreate);
                                 command.Parameters.AddWithValue("@idAttach", message.IdAttach);
                                 command.Parameters.AddWithValue("@text", message.Text);
+                                command.Parameters.AddWithValue("@AlreadyRead", 0);
 
                                 command.ExecuteNonQuery();
 
@@ -62,14 +63,15 @@ namespace Messenger.DataLayer.Sql
                             message.IdAttach = Guid.NewGuid();
 
                             command.Transaction = transaction;
-                            command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, text) 
-                                                        values (@id, @idChat, @idUser, @timeCreate,  @text)";
+                            command.CommandText = @"insert into Message (id, IdChat, IdUser, timeCreate, text, alreadyRead) 
+                                                        values (@id, @idChat, @idUser, @timeCreate,  @text, @AlreadyRead)";
 
                             command.Parameters.AddWithValue("@id", message.Id);
                             command.Parameters.AddWithValue("@idChat", message.IdChat);
                             command.Parameters.AddWithValue("@idUser", message.IdUser);
                             command.Parameters.AddWithValue("@timeCreate", message.TimeCreate);
                             command.Parameters.AddWithValue("@text", message.Text);
+                            command.Parameters.AddWithValue("@AlreadyRead", 0);
 
                             command.ExecuteNonQuery();
                             NLogger.Logger.Trace("База данных: Добавлено в таблицу :{0}: значения (IdMessage: {1}, IdChat:{2}, IdUser:{3}, TimeCreate: {4}, IdAttach: {5}, text: {6})", "[Message]", message.Id, message.IdChat, message.IdUser, message.TimeCreate, message.IdAttach, message.Text);
@@ -117,7 +119,7 @@ namespace Messenger.DataLayer.Sql
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = @"select top(1) id, IdChat, IdUser, timeCreate, IdAttach, text 
+                    command.CommandText = @"select top(1) id, IdChat, IdUser, timeCreate, IdAttach, text, alreadyRead
                                                                               from Message where id = @id";
 
                     command.Parameters.AddWithValue("@id", id);
@@ -129,7 +131,7 @@ namespace Messenger.DataLayer.Sql
                             throw new ArgumentException($"Сообщения с таким id {id} нет!");
                         }
 
-                      
+
                         if (!reader.IsDBNull(reader.GetOrdinal("IdAttach")))
                         {
                             return new Message
@@ -140,7 +142,8 @@ namespace Messenger.DataLayer.Sql
                                 TimeCreate = reader.GetDateTime(reader.GetOrdinal("timeCreate")),
                                 Text = reader.GetString(reader.GetOrdinal("text")),
                                 IdAttach = reader.GetGuid(reader.GetOrdinal("IdAttach")),
-                                Attach = GetAttach(reader.GetGuid(reader.GetOrdinal("IdAttach")))
+                                Attach = GetAttach(reader.GetGuid(reader.GetOrdinal("IdAttach"))),
+                                AlreadyRead = reader.GetBoolean(reader.GetOrdinal("alreadyRead"))
 
                             };
                         }
@@ -150,7 +153,8 @@ namespace Messenger.DataLayer.Sql
                             IdChat = reader.GetGuid(reader.GetOrdinal("IdChat")),
                             IdUser = reader.GetGuid(reader.GetOrdinal("IdUser")),
                             TimeCreate = reader.GetDateTime(reader.GetOrdinal("timeCreate")),
-                            Text = reader.GetString(reader.GetOrdinal("text"))
+                            Text = reader.GetString(reader.GetOrdinal("text")),
+                            AlreadyRead = reader.GetBoolean(reader.GetOrdinal("alreadyRead"))
                         };
                     }
                 }
@@ -198,5 +202,22 @@ namespace Messenger.DataLayer.Sql
             return Get(id);
         }
 
+        public void isRead(Guid id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "update Message set alreadyRead = @AlreadyRead where id = @id";
+
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@AlreadyRead", 1);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+        }
     }
 }

@@ -83,6 +83,15 @@ namespace Messenger.Api.Controllers
 
             return message;
         }
+        [HttpPut]
+        [Route("api/message/{id}/read")]
+        public void ReadMessage(Guid id)
+        {
+            NLogger.Logger.Trace("Запрос на обновление сообщения с Id:{0}", id);
+             _messageLayer.isRead(id); 
+            NLogger.Logger.Trace("Обновленное сообщение с id: {0}, text: {1}", id);
+        }
+
         public HttpResponseMessage MessageNotFound()
         {
             return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Такого сообщения не существует!");

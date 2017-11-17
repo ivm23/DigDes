@@ -15,6 +15,7 @@ namespace Messenger.DataLayer
         void SelfDestroy(Guid idMes);
 
         Message UpdateText(Guid id, string text);
+        void isRead(Guid id);
         
     }
 }

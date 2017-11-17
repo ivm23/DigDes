@@ -151,5 +151,9 @@ namespace Messenger.WinForms
             _client.DeleteAsync("message/" + Convert.ToString(MessageId));
         }
 
+        public void ReadMessage(Guid MessageId)
+        {
+            _client.PutAsJsonAsync("message/" + Convert.ToString(MessageId) +"/read",1);
+        }
     }
 }

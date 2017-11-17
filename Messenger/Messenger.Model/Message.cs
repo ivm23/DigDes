@@ -15,5 +15,6 @@ namespace Messenger.Model
         public Guid IdAttach { get; set; }
         public List<byte[]> Attach { get; set; }
         public DateTime TimeCreate { get; set; }
+        public Boolean AlreadyRead { get; set; }
     }
 }

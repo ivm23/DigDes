@@ -34,3 +34,5 @@
 2017-11-10 23:20:54.2934|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: 97d4469e-401a-4eff-8011-e53c99243a35 не существует
 2017-11-16 16:34:32.3828|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: b56b0701-2935-40d0-abed-79f9df3b7bb1 не существует
 2017-11-16 16:34:50.1838|ERROR|UserController.NLogUserNotFound|Пользователя с таким UserID: b56b0701-2935-40d0-abed-79f9df3b7bb1 не существует
+2017-11-17 02:37:39.9143|ERROR|MessageController.NLogMessageNotFound|Сообщения с таким ChatID: e3ecfff8-eec9-49dc-b1cf-d53f5389129d не существует
+2017-11-17 03:10:27.8809|ERROR|MessageController.NLogMessageNotFound|Сообщения с таким ChatID: 58b9d070-715e-4066-b5ea-cc5825c8e76b не существует

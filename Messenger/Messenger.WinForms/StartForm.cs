@@ -32,8 +32,8 @@ namespace Messenger.WinForms
             Data.EventHandlerWatchMessages = new Data.MyEventWatchMessages(WatchMessages);
             Data.EventHandlerMessages = new Data.MyEventMessages(GetMessages);
             Data.EventHandlerDelMessage = new Data.MyEventDelMessage(DelMessage);
+            Data.EventHandlerReadMessage = new Data.MyEventReadMessage(ReadMessage);
 
-            Data.oldMessages = new List<Model.Message>();
         }
 
         void DelUser(User param)
@@ -189,6 +189,11 @@ namespace Messenger.WinForms
             _serviceClient.DelMessage(message.Id);
         }
 
+        void ReadMessage(Guid id)
+        {
+            _serviceClient.ReadMessage(id);
+        }
+
         private void btnMainEnter_Click(object sender, EventArgs e)
         {
             Visible = false;
@@ -248,7 +253,6 @@ namespace Messenger.WinForms
             Visible = false;
             using (var form = new UserCheckIn())
             {
-             //  form.FormClosed += UserCheckIn_Closed;
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
