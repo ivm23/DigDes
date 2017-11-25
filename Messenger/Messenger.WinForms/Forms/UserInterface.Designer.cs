@@ -28,49 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userInterfaceControl1 = new Messenger.WinForms.Controls.UserInterfaceControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.btnUserDialogs = new System.Windows.Forms.Button();
             this.btnUserSetting = new System.Windows.Forms.Button();
+            this.userInterfaceControl1 = new Messenger.WinForms.Controls.UserInterfaceControl();
             this.SuspendLayout();
-            // 
-            // userInterfaceControl1
-            // 
-            this.userInterfaceControl1.Location = new System.Drawing.Point(0, 2);
-            this.userInterfaceControl1.Name = "userInterfaceControl1";
-            this.userInterfaceControl1.Size = new System.Drawing.Size(297, 203);
-            this.userInterfaceControl1.TabIndex = 0;
             // 
             // btnUserDialogs
             // 
+            this.btnUserDialogs.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUserDialogs.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnUserDialogs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnUserDialogs.Location = new System.Drawing.Point(124, 69);
             this.btnUserDialogs.Name = "btnUserDialogs";
-            this.btnUserDialogs.Size = new System.Drawing.Size(75, 23);
+            this.btnUserDialogs.Size = new System.Drawing.Size(102, 48);
             this.btnUserDialogs.TabIndex = 1;
             this.btnUserDialogs.Text = "Диалоги";
-            this.btnUserDialogs.UseVisualStyleBackColor = true;
+            this.btnUserDialogs.UseVisualStyleBackColor = false;
             this.btnUserDialogs.Click += new System.EventHandler(this.btnUserDialogs_Click);
             // 
             // btnUserSetting
             // 
-            this.btnUserSetting.Location = new System.Drawing.Point(124, 98);
+            this.btnUserSetting.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUserSetting.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnUserSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnUserSetting.Location = new System.Drawing.Point(124, 137);
             this.btnUserSetting.Name = "btnUserSetting";
-            this.btnUserSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnUserSetting.Size = new System.Drawing.Size(102, 49);
             this.btnUserSetting.TabIndex = 2;
             this.btnUserSetting.Text = "Настройки";
-            this.btnUserSetting.UseVisualStyleBackColor = true;
+            this.btnUserSetting.UseVisualStyleBackColor = false;
             this.btnUserSetting.Click += new System.EventHandler(this.btnUserSetting_Click);
+            // 
+            // userInterfaceControl1
+            // 
+            this.userInterfaceControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userInterfaceControl1.BackgroundImage")));
+            this.userInterfaceControl1.Location = new System.Drawing.Point(0, 2);
+            this.userInterfaceControl1.Name = "userInterfaceControl1";
+            this.userInterfaceControl1.Size = new System.Drawing.Size(262, 222);
+            this.userInterfaceControl1.TabIndex = 0;
             // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 263);
+            this.ClientSize = new System.Drawing.Size(257, 222);
             this.Controls.Add(this.btnUserSetting);
             this.Controls.Add(this.btnUserDialogs);
             this.Controls.Add(this.userInterfaceControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "UserInterface";
-            this.Text = "UserInterface";
-            
+            this.Text = "PANDAInterface";
             this.ResumeLayout(false);
 
         }

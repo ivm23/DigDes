@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAuthorizationControl));
             this.labelName = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -39,61 +40,78 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.labelName.Location = new System.Drawing.Point(32, 48);
+            this.labelName.BackColor = System.Drawing.SystemColors.Control;
+            this.labelName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.labelName.Location = new System.Drawing.Point(13, 20);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(41, 13);
+            this.labelName.Size = new System.Drawing.Size(60, 19);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Логин:";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.labelPassword.Location = new System.Drawing.Point(31, 75);
+            this.labelPassword.BackColor = System.Drawing.SystemColors.Control;
+            this.labelPassword.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.labelPassword.Location = new System.Drawing.Point(12, 47);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(48, 13);
+            this.labelPassword.Size = new System.Drawing.Size(72, 19);
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль:";
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(90, 41);
+            this.txtLogin.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtLogin.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtLogin.Location = new System.Drawing.Point(120, 19);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(140, 20);
+            this.txtLogin.Size = new System.Drawing.Size(140, 26);
             this.txtLogin.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(90, 68);
+            this.txtPassword.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtPassword.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtPassword.Location = new System.Drawing.Point(120, 46);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(140, 20);
+            this.txtPassword.Size = new System.Drawing.Size(140, 26);
             this.txtPassword.TabIndex = 3;
             // 
             // btnEnter
             // 
+            this.btnEnter.BackColor = System.Drawing.SystemColors.Window;
             this.btnEnter.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnEnter.Location = new System.Drawing.Point(90, 125);
+            this.btnEnter.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnEnter.Location = new System.Drawing.Point(88, 97);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(83, 31);
+            this.btnEnter.Size = new System.Drawing.Size(83, 40);
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Войти";
-            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.UseVisualStyleBackColor = false;
             // 
             // btnCancelEnter
             // 
+            this.btnCancelEnter.BackColor = System.Drawing.SystemColors.Window;
             this.btnCancelEnter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelEnter.Location = new System.Drawing.Point(179, 125);
+            this.btnCancelEnter.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCancelEnter.Location = new System.Drawing.Point(177, 97);
             this.btnCancelEnter.Name = "btnCancelEnter";
-            this.btnCancelEnter.Size = new System.Drawing.Size(83, 31);
+            this.btnCancelEnter.Size = new System.Drawing.Size(83, 40);
             this.btnCancelEnter.TabIndex = 5;
             this.btnCancelEnter.Text = "Отмена";
-            this.btnCancelEnter.UseVisualStyleBackColor = true;
+            this.btnCancelEnter.UseVisualStyleBackColor = false;
             // 
             // UserAuthorizationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.btnCancelEnter);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.txtPassword);
@@ -101,7 +119,7 @@
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelName);
             this.Name = "UserAuthorizationControl";
-            this.Size = new System.Drawing.Size(279, 177);
+            this.Size = new System.Drawing.Size(281, 177);
             this.ResumeLayout(false);
             this.PerformLayout();
 

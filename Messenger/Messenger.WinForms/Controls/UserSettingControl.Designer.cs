@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserSettingControl));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,87 +44,113 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 75);
+            this.label1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(27, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(52, 19);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Имя:";
+            this.label1.Text = "Имя :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 104);
+            this.label2.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(27, 157);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Фамилия:";
+            this.label2.Text = "Фамилия :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 133);
+            this.label3.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(27, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(78, 19);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Пароль:";
+            this.label3.Text = "Пароль :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 162);
+            this.label4.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(27, 215);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 13);
+            this.label4.Size = new System.Drawing.Size(165, 19);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Повторите пароль:";
+            this.label4.Text = "Повторите пароль :";
             // 
             // txtUserFirstName
             // 
-            this.txtUserFirstName.Location = new System.Drawing.Point(153, 68);
+            this.txtUserFirstName.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserFirstName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtUserFirstName.Location = new System.Drawing.Point(203, 128);
             this.txtUserFirstName.Name = "txtUserFirstName";
-            this.txtUserFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserFirstName.Size = new System.Drawing.Size(100, 26);
             this.txtUserFirstName.TabIndex = 12;
             // 
             // txtUserSecondName
             // 
-            this.txtUserSecondName.Location = new System.Drawing.Point(153, 101);
+            this.txtUserSecondName.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserSecondName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserSecondName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtUserSecondName.Location = new System.Drawing.Point(203, 157);
             this.txtUserSecondName.Name = "txtUserSecondName";
-            this.txtUserSecondName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserSecondName.Size = new System.Drawing.Size(100, 26);
             this.txtUserSecondName.TabIndex = 13;
             // 
             // txtUserPassword
             // 
-            this.txtUserPassword.Location = new System.Drawing.Point(153, 126);
+            this.txtUserPassword.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserPassword.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtUserPassword.Location = new System.Drawing.Point(203, 186);
             this.txtUserPassword.Name = "txtUserPassword";
-            this.txtUserPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtUserPassword.Size = new System.Drawing.Size(100, 26);
             this.txtUserPassword.TabIndex = 14;
             // 
             // txtRepeatUserPassword
             // 
-            this.txtRepeatUserPassword.Location = new System.Drawing.Point(153, 155);
+            this.txtRepeatUserPassword.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtRepeatUserPassword.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtRepeatUserPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtRepeatUserPassword.Location = new System.Drawing.Point(203, 215);
             this.txtRepeatUserPassword.Name = "txtRepeatUserPassword";
-            this.txtRepeatUserPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtRepeatUserPassword.Size = new System.Drawing.Size(100, 26);
             this.txtRepeatUserPassword.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 48);
+            this.label6.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label6.Location = new System.Drawing.Point(27, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.Size = new System.Drawing.Size(66, 19);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Логин:";
+            this.label6.Text = "Логин :";
             // 
             // txtUserLogin
             // 
-            this.txtUserLogin.Location = new System.Drawing.Point(153, 41);
+            this.txtUserLogin.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserLogin.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtUserLogin.Location = new System.Drawing.Point(203, 101);
             this.txtUserLogin.Name = "txtUserLogin";
-            this.txtUserLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtUserLogin.Size = new System.Drawing.Size(100, 26);
             this.txtUserLogin.TabIndex = 18;
             // 
             // UserSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.txtUserLogin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtRepeatUserPassword);
@@ -135,7 +162,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserSettingControl";
-            this.Size = new System.Drawing.Size(345, 229);
+            this.Size = new System.Drawing.Size(340, 510);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatInterface));
             this.lbNameChat = new System.Windows.Forms.Label();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
@@ -43,31 +44,39 @@
             // lbNameChat
             // 
             this.lbNameChat.AutoSize = true;
-            this.lbNameChat.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbNameChat.Location = new System.Drawing.Point(29, 12);
+            this.lbNameChat.BackColor = System.Drawing.SystemColors.Control;
+            this.lbNameChat.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbNameChat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lbNameChat.Location = new System.Drawing.Point(41, 15);
             this.lbNameChat.Name = "lbNameChat";
-            this.lbNameChat.Size = new System.Drawing.Size(31, 13);
+            this.lbNameChat.Size = new System.Drawing.Size(57, 19);
             this.lbNameChat.TabIndex = 2;
             this.lbNameChat.Text = "        ";
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(239, 150);
+            this.txtMessage.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtMessage.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtMessage.Location = new System.Drawing.Point(310, 196);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtMessage.Size = new System.Drawing.Size(247, 71);
+            this.txtMessage.Size = new System.Drawing.Size(247, 57);
             this.txtMessage.TabIndex = 3;
             this.txtMessage.Text = "Введите сообщение...";
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.Location = new System.Drawing.Point(401, 227);
+            this.btnSendMessage.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSendMessage.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSendMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnSendMessage.Location = new System.Drawing.Point(435, 265);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(84, 43);
+            this.btnSendMessage.Size = new System.Drawing.Size(122, 43);
             this.btnSendMessage.TabIndex = 4;
             this.btnSendMessage.Text = "Отправить";
-            this.btnSendMessage.UseVisualStyleBackColor = true;
+            this.btnSendMessage.UseVisualStyleBackColor = false;
             this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
             // 
             // contextMenuStrip1
@@ -78,40 +87,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(257, 31);
+            this.label1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(310, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(109, 19);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Сообщения:";
+            this.label1.Text = "Сообщения :";
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.checkedListBox1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(239, 50);
+            this.checkedListBox1.Location = new System.Drawing.Point(310, 82);
             this.checkedListBox1.MultiColumn = true;
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(247, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(247, 88);
             this.checkedListBox1.TabIndex = 9;
             // 
             // AutoDelMess
             // 
             this.AutoDelMess.AutoSize = true;
-            this.AutoDelMess.Location = new System.Drawing.Point(239, 227);
+            this.AutoDelMess.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.AutoDelMess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.AutoDelMess.Location = new System.Drawing.Point(42, 236);
             this.AutoDelMess.Name = "AutoDelMess";
-            this.AutoDelMess.Size = new System.Drawing.Size(157, 17);
+            this.AutoDelMess.Size = new System.Drawing.Size(231, 23);
             this.AutoDelMess.TabIndex = 10;
             this.AutoDelMess.Text = "Автоудаление сообщений";
             this.AutoDelMess.UseVisualStyleBackColor = true;
             // 
             // addUsersControl1
             // 
-            this.addUsersControl1.Location = new System.Drawing.Point(12, 28);
+            this.addUsersControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addUsersControl1.BackgroundImage")));
+            this.addUsersControl1.Location = new System.Drawing.Point(1, -6);
             this.addUsersControl1.Name = "addUsersControl1";
-            this.addUsersControl1.Size = new System.Drawing.Size(207, 205);
+            this.addUsersControl1.Size = new System.Drawing.Size(649, 331);
             this.addUsersControl1.TabIndex = 1;
             // 
             // addUsersControl2
             // 
+            this.addUsersControl2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addUsersControl2.BackgroundImage")));
             this.addUsersControl2.Location = new System.Drawing.Point(21, 30);
             this.addUsersControl2.Name = "addUsersControl2";
             this.addUsersControl2.Size = new System.Drawing.Size(231, 158);
@@ -121,16 +139,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 310);
-            this.Controls.Add(this.AutoDelMess);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(625, 318);
             this.Controls.Add(this.btnSendMessage);
+            this.Controls.Add(this.AutoDelMess);
             this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.lbNameChat);
             this.Controls.Add(this.addUsersControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ChatInterface";
-            this.Text = "ChatInterface";
+            this.Text = "PANDAChatInterface";
             this.Load += new System.EventHandler(this.ChatInterface_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

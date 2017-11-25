@@ -72,12 +72,12 @@ namespace Messenger.WinForms
             }
         }
 
-        Guid getId(string str)
+        String getLogin(string str)
         {
             var index = str.LastIndexOf('(');
 
-            var id = new Guid(str.Substring(index + 1, str.Length - index - 2));
-            return id;
+            var login = str.Substring(index + 1, str.Length - index - 2);
+            return login;
         }
 
         void AddNewChat(List<String> users, String name)
@@ -85,10 +85,11 @@ namespace Messenger.WinForms
             var chatUsers = new List<Guid>();
             foreach (var usr in users)
             {
-                var id = getId(usr);
-                var _user = _serviceClient.GetUser(id);
-                chatUsers.Add(_user.Id);
+                var login = getLogin(usr);
+                var id = _serviceClient.GetId(login);
+                chatUsers.Add(id);
             }
+
 
             var chat = new CreateChatData
             {

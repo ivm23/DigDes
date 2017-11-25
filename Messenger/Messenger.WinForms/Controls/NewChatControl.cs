@@ -24,7 +24,7 @@ namespace Messenger.WinForms.Controls
             {
                 foreach (var name in value)
                 {
-                    clbUsers.Items.Add(name.FirstName + ' ' + name.SecondName + " (" + Convert.ToString(name.Id) + ')');
+                    clbUsers.Items.Add(name.FirstName + ' ' + name.SecondName + " (" + name.Login + ')');
                 }
             }
         }
@@ -48,6 +48,11 @@ namespace Messenger.WinForms.Controls
                 }
                 return usersToChat;
             }
+        }
+
+        private void NewChatControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

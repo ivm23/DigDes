@@ -78,6 +78,9 @@ namespace Messenger.WinForms.Controls
             get { return txtUserLogin.Text;  }
         }
 
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

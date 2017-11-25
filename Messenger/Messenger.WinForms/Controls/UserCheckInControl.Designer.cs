@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserCheckInControl));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,99 +48,122 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Location = new System.Drawing.Point(42, 85);
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(19, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(52, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Имя:";
+            this.label1.Text = "Имя :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Location = new System.Drawing.Point(42, 112);
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(19, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Фамилия:";
+            this.label2.Text = "Фамилия :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label3.Location = new System.Drawing.Point(42, 138);
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(19, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(78, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Пароль:";
+            this.label3.Text = "Пароль :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label5.Location = new System.Drawing.Point(42, 221);
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
+            this.label5.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(19, 209);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 13);
+            this.label5.Size = new System.Drawing.Size(206, 19);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Загрузить фотографию:";
+            this.label5.Text = "Загрузить фотографию :";
             // 
             // txtUserFirstName
             // 
-            this.txtUserFirstName.Location = new System.Drawing.Point(204, 82);
+            this.txtUserFirstName.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserFirstName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserFirstName.Location = new System.Drawing.Point(153, 49);
             this.txtUserFirstName.Name = "txtUserFirstName";
-            this.txtUserFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserFirstName.Size = new System.Drawing.Size(100, 26);
             this.txtUserFirstName.TabIndex = 5;
             // 
             // txtUserSecondName
             // 
-            this.txtUserSecondName.Location = new System.Drawing.Point(204, 109);
+            this.txtUserSecondName.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserSecondName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserSecondName.Location = new System.Drawing.Point(153, 78);
             this.txtUserSecondName.Name = "txtUserSecondName";
-            this.txtUserSecondName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserSecondName.Size = new System.Drawing.Size(100, 26);
             this.txtUserSecondName.TabIndex = 6;
             // 
             // txtUserPassword
             // 
-            this.txtUserPassword.Location = new System.Drawing.Point(204, 135);
+            this.txtUserPassword.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserPassword.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserPassword.Location = new System.Drawing.Point(153, 107);
             this.txtUserPassword.Name = "txtUserPassword";
-            this.txtUserPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtUserPassword.Size = new System.Drawing.Size(100, 26);
             this.txtUserPassword.TabIndex = 7;
             // 
             // btnSelectPicture
             // 
-            this.btnSelectPicture.Location = new System.Drawing.Point(204, 210);
+            this.btnSelectPicture.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSelectPicture.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSelectPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnSelectPicture.Location = new System.Drawing.Point(231, 195);
             this.btnSelectPicture.Name = "btnSelectPicture";
-            this.btnSelectPicture.Size = new System.Drawing.Size(100, 35);
+            this.btnSelectPicture.Size = new System.Drawing.Size(99, 47);
             this.btnSelectPicture.TabIndex = 9;
             this.btnSelectPicture.Text = "Обзор...";
-            this.btnSelectPicture.UseVisualStyleBackColor = true;
+            this.btnSelectPicture.UseVisualStyleBackColor = false;
             this.btnSelectPicture.Click += new System.EventHandler(this.btnSelectPicture_Click);
             // 
             // btnCheckIn
             // 
+            this.btnCheckIn.BackColor = System.Drawing.SystemColors.Window;
             this.btnCheckIn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnCheckIn.Location = new System.Drawing.Point(262, 297);
+            this.btnCheckIn.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCheckIn.Location = new System.Drawing.Point(191, 302);
             this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(105, 32);
+            this.btnCheckIn.Size = new System.Drawing.Size(124, 50);
             this.btnCheckIn.TabIndex = 10;
             this.btnCheckIn.Text = "Регистрация";
-            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.UseVisualStyleBackColor = false;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnCancelCheckIn
             // 
+            this.btnCancelCheckIn.BackColor = System.Drawing.SystemColors.Window;
             this.btnCancelCheckIn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelCheckIn.Location = new System.Drawing.Point(373, 297);
+            this.btnCancelCheckIn.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCancelCheckIn.Location = new System.Drawing.Point(330, 304);
             this.btnCancelCheckIn.Name = "btnCancelCheckIn";
-            this.btnCancelCheckIn.Size = new System.Drawing.Size(105, 32);
+            this.btnCancelCheckIn.Size = new System.Drawing.Size(129, 50);
             this.btnCancelCheckIn.TabIndex = 11;
             this.btnCancelCheckIn.Text = "Отмена";
-            this.btnCancelCheckIn.UseVisualStyleBackColor = true;
+            this.btnCancelCheckIn.UseVisualStyleBackColor = false;
             // 
             // pbUserPhoto
             // 
             this.pbUserPhoto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pbUserPhoto.Image = global::Messenger.WinForms.Properties.Resources.BzcvL1m7NKQ;
-            this.pbUserPhoto.Location = new System.Drawing.Point(328, 158);
+            this.pbUserPhoto.Location = new System.Drawing.Point(354, 160);
             this.pbUserPhoto.Name = "pbUserPhoto";
             this.pbUserPhoto.Size = new System.Drawing.Size(88, 122);
             this.pbUserPhoto.TabIndex = 12;
@@ -148,24 +172,29 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label6.Location = new System.Drawing.Point(42, 57);
+            this.label6.BackColor = System.Drawing.SystemColors.Control;
+            this.label6.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label6.Location = new System.Drawing.Point(19, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.Size = new System.Drawing.Size(66, 19);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Логин:";
+            this.label6.Text = "Логин :";
             // 
             // txtUserLogin
             // 
-            this.txtUserLogin.Location = new System.Drawing.Point(204, 52);
+            this.txtUserLogin.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtUserLogin.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtUserLogin.Location = new System.Drawing.Point(153, 19);
             this.txtUserLogin.Name = "txtUserLogin";
-            this.txtUserLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtUserLogin.Size = new System.Drawing.Size(100, 26);
             this.txtUserLogin.TabIndex = 14;
             // 
             // UserCheckInControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.txtUserLogin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pbUserPhoto);
@@ -180,7 +209,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserCheckInControl";
-            this.Size = new System.Drawing.Size(492, 342);
+            this.Size = new System.Drawing.Size(478, 368);
             ((System.ComponentModel.ISupportInitialize)(this.pbUserPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

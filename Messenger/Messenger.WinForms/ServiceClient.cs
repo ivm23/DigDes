@@ -125,6 +125,8 @@ namespace Messenger.WinForms
             return _client.GetAsync($"user/login/{login}").Result.Content.ReadAsAsync<Guid>().Result;
         }
 
+
+
         //chat
 
         public Chat CreateChat(CreateChatData chat)

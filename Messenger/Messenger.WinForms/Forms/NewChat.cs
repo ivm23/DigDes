@@ -36,7 +36,7 @@ namespace Messenger.WinForms.Forms
         private void btnCreateChat_Click(object sender, EventArgs e)
         {
             var usersToChat = newChatControl1.AddUserToChat;
-            usersToChat.Add(_user.FirstName + " " + _user.SecondName  + " (" + Convert.ToString(_user.Id) + ")");
+            usersToChat.Add(_user.FirstName + " " + _user.SecondName  + " (" + _user.Login + ")");
             var name = newChatControl1.GetNameChat;
             Data.EventHandlerAddNewChat(usersToChat, name);
         }

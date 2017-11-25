@@ -28,41 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnMainEnter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCheckIn
             // 
-            this.btnCheckIn.Location = new System.Drawing.Point(96, 134);
+            this.btnCheckIn.BackColor = System.Drawing.Color.White;
+            this.btnCheckIn.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCheckIn.Location = new System.Drawing.Point(12, 344);
             this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(129, 55);
+            this.btnCheckIn.Size = new System.Drawing.Size(152, 67);
             this.btnCheckIn.TabIndex = 1;
-            this.btnCheckIn.Text = "Зарегистрироваться";
-            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Text = "Регистрация";
+            this.btnCheckIn.UseVisualStyleBackColor = false;
             this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnMainEnter
             // 
-            this.btnMainEnter.Location = new System.Drawing.Point(96, 63);
+            this.btnMainEnter.BackColor = System.Drawing.Color.White;
+            this.btnMainEnter.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnMainEnter.Location = new System.Drawing.Point(175, 344);
             this.btnMainEnter.Name = "btnMainEnter";
-            this.btnMainEnter.Size = new System.Drawing.Size(129, 54);
+            this.btnMainEnter.Size = new System.Drawing.Size(159, 67);
             this.btnMainEnter.TabIndex = 2;
             this.btnMainEnter.Text = "Войти";
-            this.btnMainEnter.UseVisualStyleBackColor = true;
+            this.btnMainEnter.UseVisualStyleBackColor = false;
             this.btnMainEnter.Click += new System.EventHandler(this.btnMainEnter_Click);
             // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 288);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(338, 472);
             this.Controls.Add(this.btnMainEnter);
             this.Controls.Add(this.btnCheckIn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "StartForm";
-            this.Text = "StartForm";
+            this.Text = "PANDAger";
             this.Load += new System.EventHandler(this.StartForm_Load);
-            //this.Click += new System.EventHandler();
             this.ResumeLayout(false);
 
         }

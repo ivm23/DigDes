@@ -46,8 +46,10 @@ namespace Messenger.WinForms.Forms
     
         private void btnDelUser_Click(object sender, EventArgs e)
         {
-            Data.EventHandlerDelUser(_user);
+
             Close();
+            Data.EventHandlerDelUser(_user);
+            
         }
 
         private void btnSaveUser_Click(object sender, EventArgs e)

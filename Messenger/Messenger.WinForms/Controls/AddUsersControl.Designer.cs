@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUsersControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtChatUsers = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -35,30 +36,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(41, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(133, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Пользователи:";
+            this.label1.Text = "Пользователи :";
             // 
             // txtChatUsers
             // 
-            this.txtChatUsers.Location = new System.Drawing.Point(6, 42);
+            this.txtChatUsers.BackColor = System.Drawing.Color.RosyBrown;
+            this.txtChatUsers.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txtChatUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtChatUsers.Location = new System.Drawing.Point(40, 95);
             this.txtChatUsers.Multiline = true;
             this.txtChatUsers.Name = "txtChatUsers";
             this.txtChatUsers.ReadOnly = true;
             this.txtChatUsers.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtChatUsers.Size = new System.Drawing.Size(209, 54);
+            this.txtChatUsers.Size = new System.Drawing.Size(178, 117);
             this.txtChatUsers.TabIndex = 2;
             // 
             // AddUsersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.txtChatUsers);
             this.Controls.Add(this.label1);
             this.Name = "AddUsersControl";
-            this.Size = new System.Drawing.Size(218, 158);
+            this.Size = new System.Drawing.Size(651, 322);
             this.ResumeLayout(false);
             this.PerformLayout();
 

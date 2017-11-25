@@ -36,10 +36,12 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.BackColor = System.Drawing.SystemColors.Info;
+            this.lbUserName.BackColor = System.Drawing.Color.RosyBrown;
+            this.lbUserName.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.lbUserName.Location = new System.Drawing.Point(123, 13);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(55, 13);
+            this.lbUserName.Size = new System.Drawing.Size(105, 19);
             this.lbUserName.TabIndex = 1;
             this.lbUserName.Text = "                ";
             // 
