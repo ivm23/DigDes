@@ -62,7 +62,7 @@
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtMessage.Size = new System.Drawing.Size(247, 57);
+            this.txtMessage.Size = new System.Drawing.Size(303, 57);
             this.txtMessage.TabIndex = 3;
             this.txtMessage.Text = "Введите сообщение...";
             // 
@@ -98,13 +98,15 @@
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.RosyBrown;
-            this.checkedListBox1.Font = new System.Drawing.Font("VAGRounded BT", 11.25F, System.Drawing.FontStyle.Bold);
+            this.checkedListBox1.Font = new System.Drawing.Font("VAGRounded BT", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.HorizontalScrollbar = true;
             this.checkedListBox1.Location = new System.Drawing.Point(310, 82);
             this.checkedListBox1.MultiColumn = true;
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(247, 88);
+            this.checkedListBox1.ScrollAlwaysVisible = true;
+            this.checkedListBox1.Size = new System.Drawing.Size(303, 76);
             this.checkedListBox1.TabIndex = 9;
             // 
             // AutoDelMess
